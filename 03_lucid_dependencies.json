@@ -1,0 +1,557 @@
+{
+  "schema_version": "1.0",
+  "dependencies": [
+    {
+      "id": "D001",
+      "trigger": {
+        "type": "state",
+        "state_id": "S001"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG009"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "1",
+        "encoded_vector": "JwLgjC4AzpYRcAmW4CsqwHZxA",
+        "decoded_vector": "9:1::10:1::11:1::12:1::15:1::17:1",
+        "fragment": "9:1",
+        "fragment_order": 0,
+        "trigger_original_state_id": 1,
+        "target_original_feature_record_id": 9,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D002",
+      "trigger": {
+        "type": "state",
+        "state_id": "S001"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG010"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "1",
+        "encoded_vector": "JwLgjC4AzpYRcAmW4CsqwHZxA",
+        "decoded_vector": "9:1::10:1::11:1::12:1::15:1::17:1",
+        "fragment": "10:1",
+        "fragment_order": 1,
+        "trigger_original_state_id": 1,
+        "target_original_feature_record_id": 10,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D003",
+      "trigger": {
+        "type": "state",
+        "state_id": "S001"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG011"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "1",
+        "encoded_vector": "JwLgjC4AzpYRcAmW4CsqwHZxA",
+        "decoded_vector": "9:1::10:1::11:1::12:1::15:1::17:1",
+        "fragment": "11:1",
+        "fragment_order": 2,
+        "trigger_original_state_id": 1,
+        "target_original_feature_record_id": 11,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D004",
+      "trigger": {
+        "type": "state",
+        "state_id": "S001"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG012"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "1",
+        "encoded_vector": "JwLgjC4AzpYRcAmW4CsqwHZxA",
+        "decoded_vector": "9:1::10:1::11:1::12:1::15:1::17:1",
+        "fragment": "12:1",
+        "fragment_order": 3,
+        "trigger_original_state_id": 1,
+        "target_original_feature_record_id": 12,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D005",
+      "trigger": {
+        "type": "state",
+        "state_id": "S001"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG015"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "1",
+        "encoded_vector": "JwLgjC4AzpYRcAmW4CsqwHZxA",
+        "decoded_vector": "9:1::10:1::11:1::12:1::15:1::17:1",
+        "fragment": "15:1",
+        "fragment_order": 4,
+        "trigger_original_state_id": 1,
+        "target_original_feature_record_id": 15,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D006",
+      "trigger": {
+        "type": "state",
+        "state_id": "S001"
+      },
+      "effect": {
+        "type": "disable_feature",
+        "feature_id": "F002"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "1",
+        "encoded_vector": "JwLgjC4AzpYRcAmW4CsqwHZxA",
+        "decoded_vector": "9:1::10:1::11:1::12:1::15:1::17:1",
+        "fragment": "17:1",
+        "fragment_order": 5,
+        "trigger_original_state_id": 1,
+        "target_original_feature_record_id": 17,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D007",
+      "trigger": {
+        "type": "state",
+        "state_id": "S002"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG008"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "2",
+        "encoded_vector": "BwLgjC4MzpYCy3AdhAJkvCYg",
+        "decoded_vector": "8:1::13:1::14:1::17:2::41:1",
+        "fragment": "8:1",
+        "fragment_order": 0,
+        "trigger_original_state_id": 2,
+        "target_original_feature_record_id": 8,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D008",
+      "trigger": {
+        "type": "state",
+        "state_id": "S002"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG013"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "2",
+        "encoded_vector": "BwLgjC4MzpYCy3AdhAJkvCYg",
+        "decoded_vector": "8:1::13:1::14:1::17:2::41:1",
+        "fragment": "13:1",
+        "fragment_order": 1,
+        "trigger_original_state_id": 2,
+        "target_original_feature_record_id": 13,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D009",
+      "trigger": {
+        "type": "state",
+        "state_id": "S002"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG014"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "2",
+        "encoded_vector": "BwLgjC4MzpYCy3AdhAJkvCYg",
+        "decoded_vector": "8:1::13:1::14:1::17:2::41:1",
+        "fragment": "14:1",
+        "fragment_order": 2,
+        "trigger_original_state_id": 2,
+        "target_original_feature_record_id": 14,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D010",
+      "trigger": {
+        "type": "state",
+        "state_id": "S002"
+      },
+      "effect": {
+        "type": "enable_feature",
+        "feature_id": "F002"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "2",
+        "encoded_vector": "BwLgjC4MzpYCy3AdhAJkvCYg",
+        "decoded_vector": "8:1::13:1::14:1::17:2::41:1",
+        "fragment": "17:2",
+        "fragment_order": 3,
+        "trigger_original_state_id": 2,
+        "target_original_feature_record_id": 17,
+        "original_dependency_code": 2
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D011",
+      "trigger": {
+        "type": "state",
+        "state_id": "S002"
+      },
+      "effect": {
+        "type": "disable_feature",
+        "feature_id": "F026"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "2",
+        "encoded_vector": "BwLgjC4MzpYCy3AdhAJkvCYg",
+        "decoded_vector": "8:1::13:1::14:1::17:2::41:1",
+        "fragment": "41:1",
+        "fragment_order": 4,
+        "trigger_original_state_id": 2,
+        "target_original_feature_record_id": 41,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D012",
+      "trigger": {
+        "type": "state",
+        "state_id": "S003"
+      },
+      "effect": {
+        "type": "enable_feature",
+        "feature_id": "F002"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "3",
+        "encoded_vector": "IwdgXATEA",
+        "decoded_vector": "17:2",
+        "fragment": "17:2",
+        "fragment_order": 0,
+        "trigger_original_state_id": 3,
+        "target_original_feature_record_id": 17,
+        "original_dependency_code": 2
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D013",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG008"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "8:1",
+        "fragment_order": 0,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 8,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D014",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG009"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "9:1",
+        "fragment_order": 1,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 9,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D015",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG010"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "10:1",
+        "fragment_order": 2,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 10,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D016",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG011"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "11:1",
+        "fragment_order": 3,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 11,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D017",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG012"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "12:1",
+        "fragment_order": 4,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 12,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D018",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG013"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "13:1",
+        "fragment_order": 5,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 13,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D019",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG014"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "14:1",
+        "fragment_order": 6,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 14,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D020",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG015"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "15:1",
+        "fragment_order": 7,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 15,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D021",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature",
+        "feature_id": "F002"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "17:1",
+        "fragment_order": 8,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 17,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D022",
+      "trigger": {
+        "type": "state",
+        "state_id": "S004"
+      },
+      "effect": {
+        "type": "disable_feature",
+        "feature_id": "F026"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "4",
+        "encoded_vector": "BwLgjCIJzpYAy3BC4BMSwGZMBZMCsmA7ErikA",
+        "decoded_vector": "8:1::9:1::10:1::11:1::12:1::13:1::14:1::15:1::17:1::41:1",
+        "fragment": "41:1",
+        "fragment_order": 9,
+        "trigger_original_state_id": 4,
+        "target_original_feature_record_id": 41,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    },
+    {
+      "id": "D023",
+      "trigger": {
+        "type": "state",
+        "state_id": "S005"
+      },
+      "effect": {
+        "type": "disable_feature_group",
+        "feature_group_id": "FG011"
+      },
+      "logic": "if",
+      "raw_dependency": {
+        "source_vector_key": "5",
+        "encoded_vector": "IzBcyA",
+        "decoded_vector": "11:1",
+        "fragment": "11:1",
+        "fragment_order": 0,
+        "trigger_original_state_id": 5,
+        "target_original_feature_record_id": 11,
+        "original_dependency_code": 1
+      },
+      "interpretation_status": "decoded_high_confidence",
+      "notes": null
+    }
+  ]
+}

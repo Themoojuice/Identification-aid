@@ -1,0 +1,33 @@
+{
+  "version": "0.1.0",
+  "status": "provisional UX overlay; not part of the Lucid source data",
+  "scale": {
+    "difficulty": "1 = easy field observation; 5 = specialist preparation",
+    "reliability": "heuristic guidance only, not a biological confidence estimate"
+  },
+  "group_defaults": {
+    "2": { "label": "General morphology", "difficulty": 1, "reliability": 0.9, "methods": ["field", "photograph"] },
+    "3": { "label": "Body shape · dorsal", "difficulty": 2, "reliability": 0.85, "methods": ["field", "photograph"] },
+    "4": { "label": "Body shape · side", "difficulty": 2, "reliability": 0.85, "methods": ["field", "photograph"] },
+    "5": { "label": "Eyes & face", "difficulty": 2, "reliability": 0.8, "methods": ["macro", "photograph"] },
+    "6": { "label": "Abdomen", "difficulty": 2, "reliability": 0.8, "methods": ["field", "photograph"] },
+    "7": { "label": "Underside", "difficulty": 3, "reliability": 0.8, "methods": ["macro", "stereo microscope"] },
+    "8": { "label": "Male chelicerae", "difficulty": 4, "reliability": 0.9, "methods": ["macro", "stereo microscope"] },
+    "9": { "label": "Female chelicerae", "difficulty": 4, "reliability": 0.9, "methods": ["macro", "stereo microscope"] },
+    "10": { "label": "Female epigyne", "difficulty": 4, "reliability": 0.9, "methods": ["stereo microscope"] },
+    "11": { "label": "Female epigyne · cleared", "difficulty": 5, "reliability": 0.95, "methods": ["dissection", "high magnification"] },
+    "12": { "label": "Female palp", "difficulty": 3, "reliability": 0.8, "methods": ["macro", "stereo microscope"] },
+    "13": { "label": "Male palp", "difficulty": 5, "reliability": 0.95, "methods": ["stereo microscope", "high magnification"] },
+    "14": { "label": "Male legs", "difficulty": 2, "reliability": 0.85, "methods": ["field", "photograph"] },
+    "15": { "label": "Female legs", "difficulty": 2, "reliability": 0.85, "methods": ["field", "photograph"] }
+  },
+  "feature_overrides": {
+    "18": { "difficulty": 1, "required_views": ["dorsal"] },
+    "19": { "difficulty": 1, "required_views": ["dorsal"] },
+    "34": { "difficulty": 1, "required_views": ["lateral"] },
+    "38": { "difficulty": 2, "required_views": ["frontal"] },
+    "41": { "difficulty": 1, "required_views": ["dorsal"] },
+    "91": { "difficulty": 1, "required_views": ["dorsal"] },
+    "103": { "difficulty": 1, "required_views": ["dorsal"] }
+  }
+}

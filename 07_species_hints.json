@@ -1,0 +1,593 @@
+{
+  "schema_version": "1.0",
+  "species": [
+    {
+      "species_id": "SP0001",
+      "name": "Anablemum lithicum",
+      "genus_concept_id": "TC0004",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male palp", "description": "Embolus basally broad and flat, arising retrolaterally and coiling anticlockwise in a tight spiral; outer process robust and projecting prolaterally, inner process shorter and nearly straight; apices closely aligned but unfused.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 157},
+        {"character": "epigyne", "description": "Long sinuous ducts extend to large copulatory openings near the anteromedial margins of each fossa, rather than the mediolateral openings of A. pilosum.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 157}
+      ],
+      "distribution": [
+        {"locality": "Jalbarragup", "region": null, "state": "Western Australia", "country": "Australia", "latitude": -34.046, "longitude": 115.6167, "evidence_type": "type_locality", "source_page": 157}
+      ],
+      "habitat_ecology": ["Associated with rocky habitat; this is stated in the etymology, not presented as a diagnostic character."],
+      "species_level_identification": {"field_feasible": "unlikely", "macro_photo_feasible": "unlikely", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "The diagnosis relies on male palpal or female epigynal structure. Locality and rocky habitat are supporting context only.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [157]}
+    },
+    {
+      "species_id": "SP0002",
+      "name": "Hypoblemum magnum",
+      "genus_concept_id": "TC0005",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "ocular-quadrangle scaling", "description": "Trilobate transverse band of grey-white scales across the anterior ocular quadrangle, with shallow paired depressions flanking the fovea and no longitudinal stripes on the dorsal opisthosoma.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 167},
+        {"character": "male palp", "description": "Rounded bulbous tegulum with a narrow, acutely angled tegular lobe projecting prolaterally.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 167}
+      ],
+      "distribution": [
+        {"locality": "Emerald", "region": null, "state": "Queensland", "country": "Australia", "latitude": -23.532114, "longitude": 148.161985, "evidence_type": "type_locality", "source_page": 167}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "sometimes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "Known in the thesis only from males. External pattern can support a suggestion, but palpal structure provides the stronger separation from congeners.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [167]}
+    },
+    {
+      "species_id": "SP0003",
+      "name": "Hypoblemum unicum",
+      "genus_concept_id": "TC0005",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male external morphology", "description": "Dense clypeal fringe of thick white setae and legs III the longest pair; the otherwise similar H. scutulatum lacks the fringe and has legs I longest.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 170},
+        {"character": "male palp", "description": "Narrow tubular embolic disc with a short, thick, strongly curved embolus.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 170},
+        {"character": "epigyne", "description": "Proportionally large posterior spermathecae and thick elbowed copulatory ducts, contrasting with the smaller spermathecae and straighter ducts of H. scutulatum and H. griseum.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 170}
+      ],
+      "distribution": [
+        {"locality": "2 km southwest of Hithergreen", "region": null, "state": "Western Australia", "country": "Australia", "latitude": -33.731875, "longitude": 115.487039, "evidence_type": "type_locality", "source_page": 169}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "sometimes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "The male fringe and leg proportions support a suggestion; confirmation is strongest from the palp or epigyne.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [169, 170]}
+    },
+    {
+      "species_id": "SP0004",
+      "name": "Jotus amandae",
+      "genus_concept_id": "TC0006",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "clypeal fringe", "description": "Distinctive blue-silver clypeal fringe.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 121},
+        {"character": "male palp", "description": "Terminally truncate taller inner embolic apex tapering distally, with a shorter, narrower and pointed outer apex.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 121}
+      ],
+      "distribution": [
+        {"locality": "Thirroul", "region": "Illawarra", "state": "New South Wales", "country": "Australia", "latitude": -34.3107, "longitude": 150.9194, "evidence_type": "type_locality", "source_page": 121}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "Females are unknown. The clypeal fringe is photographically useful, but the source diagnosis combines it with palpal structure.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [121]}
+    },
+    {
+      "species_id": "SP0005",
+      "name": "Jotus aurora",
+      "genus_concept_id": "TC0006",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "palpal ornamentation", "description": "Prominent brushes of iridescent blue-green setae extend laterally from the medial parts of the palpal tibiae, cymbia and patellae; unlike J. auripes, the male lacks an orange fringe on femora I and II.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 123},
+        {"character": "male palp", "description": "Compact embolic disc with two thick apices; the inner apex has a medial tooth-like projection and truncate tip, and the outer is slightly shorter, narrower and pointed.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 123},
+        {"character": "female morphology", "description": "Darker overall than J. braccatus and lacks that species' triangular arrangement of three dark-setal patches near the posterior dorsal opisthosoma; genitalic proportions also differ subtly.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 124}
+      ],
+      "distribution": [
+        {"locality": "Isla Gorge National Park", "region": null, "state": "Queensland", "country": "Australia", "latitude": -25.215, "longitude": 149.968, "evidence_type": "type_locality", "source_page": 123}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "The male palpal brushes are conspicuous. Female separation includes subtler somatic and genitalic comparisons and should remain tentative without expert examination.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [123, 124]}
+    },
+    {
+      "species_id": "SP0006",
+      "name": "Jotus citreus",
+      "genus_concept_id": "TC0006",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "facial colour", "description": "Clypeus densely covered with orange setae and chelicerae bright yellow.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 129},
+        {"character": "male palp", "description": "Compact embolic disc with two narrow apices and a tooth-like projection near the base of the inner apex; in J. aurora the comparable tooth lies about halfway along the apex.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 129}
+      ],
+      "distribution": [
+        {"locality": "Gibraltar Range National Park", "region": null, "state": "New South Wales", "country": "Australia", "latitude": -29.47962, "longitude": 152.31951, "evidence_type": "type_locality", "source_page": 129}
+      ],
+      "habitat_ecology": ["Collected at the edge of a management trail beside a small rainforest-creek crossing in unburnt riparian cool-temperate rainforest."],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "Females are unknown. Facial colour is useful for suggestion, while the source diagnosis also relies on the position of the embolic tooth.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [129]}
+    },
+    {
+      "species_id": "SP0007",
+      "name": "Jotus rubripes",
+      "genus_concept_id": "TC0006",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "leg-I ornamentation", "description": "Ventral and ventrolateral surfaces of femora and patellae I densely covered with bright red-orange setae; dorsal palpal segments are dark and clothed in long dark setae.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 137},
+        {"character": "male palp", "description": "Compact embolic disc; inner apex truncate with a rounded bump around mid-length, outer apex much shorter, narrower and finely pointed.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 137}
+      ],
+      "distribution": [
+        {"locality": "Forest Land", "region": null, "state": "New South Wales", "country": "Australia", "latitude": -29.29898, "longitude": 152.10165, "evidence_type": "type_locality", "source_page": 137}
+      ],
+      "habitat_ecology": ["Collected in mixed open dry and wet sclerophyll forest with grassy understorey and scattered granite boulders; the site had burned within the preceding 12 months."],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Known in the thesis only from the male. The leg-I colour is source-diagnostic, but habitat and locality are supporting context only.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [137]}
+    },
+    {
+      "species_id": "SP0008",
+      "name": "Micromaratus bluey",
+      "genus_concept_id": "TC0008",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "dorsal opisthosomal colour pattern", "description": "Dorsum densely clothed in silvery-blue iridescent scales with a small central circular-to-oval dark patch slightly behind mid-length.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 185}
+      ],
+      "distribution": [
+        {"locality": "Emerald", "region": null, "state": "Queensland", "country": "Australia", "latitude": -23.52683, "longitude": 148.15814, "evidence_type": "type_locality", "source_page": 185}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Females are unknown. Iridescence depends on illumination and viewing angle, so photographs should show the entire dorsal abdomen under useful light.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [185]}
+    },
+    {
+      "species_id": "SP0009",
+      "name": "Micromaratus boto",
+      "genus_concept_id": "TC0008",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "dorsal opisthosomal pattern", "description": "Two discrete subovate patches of black scales, rather than the two longitudinal black tracts of M. chrysomelas; the pattern resembles a clothing button.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 188}
+      ],
+      "distribution": [
+        {"locality": "Berridale", "region": null, "state": "New South Wales", "country": "Australia", "latitude": -36.31451, "longitude": 148.78174, "evidence_type": "type_locality", "source_page": 188}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Females are unknown. The suggestion depends on a clear dorsal view and verified Micromaratus genus placement.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [188]}
+    },
+    {
+      "species_id": "SP0010",
+      "name": "Micromaratus rufilabris",
+      "genus_concept_id": "TC0008",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "clypeal colour", "description": "Vivid red scales form a dense mat across the clypeus about as broad as the anterior median eyes.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 191},
+        {"character": "dorsal opisthosomal pattern", "description": "Broad full-length longitudinal tract of white scales bordered by dense black scales, with additional narrow white dorsolateral tracts.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 191}
+      ],
+      "distribution": [
+        {"locality": "near Barron Gorge, Cairns", "region": "Wet Tropics", "state": "Queensland", "country": "Australia", "latitude": null, "longitude": null, "evidence_type": "type_locality", "source_page": 191}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Females are unknown and the type record lacks precise coordinates. Facial and dorsal patterns should both be confirmed; locality alone is not identifying evidence.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [191]}
+    },
+    {
+      "species_id": "SP0011",
+      "name": "Micromaratus sandersae",
+      "genus_concept_id": "TC0008",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "dorsal opisthosomal pattern", "description": "Three longitudinal pairs of iridescent scale patches positioned on either side of the dorsal midline.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 194},
+        {"character": "female identifiability", "description": "Females resemble other Micromaratus and may not be identifiable without association with a male or molecular data.", "sex": ["female"], "confidence": "uncertain", "requires_genitalia": false, "requires_microscopy": false, "source_page": 194}
+      ],
+      "distribution": [
+        {"locality": "Emerald", "region": null, "state": "Queensland", "country": "Australia", "latitude": -23.52683, "longitude": 148.15814, "evidence_type": "type_locality", "source_page": 194}
+      ],
+      "habitat_ecology": ["Type series collected by sweep net from a grassland shrub."],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "The dorsal pattern supports males. Do not offer a confident female suggestion without an associated male or molecular evidence.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [194]}
+    },
+    {
+      "species_id": "SP0012",
+      "name": "Striattus annulatus",
+      "genus_concept_id": "TC0012",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "dorsal opisthosomal stripe", "description": "Unbroken medial longitudinal band of white scales extends the full dorsal length and tapers posteriorly; pedipalps are bicoloured with pale, white-setose femora and patellae but dark tibiae and cymbia.", "sex": ["male"], "confidence": "supportive", "requires_genitalia": false, "requires_microscopy": false, "source_page": 213},
+        {"character": "male palp", "description": "Embolus compact and slender; inner apex taller and thicker than the outer and terminally truncate, unlike the broader, longer configuration of externally similar S. deceptus.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 213}
+      ],
+      "distribution": [
+        {"locality": "Binjour", "region": null, "state": "Queensland", "country": "Australia", "latitude": -25.55133, "longitude": 151.4683, "evidence_type": "type_locality", "source_page": 213}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "unlikely", "macro_photo_feasible": "sometimes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "Females are unknown. Externally resembles S. deceptus; the abdominal stripe alone must not be treated as diagnostic.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [213]}
+    },
+    {
+      "species_id": "SP0013",
+      "name": "Striattus aridus",
+      "genus_concept_id": "TC0012",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male palp", "description": "Embolic disc extremely long, coiled anticlockwise in a wide spiral nearly encircling the tegulum, with the embolus bifurcate distally.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 215},
+        {"character": "epigyne", "description": "Long copulatory ducts loop behind and partly encircle the moderately sized posterior spermathecae.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 215},
+        {"character": "palpal setae", "description": "In life, flattened recumbent white setae form dense patches on palpal femora and patellae, contrasting with dark cymbia and tibiae.", "sex": ["male"], "confidence": "supportive", "requires_genitalia": false, "requires_microscopy": false, "source_page": 215}
+      ],
+      "distribution": [
+        {"locality": "10 km northeast of Toulby Gate, Culgoa Floodplain National Park", "region": null, "state": "Queensland", "country": "Australia", "latitude": -28.93894, "longitude": 147.2148, "evidence_type": "type_locality", "source_page": 215}
+      ],
+      "habitat_ecology": ["The thesis characterises the occurrence as arid habitat; the type series was collected in a pitfall trap."],
+      "species_level_identification": {"field_feasible": "unlikely", "macro_photo_feasible": "sometimes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "The unique source diagnosis is primarily genitalic. Palpal setae and arid occurrence are supporting evidence only.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [215]}
+    },
+    {
+      "species_id": "SP0014",
+      "name": "Striattus deceptus",
+      "genus_concept_id": "TC0012",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male palp", "description": "Embolic disc basally broad and robust; outer apex much taller and thicker than the narrow inner apex and reaches near the distal cymbial margin.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 219},
+        {"character": "epigyne", "description": "Copulatory openings at the exterior posterolateral fossa margins lead through short, thick, elbowed ducts to large rounded spermathecae.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 219}
+      ],
+      "distribution": [
+        {"locality": "Bulli Creek", "region": null, "state": "Queensland", "country": "Australia", "latitude": -28.007, "longitude": 150.891, "evidence_type": "type_locality", "source_page": 219}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "no", "macro_photo_feasible": "unlikely", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "Externally very similar to S. annulatus. A confident suggestion requires examination of the male palp or female epigyne.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [219]}
+    },
+    {
+      "species_id": "SP0015",
+      "name": "Striattus exclamatus",
+      "genus_concept_id": "TC0012",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "dorsal opisthosomal pattern", "description": "Glossy black dorsum with a medial white scale tract interrupted in the posterior third, forming an exclamation-mark-like figure.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 223},
+        {"character": "epigyne", "description": "Posterior spermathecae ovate, longer than wide and close together; short ducts curve strongly posterolaterally, with openings near the posteromedial fossa margins.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 223}
+      ],
+      "distribution": [
+        {"locality": "Gold Creek Reservoir", "region": null, "state": "Queensland", "country": "Australia", "latitude": -27.45883, "longitude": 152.872, "evidence_type": "type_locality", "source_page": 223}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "The male dorsal mark is photographically useful. Females are externally similar to congeners and require epigynal examination.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [223]}
+    },
+    {
+      "species_id": "SP0016",
+      "name": "Striattus subalbus",
+      "genus_concept_id": "TC0012",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "somatic colour pattern", "description": "Generally paler than congeners, with longitudinal striping on the ocular quadrangle contrasting with a grey-scaled background.", "sex": ["male", "female"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 232},
+        {"character": "male palp", "description": "Compact embolic disc with two short, thick apices that appear fused distally.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 232},
+        {"character": "epigyne", "description": "Openings at the outer anterolateral fossa margins; long narrow ducts curve posterolaterally and cross to the mediolateral margins of large rounded spermathecae.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 232}
+      ],
+      "distribution": [
+        {"locality": "Bulli Creek", "region": null, "state": "Queensland", "country": "Australia", "latitude": -28.007, "longitude": 150.891, "evidence_type": "type_locality", "source_page": 232}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "sometimes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "Pale colour and ocular striping support a candidate, but confirmation should use the palp or epigyne.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [232]}
+    },
+    {
+      "species_id": "SP0017",
+      "name": "Tropijotus cavernus",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "dorsal opisthosomal pattern", "description": "Posterior dorsum covered with iridescent violet-turquoise scales; anterior dorsum has a distinctive white patch on a dark blue to nearly black background.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 64},
+        {"character": "male palp", "description": "Embolic disc terminates in three apices: the innermost shortest, narrowest and sharply pointed; the outer two reach equal height and taper distally.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 64}
+      ],
+      "distribution": [
+        {"locality": "Chillagoe-Mungana Caves National Park", "region": "Chillagoe", "state": "Queensland", "country": "Australia", "latitude": -17.1667, "longitude": 144.5167, "evidence_type": "type_locality", "source_page": 63}
+      ],
+      "habitat_ecology": ["Holotype collected from the outer surface of a cave wall; the thesis characterises the habitat as the outer surfaces of the Chillagoe caves."],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Females are unknown. Iridescent colours vary with viewing angle; cave association and locality are supporting evidence only.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [63, 64]}
+    },
+    {
+      "species_id": "SP0018",
+      "name": "Tropijotus fuchsia",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male colour pattern", "description": "Anterior eye row and ventral femoral surfaces of legs I bear vivid red scales; body and legs carry sparse scales iridescing purple to green.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 69},
+        {"character": "male palp", "description": "Inner embolic apex much narrower and shorter and slightly prolaterally projecting; outer apex thicker, taller and bifurcate distally.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 69},
+        {"character": "female dorsal pattern", "description": "Broad transverse band of off-white setae at the anterior dorsal opisthosomal margin; T. ornatus females lack discernible dorsal patterning.", "sex": ["female"], "confidence": "supportive", "requires_genitalia": false, "requires_microscopy": false, "source_page": 70}
+      ],
+      "distribution": [
+        {"locality": "Barron Gorge", "region": "Wet Tropics", "state": "Queensland", "country": "Australia", "latitude": -16.85, "longitude": 145.65, "evidence_type": "type_locality", "source_page": 69}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Female genitalia closely resemble T. ornatus and may be difficult to identify without an associated male or molecular data. Female dorsal pattern is supportive, not independently definitive.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [69, 70]}
+    },
+    {
+      "species_id": "SP0019",
+      "name": "Tropijotus galacticus",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male colour pattern", "description": "Bright orange setae on the ventral femora of legs I and II and a dorsum densely covered in purple-to-green iridescent scales; lacks the long white abdominal fringe of T. nebulosus.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 75},
+        {"character": "epigyne", "description": "Small anterior spermathecae positioned around the mediolateral fossa margins, rather than reaching or passing the anterior margins or being absent.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 75}
+      ],
+      "distribution": [
+        {"locality": "near Ravenshoe", "region": "Atherton Tablelands", "state": "Queensland", "country": "Australia", "latitude": -17.65, "longitude": 145.5, "evidence_type": "type_locality", "source_page": 74}
+      ],
+      "habitat_ecology": ["Type series collected at 1100 m elevation in an intercept trap."],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male iridescence depends on viewing angle. Female suggestions require epigynal examination.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [74, 75]}
+    },
+    {
+      "species_id": "SP0020",
+      "name": "Tropijotus ignifer",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male facial colour", "description": "Bright red clypeal fringe combined with bright yellow chelicerae.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 79},
+        {"character": "male palp", "description": "Two fused embolic apices: inner slightly shorter, truncate and about equal in width; outer taller and truncate.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 79},
+        {"character": "epigyne", "description": "Large, slightly angular posterior spermathecae with much smaller subovate anterior spermathecae.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 79}
+      ],
+      "distribution": [
+        {"locality": "Mount Cleveland summit", "region": null, "state": "Queensland", "country": "Australia", "latitude": -19.25, "longitude": 147.0167, "evidence_type": "type_locality", "source_page": 79}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "The male facial combination is conspicuous. Females require epigynal examination; locality is not diagnostic.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [79]}
+    },
+    {
+      "species_id": "SP0021",
+      "name": "Tropijotus iris",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "palpal ornamentation", "description": "Prominent brushes of long, highly iridescent setae extend laterally from the medial cymbia and palpal tibiae.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 83},
+        {"character": "male palp", "description": "Two fused embolic apices: inner shorter and much narrower; outer taller and truncate.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 83},
+        {"character": "epigyne", "description": "Small pear-shaped anterior spermathecae.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 83}
+      ],
+      "distribution": [
+        {"locality": "Emerald Wetlands Reserve", "region": null, "state": "Queensland", "country": "Australia", "latitude": -23.4667, "longitude": 147.7167, "evidence_type": "type_locality", "source_page": 83}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male palpal brushes are photographically useful but iridescence varies with angle. Female suggestions require examination of the epigyne.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [83]}
+    },
+    {
+      "species_id": "SP0022",
+      "name": "Tropijotus nebulosus",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "abdominal ornamentation", "description": "Prominent fringe of long white setae surrounds the opisthosoma, whose dorsum is covered with iridescent green scales.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 86},
+        {"character": "male palp", "description": "Inner embolic apex shorter but about as wide as the outer and bifurcate distally; outer apex taller and truncate.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 86}
+      ],
+      "distribution": [
+        {"locality": "Bones Knob, 3 km west", "region": "Atherton Tablelands", "state": "Queensland", "country": "Australia", "latitude": -17.2167, "longitude": 145.4167, "evidence_type": "type_locality", "source_page": 86}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Females are unknown. The white fringe and iridescent dorsum should be observed together; colour varies with illumination.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [86, 87]}
+    },
+    {
+      "species_id": "SP0023",
+      "name": "Tropijotus nigrofemoralis",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "leg-I colour", "description": "Ventral femoral surfaces of legs I are distinctively black and shiny.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 89},
+        {"character": "male palp", "description": "Inner embolic apex shorter, narrower, twisted and notched distally; outer apex taller, broader and trifurcate.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 89}
+      ],
+      "distribution": [
+        {"locality": "near Atherton", "region": "Atherton Tablelands", "state": "Queensland", "country": "Australia", "latitude": -17.27, "longitude": 145.48, "evidence_type": "type_locality", "source_page": 89}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Females are unknown. A ventral or lateral view of femora I is needed; dorsal-only photographs may miss the source-diagnostic character.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [89]}
+    },
+    {
+      "species_id": "SP0024",
+      "name": "Tropijotus orcinus",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male facial and palpal colour", "description": "Anterior median eyes bordered ventrally by light-brown to yellow scales; pale proximal palpal segments bear long light-yellow setae, while the cymbium is dark with grey-to-black setae.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 91},
+        {"character": "epigyne", "description": "Large ovate posterior spermathecae and smaller kidney-shaped anterior spermathecae extending beyond the anterior fossa margins.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 92},
+        {"character": "female dorsal pattern", "description": "Dorsal opisthosomal markings resemble those of the male.", "sex": ["female"], "confidence": "supportive", "requires_genitalia": false, "requires_microscopy": false, "source_page": 92}
+      ],
+      "distribution": [
+        {"locality": "Barron Gorge", "region": "Wet Tropics", "state": "Queensland", "country": "Australia", "latitude": -16.85, "longitude": 145.65, "evidence_type": "type_locality", "source_page": 91}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "sometimes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male colour combination is useful but requires clear facial and palpal views. Female confirmation should use the epigyne.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [91, 92]}
+    },
+    {
+      "species_id": "SP0025",
+      "name": "Tropijotus ornatus",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "leg-I ornamentation", "description": "Long vivid-orange setae on the ventral femoral surface extend laterally, with a prominent blue-grey fringe on the lateral tibiae and metatarsi I.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 96},
+        {"character": "male palp", "description": "Inner and outer embolic apices are separated proximally, unlike the proximally fused apices of T. fortiniae.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 96},
+        {"character": "female dorsal pattern", "description": "Lacks discernible dorsal opisthosomal patterning; T. fuchsia females have an anterior transverse off-white band.", "sex": ["female"], "confidence": "supportive", "requires_genitalia": false, "requires_microscopy": false, "source_page": 97}
+      ],
+      "distribution": [
+        {"locality": "Gayundah Creek, Hinchinbrook", "region": null, "state": "Queensland", "country": "Australia", "latitude": -18.3667, "longitude": 146.2167, "evidence_type": "type_locality", "source_page": 96}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Female genitalia strongly resemble T. fuchsia and may not be identifiable without an associated male or molecular evidence. The female absence of a pattern is only supportive.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [96, 97]}
+    },
+    {
+      "species_id": "SP0026",
+      "name": "Tropijotus wondul",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "clypeal fringe", "description": "Bicoloured fringe: a thick white transverse fringe below the anterior eye row and a vivid orange fringe above the chelicerae.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 100},
+        {"character": "male palp", "description": "Two fused ribbon-shaped embolic apices; inner shorter, narrower and sharply pointed, outer taller, broader and truncate.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 100},
+        {"character": "epigyne", "description": "Ducts form elbowed distal sections and anterolateral lobes before reaching anterior spermathecae held tightly against the medial ducts.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 100}
+      ],
+      "distribution": [
+        {"locality": "Wondul Range National Park", "region": null, "state": "Queensland", "country": "Australia", "latitude": -28.0667, "longitude": 151.0, "evidence_type": "type_locality", "source_page": 100}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male facial pattern is conspicuous. Female suggestions require epigynal examination. The spelling 'wondul' follows the species treatment; the genus composition list elsewhere has 'wondu'.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [100]}
+    },
+    {
+      "species_id": "SP0027",
+      "name": "Tropijotus zebra",
+      "genus_concept_id": "TC0013",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "dorsal opisthosomal pattern", "description": "Male with alternating black-and-white transverse zigzag markings; female with pale chevron-like dorsal markings.", "sex": ["male", "female"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 105},
+        {"character": "male palp", "description": "Distinctive distal projection on the inner embolic apex.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 105},
+        {"character": "epigyne", "description": "Anterior spermathecae absent or strongly reduced, without distinct sclerotised chambers.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 105}
+      ],
+      "distribution": [
+        {"locality": "Daintree Region", "region": "Wet Tropics", "state": "Queensland", "country": "Australia", "latitude": -16.2, "longitude": 145.4, "evidence_type": "type_locality", "source_page": 105}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Dorsal pattern is useful in both sexes, but female confirmation is stronger when the reduced anterior spermathecae can be examined.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [105]}
+    },
+    {
+      "species_id": "SP0028",
+      "name": "Umbrattus flexuosus",
+      "genus_concept_id": "TC0014",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male dorsal pattern and legs", "description": "No long-setal fringes on legs III; two oblique white dorsal tracts are each interrupted three times, producing paired symmetrical zigzag or stepped patches.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 243},
+        {"character": "male palp", "description": "Embolus longer than in congeners, reaching at least halfway up the cymbium in ventral view.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 243},
+        {"character": "epigyne", "description": "Larger fossae and more rounded duct diverticula than U. spectabilis, which has smaller fossae and elongate proximal receivers with an elbowed duct curve.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 243}
+      ],
+      "distribution": [
+        {"locality": "Jalbarragup", "region": null, "state": "Western Australia", "country": "Australia", "latitude": -34.046, "longitude": 115.6167, "evidence_type": "type_locality", "source_page": 243}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male dorsal pattern and absence of leg-III fringes are photographically useful. Females require epigynal comparison.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [243]}
+    },
+    {
+      "species_id": "SP0029",
+      "name": "Umbrattus spectabilis",
+      "genus_concept_id": "TC0014",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male ornamentation", "description": "Dense orange clypeal setae and long iridescent leg-III setae appearing blue to purple; compared with U. bimaculatus, whose clypeus is blue and yellow and leg-III fringe black.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 247},
+        {"character": "female dorsal pattern", "description": "Lacks the two transverse white tracts on the posterior third of the dorsal opisthosoma that occur in U. bimaculatus.", "sex": ["female"], "confidence": "supportive", "requires_genitalia": false, "requires_microscopy": false, "source_page": 247},
+        {"character": "epigyne", "description": "Posterior spermathecae ovate and wider than long; those of U. bimaculatus are more elongate with a medial constriction.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 247}
+      ],
+      "distribution": [
+        {"locality": "Paradise Road, Doolandella", "region": "Brisbane", "state": "Queensland", "country": "Australia", "latitude": -27.6025, "longitude": 152.02278, "evidence_type": "type_locality", "source_page": 247}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male colour characters are conspicuous but iridescence varies with angle. Female absence of white tracts is supportive; epigynal confirmation is preferable.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [247]}
+    },
+    {
+      "species_id": "SP0030",
+      "name": "Variattus adorabilis",
+      "genus_concept_id": "TC0015",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male facial ornamentation", "description": "Prominent bright-white tuft extends anteromedially above the anterior median eyes, combined with dense orange scales or setae on the clypeus and between the anterior eyes.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 254},
+        {"character": "epigyne", "description": "Small rounded-to-elongate diverticula are diagonally oriented anteromedially, rather than transversely as in other congeners or large and anterior as in V. zabkai.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 254}
+      ],
+      "distribution": [
+        {"locality": "Cape Le Grand National Park", "region": null, "state": "Western Australia", "country": "Australia", "latitude": -33.967, "longitude": 122.252, "evidence_type": "type_locality", "source_page": 254}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male facial ornamentation is photographically useful. Females require epigynal examination.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [254]}
+    },
+    {
+      "species_id": "SP0031",
+      "name": "Variattus bonnie",
+      "genus_concept_id": "TC0015",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male"],
+      "diagnostic_hints": [
+        {"character": "leg-III ornamentation", "description": "Elongate legs III with white setal fringes on the metatarsi; the similar V. mutans has dark-brown to black fringes.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 258},
+        {"character": "male palp", "description": "Compact embolic disc lacks the thick proximal flange present on the more rounded disc of V. mutans.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 258}
+      ],
+      "distribution": [
+        {"locality": "Rochedale", "region": "Brisbane", "state": "Queensland", "country": "Australia", "latitude": -27.61667, "longitude": 153.15, "evidence_type": "type_locality", "source_page": 258}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": true, "genitalic_confirmation_recommended": true, "limitations": "Females are unknown. White leg-III fringes support a candidate, but palpal comparison is recommended against V. mutans.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [258]}
+    },
+    {
+      "species_id": "SP0032",
+      "name": "Variattus zabkai",
+      "genus_concept_id": "TC0015",
+      "status": "proposed_new_species_in_thesis_not_formally_published_under_iczn",
+      "previous_names": [],
+      "sexes_described": ["male", "female"],
+      "diagnostic_hints": [
+        {"character": "male colour pattern", "description": "Dense mat of orange scales covers the ocular quadrangle; dorsal pedipalps are distinctly bicoloured with a prominent long white fringe just before the cymbium.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": false, "requires_microscopy": false, "source_page": 261},
+        {"character": "male palp", "description": "Small triangular process adjacent to the base of the inner embolic apex.", "sex": ["male"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 261},
+        {"character": "epigyne", "description": "Large round fossae with posteromedial openings; long ducts follow short winding, tangled paths; round diverticula lie near the anterior fossa margins.", "sex": ["female"], "confidence": "diagnostic_in_source", "requires_genitalia": true, "requires_microscopy": true, "source_page": 261}
+      ],
+      "distribution": [
+        {"locality": "Severnlea", "region": null, "state": "Queensland", "country": "Australia", "latitude": -28.69, "longitude": 151.911, "evidence_type": "type_locality", "source_page": 261}
+      ],
+      "habitat_ecology": [],
+      "species_level_identification": {"field_feasible": "sometimes", "macro_photo_feasible": "yes", "microscopy_likely_required": false, "genitalic_confirmation_recommended": false, "limitations": "Male orange ocular scaling and bicoloured palps are useful in photographs. Female suggestions require epigynal examination.", "annotation_basis": "curator_inference_from_source_diagnosis"},
+      "source": {"source_id": "schubert_2025_thesis", "pages": [261]}
+    }
+  ]
+}

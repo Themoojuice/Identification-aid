@@ -1,0 +1,993 @@
+{
+  "schema_version": "1.0",
+  "characters": [
+    {
+      "character_id": "SC001",
+      "name": "Male leg I ornamentation",
+      "description": "Long fringes of setae and/or pale tarsi densely covered in white setae on the first legs.",
+      "anatomical_region": "leg I",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC001_A", "label": "ornamented with long setal fringes and/or densely white-setose pale tarsi", "description": null },
+        { "state_id": "SC001_B", "label": "without that ornamentation", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 173, 198, 236], "context": "Male key and genus diagnoses" }
+    },
+    {
+      "character_id": "SC002",
+      "name": "Relative leg length",
+      "description": "Identity of the longest leg pair or the relevant relative-length condition.",
+      "anatomical_region": "legs",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC002_A", "label": "leg I distinctly longest", "description": null },
+        { "state_id": "SC002_B", "label": "leg I not longest", "description": null },
+        { "state_id": "SC002_C", "label": "leg III longest", "description": null },
+        { "state_id": "SC002_D", "label": "leg IV longer or legs III and IV subequal", "description": null },
+        { "state_id": "SC002_E", "label": "leg I or leg III longest", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 157, 164, 173, 176, 182, 198, 203, 207, 210, 239, 251], "context": "Male key and genus diagnoses" }
+    },
+    {
+      "character_id": "SC003",
+      "name": "Posterior ocular-quadrangle crescent band",
+      "description": "Crescent-shaped pale cuticle and white or off-white scales or setae extending from the posterior median eyes toward the posterior carapace slope.",
+      "anatomical_region": "carapace",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC003_A", "label": "crescent-shaped pale band present", "description": null },
+        { "state_id": "SC003_B", "label": "crescent-shaped pale band absent", "description": null },
+        { "state_id": "SC003_C", "label": "crescent-shaped pale band typically medially interrupted", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 157, 164], "context": "Male key; Anablemum and Hypoblemum diagnoses" }
+    },
+    {
+      "character_id": "SC004",
+      "name": "Fusion of embolic arcs",
+      "description": "Degree of fusion between the inner and outer arcs or rings of the embolus.",
+      "anatomical_region": "male pedipalp: embolus",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC004_A", "label": "inner and outer arcs fused into wheel-rim-like structure", "description": null },
+        { "state_id": "SC004_B", "label": "not fused into wheel-rim-like structure", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 207], "context": "Male key and Salinatus diagnosis" }
+    },
+    {
+      "character_id": "SC005",
+      "name": "Male dorsal opisthosomal display ornamentation",
+      "description": "Dorsal scutum with dense squamous setae or scales and/or lateral flaps or setal fringes.",
+      "anatomical_region": "opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC005_A", "label": "scutum/scales and/or lateral flaps or fringes present", "description": null },
+        { "state_id": "SC005_B", "label": "such ornamentation absent", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 176, 182, 251], "context": "Male key and genus diagnoses" }
+    },
+    {
+      "character_id": "SC006",
+      "name": "Carapace dorsoventral profile",
+      "description": "Overall height and posterior slope of the carapace in lateral view.",
+      "anatomical_region": "carapace",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC006_A", "label": "dorsoventrally flattened", "description": null },
+        { "state_id": "SC006_B", "label": "moderately to strongly elevated", "description": null },
+        { "state_id": "SC006_C", "label": "high with steep posterior slope", "description": null },
+        { "state_id": "SC006_D", "label": "moderately high with steep posterior slope", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 198, 203, 210, 236, 251], "context": "Male key and genus diagnoses" }
+    },
+    {
+      "character_id": "SC007",
+      "name": "Dorsal dark longitudinal opisthosomal stripe",
+      "description": "A medial dark-brown to black dorsal stripe that tapers posteriorly.",
+      "anatomical_region": "opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC007_A", "label": "dark tapering longitudinal stripe present", "description": null },
+        { "state_id": "SC007_B", "label": "dark tapering longitudinal stripe absent", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 173, 236], "context": "Male key; Jotus and Tropijotus diagnoses" }
+    },
+    {
+      "character_id": "SC008",
+      "name": "Acute triangular embolic apex",
+      "description": "Outer embolic apex thickened and converging with the inner apex to form an acute triangular tip.",
+      "anatomical_region": "male pedipalp: embolus",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC008_A", "label": "acute triangular converging apex present", "description": null },
+        { "state_id": "SC008_B", "label": "acute triangular converging apex absent", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 182], "context": "Male key and Micromaratus diagnosis" }
+    },
+    {
+      "character_id": "SC009",
+      "name": "Dorsal opisthosomal ground pattern",
+      "description": "Broad dorsal pattern used in the terminal part of the male key.",
+      "anatomical_region": "opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC009_A", "label": "pale medial stripe with darker lateral flanks", "description": null },
+        { "state_id": "SC009_B", "label": "dark brown to black, mostly glabrous and shiny", "description": null },
+        { "state_id": "SC009_C", "label": "otherwise patterned", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 210, 239, 251], "context": "Male key and genus diagnoses" }
+    },
+    {
+      "character_id": "SC010",
+      "name": "Opisthosoma shape and relative length",
+      "description": "Compactness and length of the opisthosoma relative to the carapace.",
+      "anatomical_region": "opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC010_A", "label": "compact and rounded", "description": null },
+        { "state_id": "SC010_B", "label": "elongate and narrow", "description": null },
+        { "state_id": "SC010_C", "label": "round and usually no longer than carapace", "description": null },
+        { "state_id": "SC010_D", "label": "elongate and posteriorly tapering", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 203, 236], "context": "Male key; Saitis and Tropijotus diagnoses" }
+    },
+    {
+      "character_id": "SC011",
+      "name": "Embolic disc and embolus gross form",
+      "description": "Combined gross form of the embolic disc and distal embolus used in key couplet 11.",
+      "anatomical_region": "male pedipalp: embolic disc and embolus",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC011_A", "label": "disc compact with two short distinct apices", "description": null },
+        { "state_id": "SC011_B", "label": "disc broad at base with long curved embolus", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156, 203, 251], "context": "Male key; Saitis and Variattus diagnoses" }
+    },
+    {
+      "character_id": "SC012",
+      "name": "Known geographic occurrence",
+      "description": "Geographic occurrence explicitly used as a corroborating condition in key couplet 11.",
+      "anatomical_region": "distribution",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC012_A", "label": "known from Australia", "description": null },
+        { "state_id": "SC012_B", "label": "known from Europe", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": [], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [156], "context": "Male key, couplet 11" }
+    },
+    {
+      "character_id": "SC013",
+      "name": "Lamella on tegular shoulder",
+      "description": "Small retrolateral process on the tegular shoulder adjacent to the embolic disc.",
+      "anatomical_region": "male pedipalp: tegulum",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC013_A", "label": "present", "description": "Stated to occur in all Saitis-group males." },
+        { "state_id": "SC013_B", "label": "absent", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [155], "context": "Saitis-group diagnostic characters and synapomorphies" }
+    },
+    {
+      "character_id": "SC014",
+      "name": "Lateral carapace scale bands",
+      "description": "Lateral white scale bands above the carapace rim with paler cuticle beneath.",
+      "anatomical_region": "carapace",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC014_A", "label": "distinct lateral white bands with pale cuticle beneath", "description": null },
+        { "state_id": "SC014_B", "label": "that lateral-band pattern absent", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [173], "context": "Jotus diagnosis" }
+    },
+    {
+      "character_id": "SC015",
+      "name": "Carapace longitudinal pale tracts",
+      "description": "Light medial carapace tract plus paired tracts extending posteriorly from the posterior lateral eyes, underlain by lighter cuticle.",
+      "anatomical_region": "carapace",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC015_A", "label": "medial and paired post-PLE pale tracts present", "description": null },
+        { "state_id": "SC015_B", "label": "that tract pattern absent", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [182], "context": "Micromaratus diagnosis" }
+    },
+    {
+      "character_id": "SC016",
+      "name": "Umbrattus carapace band pattern",
+      "description": "White medial tract and transverse white bands through the posterior median and lateral eyes.",
+      "anatomical_region": "carapace",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC016_A", "label": "white medial tract and transverse PME/PLE bands present", "description": null },
+        { "state_id": "SC016_B", "label": "that combined pattern absent", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [239, 240], "context": "Umbrattus diagnosis" }
+    },
+    {
+      "character_id": "SC017",
+      "name": "Carapace dorsal width profile",
+      "description": "Position of the narrowest carapace width and angle of the lateral slopes in dorsal view.",
+      "anatomical_region": "carapace",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC017_A", "label": "narrowest across PLEs with gently descending sides; wide robust appearance", "description": null },
+        { "state_id": "SC017_B", "label": "other width profile", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [207], "context": "Salinatus diagnosis" }
+    },
+    {
+      "character_id": "SC018",
+      "name": "Body robustness and leg proportions",
+      "description": "General body robustness and relative leg length or slenderness.",
+      "anatomical_region": "whole body and legs",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC018_A", "label": "robust body with proportionally long legs", "description": null },
+        { "state_id": "SC018_B", "label": "short slender legs", "description": null },
+        { "state_id": "SC018_C", "label": "medium-sized compact body with stout legs", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [155, 207, 210], "context": "Saitis-group, Salinatus and Striattus diagnoses" }
+    },
+    {
+      "character_id": "SC019",
+      "name": "Male dark colouration and chelicerae",
+      "description": "Dark male body colouration with dark-brown to black chelicerae.",
+      "anatomical_region": "whole body and chelicerae",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC019_A", "label": "male dark with dark-brown to black chelicerae", "description": null },
+        { "state_id": "SC019_B", "label": "other", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [164], "context": "Hypoblemum diagnosis" }
+    },
+    {
+      "character_id": "SC020",
+      "name": "Male tarsus I colour",
+      "description": "Colour of the first-leg tarsus in males.",
+      "anatomical_region": "leg I: tarsus",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC020_A", "label": "usually white", "description": null },
+        { "state_id": "SC020_B", "label": "not usually white", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [173], "context": "Jotus diagnosis" }
+    },
+    {
+      "character_id": "SC021",
+      "name": "Erect spines on posterior legs",
+      "description": "Prominent erect spines on legs III and IV, especially tibiae and metatarsi.",
+      "anatomical_region": "legs III and IV",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC021_A", "label": "prominent erect spines present", "description": null },
+        { "state_id": "SC021_B", "label": "prominent erect spines absent", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [251, 252], "context": "Variattus diagnosis" }
+    },
+    {
+      "character_id": "SC022",
+      "name": "Male leg III setal ornamentation",
+      "description": "Long or specialised setae on the third legs.",
+      "anatomical_region": "leg III",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC022_A", "label": "ornamented with long or specialised setae", "description": null },
+        { "state_id": "SC022_B", "label": "not conspicuously ornamented", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [176, 203, 210, 239], "context": "Genus diagnoses and Saitis recognition remarks" }
+    },
+    {
+      "character_id": "SC023",
+      "name": "Saitis leg III fringe pattern",
+      "description": "Pale metatarsus III with dorsal long white setae plus dorsal/ventral metatarsal and ventral tibial fringes.",
+      "anatomical_region": "leg III: tibia and metatarsus",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC023_A", "label": "Saitis-type pale metatarsus and long fringe pattern present", "description": null },
+        { "state_id": "SC023_B", "label": "that fringe pattern absent", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [203], "context": "Saitis sensu stricto recognition remarks" }
+    },
+    {
+      "character_id": "SC024",
+      "name": "Male ventral lip anterior to spinnerets",
+      "description": "Distinct ventral lip immediately anterior to the spinnerets.",
+      "anatomical_region": "opisthosoma: ventral posterior margin",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC024_A", "label": "present", "description": null },
+        { "state_id": "SC024_B", "label": "absent", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [198], "context": "Prostheclina diagnosis" }
+    },
+    {
+      "character_id": "SC025",
+      "name": "Leg formula",
+      "description": "Leg pairs ordered from longest to shortest.",
+      "anatomical_region": "legs",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC025_A", "label": "1342", "description": null },
+        { "state_id": "SC025_B", "label": "3412", "description": null },
+        { "state_id": "SC025_C", "label": "3421", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": [], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [176, 198], "context": "Maratus and Prostheclina diagnoses" }
+    },
+    {
+      "character_id": "SC026",
+      "name": "Tegular lobe form",
+      "description": "Width and prolateral angling or kink of the tegular lobe in ventral view.",
+      "anatomical_region": "male pedipalp: tegular lobe",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC026_A", "label": "narrow and strongly angled prolaterally", "description": null },
+        { "state_id": "SC026_B", "label": "narrow, angular and angled prolaterally", "description": null },
+        { "state_id": "SC026_C", "label": "narrow and kinked prolaterally", "description": null },
+        { "state_id": "SC026_D", "label": "other", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [157, 236, 239], "context": "Anablemum, Tropijotus and Umbrattus diagnoses" }
+    },
+    {
+      "character_id": "SC027",
+      "name": "Embolic disc size and shape",
+      "description": "Relative size and gross outline of the embolic disc.",
+      "anatomical_region": "male pedipalp: embolic disc",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC027_A", "label": "large, occupying about one-third to one-half of tegulum", "description": null },
+        { "state_id": "SC027_B", "label": "relatively large and circular", "description": null },
+        { "state_id": "SC027_C", "label": "compact", "description": null },
+        { "state_id": "SC027_D", "label": "compact and thickset", "description": null },
+        { "state_id": "SC027_E", "label": "basally broad and flattened", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [157, 173, 176, 182, 198, 203, 210, 239, 251], "context": "Genus diagnoses and Saitis recognition remarks" }
+    },
+    {
+      "character_id": "SC028",
+      "name": "Embolus length and coiling",
+      "description": "Length, curvature and coiling trajectory of the embolus.",
+      "anatomical_region": "male pedipalp: embolus",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC028_A", "label": "basally broad, distally narrow, completing one full turn", "description": null },
+        { "state_id": "SC028_B", "label": "compact semicircular coil", "description": null },
+        { "state_id": "SC028_C", "label": "corkscrew-like", "description": null },
+        { "state_id": "SC028_D", "label": "narrow and elongate", "description": null },
+        { "state_id": "SC028_E", "label": "tight anticlockwise coil with arcs in close contact or fused", "description": null },
+        { "state_id": "SC028_F", "label": "greatly elongated and forming a large loop", "description": null },
+        { "state_id": "SC028_G", "label": "compact coil, distally straight and elongate", "description": null },
+        { "state_id": "SC028_H", "label": "long and curved from broad disc base", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [157, 176, 203, 210, 236, 239], "context": "Genus diagnoses and Saitis recognition remarks" }
+    },
+    {
+      "character_id": "SC029",
+      "name": "Embolic apex number and form",
+      "description": "Number, relative size, alignment and distal shape of embolic apices.",
+      "anatomical_region": "male pedipalp: embolic apices",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC029_A", "label": "heavy outer ring ending in blunt pore-bearing apex behind short pointed inner apex", "description": null },
+        { "state_id": "SC029_B", "label": "two apices: inner thicker and outer narrower", "description": null },
+        { "state_id": "SC029_C", "label": "three broad apices on broad embolus", "description": null },
+        { "state_id": "SC029_D", "label": "at least two closely aligned thickset apices", "description": null },
+        { "state_id": "SC029_E", "label": "two apices converging distally", "description": null },
+        { "state_id": "SC029_F", "label": "single narrow, distally straight apex", "description": null },
+        { "state_id": "SC029_G", "label": "two apices", "description": null },
+        { "state_id": "SC029_H", "label": "two closely adjacent apices", "description": null },
+        { "state_id": "SC029_I", "label": "two short closely aligned but distinctly separated apices", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [164, 173, 174, 176, 182, 198, 236, 239, 251], "context": "Genus diagnoses" }
+    },
+    {
+      "character_id": "SC030",
+      "name": "Female spermathecal configuration",
+      "description": "Number, size, shape and relative placement of spermathecae.",
+      "anatomical_region": "female genitalia: spermathecae",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC030_A", "label": "two circular posterior spermathecae", "description": null },
+        { "state_id": "SC030_B", "label": "small round posterior spermathecae near posterior fossal margin", "description": null },
+        { "state_id": "SC030_C", "label": "large rounded posterior and similarly large rounded anterior pairs", "description": null },
+        { "state_id": "SC030_D", "label": "large ovate posterior pair as wide as or wider than fossae", "description": null },
+        { "state_id": "SC030_E", "label": "single posterior pair considerably posterior to fossae", "description": null },
+        { "state_id": "SC030_F", "label": "pear-shaped pair at least partly below fossae", "description": null },
+        { "state_id": "SC030_G", "label": "large ovate posterior pair considerably posterior to fossae", "description": null },
+        { "state_id": "SC030_H", "label": "large ovate primary pair plus smaller narrow secondary pair", "description": null },
+        { "state_id": "SC030_I", "label": "ovate pair", "description": null },
+        { "state_id": "SC030_J", "label": "relatively large ovate posterior pair", "description": null },
+        { "state_id": "SC030_K", "label": "not adequately diagnosed in source", "description": null },
+        { "state_id": "SC030_L", "label": "primary pair present; secondary pair absent", "description": null }
+      ],
+      "applicability": { "sex": ["female"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [155, 157, 164, 174, 176, 182, 198, 203, 207, 236, 240, 251], "context": "Saitis-group and genus diagnoses; Saitis limitation" }
+    },
+    {
+      "character_id": "SC031",
+      "name": "Female copulatory duct form",
+      "description": "Length, width, course and diverticulum condition of the copulatory ducts.",
+      "anatomical_region": "female genitalia: copulatory ducts",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC031_A", "label": "long and sinuous", "description": null },
+        { "state_id": "SC031_B", "label": "short and directed anteromedially through posterior fossae", "description": null },
+        { "state_id": "SC031_C", "label": "short and often obscured by anterior spermathecae", "description": null },
+        { "state_id": "SC031_D", "label": "short winding course, often with diverticulum/proximal receiver", "description": null },
+        { "state_id": "SC031_E", "label": "short, thick and weakly sclerotised", "description": null },
+        { "state_id": "SC031_F", "label": "long with sharp turn near anterior fossal margin", "description": null },
+        { "state_id": "SC031_G", "label": "short and thick", "description": null },
+        { "state_id": "SC031_H", "label": "narrow, widening anteriorly into diverticulum", "description": null },
+        { "state_id": "SC031_I", "label": "narrow and curved with diverticulum/proximal receiver", "description": null }
+      ],
+      "applicability": { "sex": ["female"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [157, 164, 174, 176, 182, 198, 207, 240, 251], "context": "Genus diagnoses" }
+    },
+    {
+      "character_id": "SC032",
+      "name": "Epigynal fossa size and position",
+      "description": "Relative size, separation and position of the paired epigynal fossae.",
+      "anatomical_region": "female genitalia: epigynal fossae",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC032_A", "label": "small, with spermathecae well posterior", "description": null },
+        { "state_id": "SC032_B", "label": "clearly separated", "description": null },
+        { "state_id": "SC032_C", "label": "small and positioned anteriorly", "description": null }
+      ],
+      "applicability": { "sex": ["female"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [182, 198, 207], "context": "Micromaratus, Prostheclina and Salinatus diagnoses" }
+    },
+    {
+      "character_id": "SC033",
+      "name": "Female copulatory opening position",
+      "description": "Position of copulatory openings relative to the fossae.",
+      "anatomical_region": "female genitalia: copulatory openings",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC033_A", "label": "exterior mediolateral or anteromedial fossal margins", "description": null },
+        { "state_id": "SC033_B", "label": "other", "description": null }
+      ],
+      "applicability": { "sex": ["female"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [157], "context": "Anablemum diagnosis" }
+    },
+    {
+      "character_id": "SC034",
+      "name": "Male dorsal opisthosomal scutum",
+      "description": "Presence of a dorsal opisthosomal scutum or plate in adult males.",
+      "anatomical_region": "opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC034_A", "label": "present", "description": null },
+        { "state_id": "SC034_B", "label": "generally absent", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [176, 182, 251, 252], "context": "Maratus, Micromaratus and Variattus diagnoses" }
+    },
+    {
+      "character_id": "SC035",
+      "name": "Dense colourful dorsal opisthosomal scales",
+      "description": "Dense mat or covering of usually colourful dorsal opisthosomal scales.",
+      "anatomical_region": "opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC035_A", "label": "typically present", "description": null },
+        { "state_id": "SC035_B", "label": "generally absent", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [176, 182, 251, 252], "context": "Maratus, Micromaratus and Variattus diagnoses" }
+    },
+    {
+      "character_id": "SC036",
+      "name": "Courtship elevation of leg I",
+      "description": "First legs elevated, waved or fully extended during male courtship.",
+      "anatomical_region": "courtship behaviour: leg I",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC036_A", "label": "present", "description": null },
+        { "state_id": "SC036_B", "label": "absent or not reported diagnostically", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [155, 173, 207, 236], "context": "Saitis-group and genus diagnoses" }
+    },
+    {
+      "character_id": "SC037",
+      "name": "Courtship elevation of leg III",
+      "description": "Third legs elevated during male courtship.",
+      "anatomical_region": "courtship behaviour: leg III",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC037_A", "label": "present", "description": null },
+        { "state_id": "SC037_B", "label": "absent or not reported diagnostically", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [155, 176, 182, 207], "context": "Saitis-group and genus diagnoses" }
+    },
+    {
+      "character_id": "SC038",
+      "name": "Courtship elevation of opisthosoma",
+      "description": "Opisthosoma elevated during male courtship.",
+      "anatomical_region": "courtship behaviour: opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC038_A", "label": "present", "description": null },
+        { "state_id": "SC038_B", "label": "absent or not reported diagnostically", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [155, 176, 182], "context": "Saitis-group, Maratus and Micromaratus diagnoses" }
+    },
+    {
+      "character_id": "SC039",
+      "name": "Anterior-eye surrounding scale colour",
+      "description": "Bright red or orange scales surrounding the anterior eyes anteriorly and laterally.",
+      "anatomical_region": "carapace: anterior eye field",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC039_A", "label": "bright red or orange scales present", "description": null },
+        { "state_id": "SC039_B", "label": "that scale pattern absent", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [240], "context": "Umbrattus diagnosis" }
+    },
+    {
+      "character_id": "SC040",
+      "name": "Overall body colour",
+      "description": "General adult body colour used in a genus diagnosis.",
+      "anatomical_region": "whole body",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC040_A", "label": "generally dark brown to black", "description": null },
+        { "state_id": "SC040_B", "label": "other", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [240], "context": "Umbrattus diagnosis" }
+    },
+    {
+      "character_id": "SC041",
+      "name": "Retrolateral tibial apophysis form",
+      "description": "Shape and relative length of the retrolateral tibial apophysis.",
+      "anatomical_region": "male pedipalp: tibia",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC041_A", "label": "digitiform", "description": null },
+        { "state_id": "SC041_B", "label": "relatively long and digitiform", "description": null },
+        { "state_id": "SC041_C", "label": "other", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": true },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [155, 210], "context": "Saitis-group and Striattus diagnoses" }
+    },
+    {
+      "character_id": "SC042",
+      "name": "Male anterior femur I surface",
+      "description": "Colour and setal covering of the anterior surface of femur I.",
+      "anatomical_region": "leg I: femur",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC042_A", "label": "usually yellow-green and largely glabrous", "description": null },
+        { "state_id": "SC042_B", "label": "other", "description": null }
+      ],
+      "applicability": { "sex": ["male"], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [207], "context": "Salinatus diagnosis" }
+    },
+    {
+      "character_id": "SC043",
+      "name": "Pale medial dorsal opisthosomal tract",
+      "description": "Pale medial longitudinal dorsal tract or stripe and its outline.",
+      "anatomical_region": "opisthosoma",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC043_A", "label": "pale medial dorsal section", "description": null },
+        { "state_id": "SC043_B", "label": "pale medial tract bordered by darker flanks", "description": null },
+        { "state_id": "SC043_C", "label": "pale medial stripe generally cruciform", "description": null },
+        { "state_id": "SC043_D", "label": "absent", "description": null },
+        { "state_id": "SC043_E", "label": "reduced", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [203, 210, 251, 252], "context": "Saitis, Striattus and Variattus diagnoses" }
+    },
+    {
+      "character_id": "SC044",
+      "name": "Posterior carapace transverse pale region",
+      "description": "Broad transverse region of pale cuticle on the posterior carapace slope covered with light-coloured scales or setae.",
+      "anatomical_region": "carapace: posterior slope",
+      "data_type": "categorical",
+      "states": [
+        { "state_id": "SC044_A", "label": "broad transverse pale region present", "description": null },
+        { "state_id": "SC044_B", "label": "broad transverse pale region absent", "description": null }
+      ],
+      "applicability": { "sex": [], "life_stage": ["adult"], "requires_genitalia": false },
+      "observation": { "likely_visible_live": null, "macro_photo_sufficient": null, "microscope_likely_required": null, "dissection_required": null },
+      "annotation_basis": "source_explicit",
+      "source": { "source_id": "schubert_2025_thesis", "pages": [236], "context": "Tropijotus diagnosis" }
+    }
+  ],
+  "taxon_character_assertions": [
+    { "taxon_concept_id": "TC0001", "character_id": "SC013", "state_id": "SC013_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 155, "section": "Diagnostic characters and synapomorphies" }, "source_text_excerpt": null, "notes": "Explicitly described as present in all males and as the defining morphological synapomorphy of the Saitis group within Euophryini." },
+    { "taxon_concept_id": "TC0001", "character_id": "SC018", "state_id": "SC018_C", "assertion_type": "typical", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 155, "section": "Diagnostic characters and synapomorphies" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0001", "character_id": "SC041", "state_id": "SC041_A", "assertion_type": "supportive", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 155, "section": "Diagnostic characters and synapomorphies" }, "source_text_excerpt": null, "notes": "Part of a diagnostic combination, not stated to be unique." },
+    { "taxon_concept_id": "TC0004", "character_id": "SC002", "state_id": "SC002_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0004", "character_id": "SC003", "state_id": "SC003_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes." },
+    { "taxon_concept_id": "TC0004", "character_id": "SC026", "state_id": "SC026_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0004", "character_id": "SC027", "state_id": "SC027_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0004", "character_id": "SC028", "state_id": "SC028_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0004", "character_id": "SC030", "state_id": "SC030_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0004", "character_id": "SC031", "state_id": "SC031_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0004", "character_id": "SC033", "state_id": "SC033_A", "assertion_type": "variable", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 157, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Opening position differs between the two included species." },
+    { "taxon_concept_id": "TC0005", "character_id": "SC003", "state_id": "SC003_C", "assertion_type": "diagnostic", "strength": "high", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 164, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "The medial interruption is qualified as typical." },
+    { "taxon_concept_id": "TC0005", "character_id": "SC019", "state_id": "SC019_A", "assertion_type": "supportive", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 164, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0005", "character_id": "SC029", "state_id": "SC029_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 164, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0005", "character_id": "SC002", "state_id": "SC002_E", "assertion_type": "variable", "strength": "low", "sex": [], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 164, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0005", "character_id": "SC030", "state_id": "SC030_B", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 164, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0005", "character_id": "SC031", "state_id": "SC031_B", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 164, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0006", "character_id": "SC002", "state_id": "SC002_D", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 173, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0006", "character_id": "SC014", "state_id": "SC014_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 173, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0006", "character_id": "SC001", "state_id": "SC001_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 173, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0006", "character_id": "SC020", "state_id": "SC020_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 173, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0006", "character_id": "SC036", "state_id": "SC036_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 173, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0006", "character_id": "SC007", "state_id": "SC007_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 173, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "The stripe is fainter in females." },
+    { "taxon_concept_id": "TC0006", "character_id": "SC007", "state_id": "SC007_A", "assertion_type": "supportive", "strength": "low", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 173, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "The source states that the stripe is more faint in females." },
+    { "taxon_concept_id": "TC0006", "character_id": "SC029", "state_id": "SC029_B", "assertion_type": "variable", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 174, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "One of two stated palpal forms." },
+    { "taxon_concept_id": "TC0006", "character_id": "SC029", "state_id": "SC029_C", "assertion_type": "exception", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "rare", "source": { "source_id": "schubert_2025_thesis", "page": 174, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Form exemplified by J. karllagerfeldi and J. chlorophthalmus." },
+    { "taxon_concept_id": "TC0006", "character_id": "SC030", "state_id": "SC030_C", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 174, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0006", "character_id": "SC031", "state_id": "SC031_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 174, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC025", "state_id": "SC025_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC022", "state_id": "SC022_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC037", "state_id": "SC037_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC034", "state_id": "SC034_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC035", "state_id": "SC035_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC038", "state_id": "SC038_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC028", "state_id": "SC028_B", "assertion_type": "typical", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC028", "state_id": "SC028_C", "assertion_type": "exception", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "rare", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Explicit exception for M. hesperus, which remains phylogenetically within Maratus sensu stricto." },
+    { "taxon_concept_id": "TC0007", "character_id": "SC029", "state_id": "SC029_D", "assertion_type": "typical", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC030", "state_id": "SC030_D", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0007", "character_id": "SC031", "state_id": "SC031_D", "assertion_type": "variable", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 176, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "The diverticulum/proximal receiver occurs in many species, not all." },
+    { "taxon_concept_id": "TC0008", "character_id": "SC027", "state_id": "SC027_B", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC029", "state_id": "SC029_E", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC008", "state_id": "SC008_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 156, "section": "Key to genera" }, "source_text_excerpt": null, "notes": "Key wording further specifies an acute triangular tip." },
+    { "taxon_concept_id": "TC0008", "character_id": "SC002", "state_id": "SC002_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC034", "state_id": "SC034_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC035", "state_id": "SC035_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC038", "state_id": "SC038_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC037", "state_id": "SC037_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Occurs in most species." },
+    { "taxon_concept_id": "TC0008", "character_id": "SC030", "state_id": "SC030_E", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC031", "state_id": "SC031_E", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC032", "state_id": "SC032_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0008", "character_id": "SC015", "state_id": "SC015_A", "assertion_type": "typical", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 182, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes typically share this pattern." },
+    { "taxon_concept_id": "TC0009", "character_id": "SC025", "state_id": "SC025_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0009", "character_id": "SC025", "state_id": "SC025_B", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult", "juvenile"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "The source assigns formula 3412 to females and juveniles." },
+    { "taxon_concept_id": "TC0009", "character_id": "SC006", "state_id": "SC006_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0009", "character_id": "SC001", "state_id": "SC001_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Fringing ranges from sparse to thick and occurs at least on metatarsus I." },
+    { "taxon_concept_id": "TC0009", "character_id": "SC024", "state_id": "SC024_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0009", "character_id": "SC032", "state_id": "SC032_B", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0009", "character_id": "SC030", "state_id": "SC030_F", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0009", "character_id": "SC031", "state_id": "SC031_F", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 198, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0009", "character_id": "SC027", "state_id": "SC027_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 199, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0009", "character_id": "SC029", "state_id": "SC029_F", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 199, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0010", "character_id": "SC002", "state_id": "SC002_C", "assertion_type": "supportive", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks: general recognition" }, "source_text_excerpt": null, "notes": "No formal rediagnosis was attempted." },
+    { "taxon_concept_id": "TC0010", "character_id": "SC023", "state_id": "SC023_A", "assertion_type": "supportive", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks: general recognition" }, "source_text_excerpt": null, "notes": "No formal rediagnosis was attempted." },
+    { "taxon_concept_id": "TC0010", "character_id": "SC006", "state_id": "SC006_D", "assertion_type": "supportive", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks: general recognition" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0010", "character_id": "SC010", "state_id": "SC010_B", "assertion_type": "supportive", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks: general recognition" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0010", "character_id": "SC043", "state_id": "SC043_A", "assertion_type": "supportive", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks: general recognition" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0010", "character_id": "SC027", "state_id": "SC027_E", "assertion_type": "supportive", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks: general recognition" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0010", "character_id": "SC028", "state_id": "SC028_H", "assertion_type": "supportive", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks: general recognition" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0010", "character_id": "SC030", "state_id": "SC030_K", "assertion_type": "unknown", "strength": "not_applicable", "sex": ["female"], "life_stage": ["adult"], "variation": "unknown", "source": { "source_id": "schubert_2025_thesis", "page": 203, "section": "Remarks" }, "source_text_excerpt": null, "notes": "The thesis states that females need examination to be properly diagnosed." },
+    { "taxon_concept_id": "TC0011", "character_id": "SC004", "state_id": "SC004_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Explicitly described as unique among Saitis-group genera." },
+    { "taxon_concept_id": "TC0011", "character_id": "SC036", "state_id": "SC036_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Leg I is extended in conjunction with leg III." },
+    { "taxon_concept_id": "TC0011", "character_id": "SC037", "state_id": "SC037_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Leg III is extended in conjunction with leg I." },
+    { "taxon_concept_id": "TC0011", "character_id": "SC042", "state_id": "SC042_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0011", "character_id": "SC002", "state_id": "SC002_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes." },
+    { "taxon_concept_id": "TC0011", "character_id": "SC032", "state_id": "SC032_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0011", "character_id": "SC031", "state_id": "SC031_G", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0011", "character_id": "SC030", "state_id": "SC030_G", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0011", "character_id": "SC018", "state_id": "SC018_A", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes." },
+    { "taxon_concept_id": "TC0011", "character_id": "SC017", "state_id": "SC017_A", "assertion_type": "diagnostic", "strength": "high", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 207, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes." },
+    { "taxon_concept_id": "TC0012", "character_id": "SC006", "state_id": "SC006_A", "assertion_type": "diagnostic", "strength": "high", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Posterior slope begins far back, producing an elongate flat dorsal profile." },
+    { "taxon_concept_id": "TC0012", "character_id": "SC027", "state_id": "SC027_C", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Palps are compact overall despite marked embolic variation." },
+    { "taxon_concept_id": "TC0012", "character_id": "SC028", "state_id": "SC028_E", "assertion_type": "variable", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "One of two explicit embolic configurations." },
+    { "taxon_concept_id": "TC0012", "character_id": "SC028", "state_id": "SC028_F", "assertion_type": "variable", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Occurs in species including S. aridus and S. deceptus." },
+    { "taxon_concept_id": "TC0012", "character_id": "SC041", "state_id": "SC041_B", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0012", "character_id": "SC043", "state_id": "SC043_B", "assertion_type": "typical", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes." },
+    { "taxon_concept_id": "TC0012", "character_id": "SC043", "state_id": "SC043_D", "assertion_type": "exception", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "rare", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Stripe reduced or absent in some species, exemplified by S. piliger." },
+    { "taxon_concept_id": "TC0012", "character_id": "SC018", "state_id": "SC018_B", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0012", "character_id": "SC002", "state_id": "SC002_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0012", "character_id": "SC022", "state_id": "SC022_B", "assertion_type": "absent", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 210, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0013", "character_id": "SC001", "state_id": "SC001_A", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Modified setae or colouration; the male key describes long fringes and/or densely white-setose pale tarsi." },
+    { "taxon_concept_id": "TC0013", "character_id": "SC044", "state_id": "SC044_A", "assertion_type": "diagnostic", "strength": "high", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0013", "character_id": "SC006", "state_id": "SC006_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0013", "character_id": "SC026", "state_id": "SC026_B", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0013", "character_id": "SC028", "state_id": "SC028_D", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0013", "character_id": "SC029", "state_id": "SC029_G", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0013", "character_id": "SC030", "state_id": "SC030_H", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Secondary spermathecae are smaller and narrow." },
+    { "taxon_concept_id": "TC0013", "character_id": "SC030", "state_id": "SC030_L", "assertion_type": "exception", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "rare", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Secondary spermathecae may rarely be absent." },
+    { "taxon_concept_id": "TC0013", "character_id": "SC007", "state_id": "SC007_B", "assertion_type": "absent", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Explicit contrast with Jotus." },
+    { "taxon_concept_id": "TC0013", "character_id": "SC010", "state_id": "SC010_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 236, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Explicit contrast with Jotus." },
+    { "taxon_concept_id": "TC0014", "character_id": "SC027", "state_id": "SC027_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 239, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0014", "character_id": "SC028", "state_id": "SC028_G", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 239, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0014", "character_id": "SC029", "state_id": "SC029_H", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 239, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0014", "character_id": "SC026", "state_id": "SC026_C", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 239, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0014", "character_id": "SC002", "state_id": "SC002_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 239, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0014", "character_id": "SC022", "state_id": "SC022_A", "assertion_type": "typical", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 239, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Leg III is often clothed with long specialised setae." },
+    { "taxon_concept_id": "TC0014", "character_id": "SC016", "state_id": "SC016_A", "assertion_type": "diagnostic", "strength": "high", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 240, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes." },
+    { "taxon_concept_id": "TC0014", "character_id": "SC039", "state_id": "SC039_A", "assertion_type": "diagnostic", "strength": "high", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 240, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes." },
+    { "taxon_concept_id": "TC0014", "character_id": "SC040", "state_id": "SC040_A", "assertion_type": "typical", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 240, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes are generally dark." },
+    { "taxon_concept_id": "TC0014", "character_id": "SC030", "state_id": "SC030_I", "assertion_type": "diagnostic", "strength": "moderate", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 240, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0014", "character_id": "SC031", "state_id": "SC031_H", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 240, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC002", "state_id": "SC002_C", "assertion_type": "diagnostic", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 251, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC027", "state_id": "SC027_D", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 251, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC029", "state_id": "SC029_I", "assertion_type": "diagnostic", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "invariant", "source": { "source_id": "schubert_2025_thesis", "page": 251, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC030", "state_id": "SC030_J", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 251, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC031", "state_id": "SC031_I", "assertion_type": "diagnostic", "strength": "high", "sex": ["female"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 251, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC006", "state_id": "SC006_C", "assertion_type": "typical", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 251, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC021", "state_id": "SC021_A", "assertion_type": "typical", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 251, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Both sexes usually possess these spines." },
+    { "taxon_concept_id": "TC0015", "character_id": "SC043", "state_id": "SC043_C", "assertion_type": "typical", "strength": "moderate", "sex": [], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 252, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": null },
+    { "taxon_concept_id": "TC0015", "character_id": "SC043", "state_id": "SC043_D", "assertion_type": "exception", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "rare", "source": { "source_id": "schubert_2025_thesis", "page": 252, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Absent in adult males of V. expolitus." },
+    { "taxon_concept_id": "TC0015", "character_id": "SC043", "state_id": "SC043_E", "assertion_type": "variable", "strength": "low", "sex": ["female"], "life_stage": ["adult"], "variation": "variable", "source": { "source_id": "schubert_2025_thesis", "page": 252, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Sometimes reduced in females, which show considerable somatic variation." },
+    { "taxon_concept_id": "TC0015", "character_id": "SC034", "state_id": "SC034_B", "assertion_type": "absent", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 252, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "General absence separates Variattus from Maratus." },
+    { "taxon_concept_id": "TC0015", "character_id": "SC034", "state_id": "SC034_A", "assertion_type": "exception", "strength": "moderate", "sex": ["male"], "life_stage": ["adult"], "variation": "rare", "source": { "source_id": "schubert_2025_thesis", "page": 252, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Present in V. expolitus." },
+    { "taxon_concept_id": "TC0015", "character_id": "SC035", "state_id": "SC035_B", "assertion_type": "absent", "strength": "high", "sex": ["male"], "life_stage": ["adult"], "variation": "typical", "source": { "source_id": "schubert_2025_thesis", "page": 252, "section": "Diagnosis" }, "source_text_excerpt": null, "notes": "Used to separate Variattus from Maratus." }
+  ],
+  "published_key": {
+    "key_id": "SCHUBERT_SAITIS_MALE_GENUS_2025",
+    "scope": { "taxon": "Saitis group", "taxon_concept_id": "TC0001", "sex": "male", "life_stage": "adult" },
+    "source": { "source_id": "schubert_2025_thesis", "pages": [155, 156], "section": "Key to genera of the Saitis group (males)" },
+    "root_node_id": "K1",
+    "limitations": "The thesis states that females are often difficult to identify because morphology is conserved or females are poorly known for several lineages; a female key was considered impractical. The key is explicitly male-only.",
+    "branch_semantics": "At each question node, branches reproduce the two original leads in order. A branch with conditions_match='all' requires every listed condition; conditions_match='any' accepts any listed alternative. Verbatim leads are preserved for exact reconstruction.",
+    "nodes": [
+      {
+        "node_id": "K1",
+        "couplet_number": 1,
+        "character_id": "SC001",
+        "branches": [
+          { "state_id": "SC001_A", "verbatim_lead": "Legs I ornamented with long fringes of setae and/or pale tarsi densely covered in white setae", "next_node": "K2" },
+          { "state_id": "SC001_B", "verbatim_lead": "Legs I without such ornamentation", "next_node": "K3" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K2",
+        "couplet_number": 2,
+        "character_id": "SC002",
+        "branches": [
+          { "state_id": "SC002_A", "verbatim_lead": "Legs I distinctly longest", "next_node": "KT_PROSTHECLINA" },
+          { "state_id": "SC002_B", "verbatim_lead": "Legs I not longest", "next_node": "K8" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K3",
+        "couplet_number": 3,
+        "character_id": "SC003",
+        "branches": [
+          { "state_id": "SC003_A", "verbatim_lead": "Carapace with a crescent-shaped band of off-white setae extending from the PMEs to the posterior slope of the carapace", "next_node": "KT_HYPOBLEMUM" },
+          { "state_id": "SC003_B", "verbatim_lead": "Carapace without this pattern", "next_node": "K4" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K4",
+        "couplet_number": 4,
+        "character_id": "SC002",
+        "branches": [
+          { "state_id": "SC002_A", "verbatim_lead": "Legs I distinctly longest", "next_node": "KT_ANABLEMUM" },
+          { "state_id": "SC002_B", "verbatim_lead": "Legs I not longest", "next_node": "K5" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K5",
+        "couplet_number": 5,
+        "character_id": "SC004",
+        "branches": [
+          { "state_id": "SC004_A", "verbatim_lead": "Embolus with fused inner and outer arcs, forming a structure resembling a wheel rim", "next_node": "KT_SALINATUS" },
+          { "state_id": "SC004_B", "verbatim_lead": "Embolus otherwise", "next_node": "K6" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K6",
+        "couplet_number": 6,
+        "character_id": "SC005",
+        "branches": [
+          { "state_id": "SC005_A", "verbatim_lead": "Opisthosoma with a dorsal scutum moderately to densely covered in squamous setae or scales, and/or bearing lateral flaps or fringes of setae", "next_node": "K9" },
+          { "state_id": "SC005_B", "verbatim_lead": "Opisthosoma without such ornamentation", "next_node": "K7" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K7",
+        "couplet_number": 7,
+        "character_id": "SC006",
+        "branches": [
+          { "state_id": "SC006_A", "verbatim_lead": "Carapace dorsoventrally flattened", "next_node": "KT_STRIATTUS" },
+          { "state_id": "SC006_B", "verbatim_lead": "Carapace moderately to strongly elevated", "next_node": "K10" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K8",
+        "couplet_number": 8,
+        "character_id": "SC007",
+        "branches": [
+          { "state_id": "SC007_A", "verbatim_lead": "Dorsal opisthosoma with medial dark brown to black longitudinal stripe which tapers posteriorly", "next_node": "KT_JOTUS" },
+          { "state_id": "SC007_B", "verbatim_lead": "Dorsal opisthosoma without such a stripe", "next_node": "KT_TROPIJOTUS" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K9",
+        "couplet_number": 9,
+        "character_id": "SC008",
+        "branches": [
+          { "state_id": "SC008_A", "verbatim_lead": "Embolus with a thickened outer apex converging with the inner apex, forming an acute, triangular tip", "next_node": "KT_MICROMARATUS" },
+          { "state_id": "SC008_B", "verbatim_lead": "Embolus not forming an acute, triangular apex", "next_node": "KT_MARATUS" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K10",
+        "couplet_number": 10,
+        "character_id": "SC009",
+        "branches": [
+          { "state_ids": ["SC009_A", "SC009_B"], "conditions_match": "any", "verbatim_lead": "Dorsal opisthosoma with a medial stripe of pale setae and darker lateral flanks, or dark brown to black and mostly glabrous and shiny", "next_node": "K11" },
+          { "state_id": "SC009_C", "verbatim_lead": "Dorsal opisthosoma otherwise", "next_node": "KT_UMBRATTUS" }
+        ],
+        "source_page": 156
+      },
+      {
+        "node_id": "K11",
+        "couplet_number": 11,
+        "character_id": "SC010",
+        "branches": [
+          {
+            "state_id": "SC010_A",
+            "conditions_match": "all",
+            "conditions": [
+              { "character_id": "SC010", "state_id": "SC010_A" },
+              { "character_id": "SC011", "state_id": "SC011_A" },
+              { "character_id": "SC012", "state_id": "SC012_A" }
+            ],
+            "verbatim_lead": "Opisthosoma compact and rounded; embolic disc compact with two short, distinct apices; known from Australia",
+            "next_node": "KT_VARIATTUS"
+          },
+          {
+            "state_id": "SC010_B",
+            "conditions_match": "all",
+            "conditions": [
+              { "character_id": "SC010", "state_id": "SC010_B" },
+              { "character_id": "SC011", "state_id": "SC011_B" },
+              { "character_id": "SC012", "state_id": "SC012_B" }
+            ],
+            "verbatim_lead": "Opisthosoma elongate and narrow; embolic disc broad at base with a long, curved embolus; known from Europe",
+            "next_node": "KT_SAITIS"
+          }
+        ],
+        "source_page": 156
+      },
+      { "node_id": "KT_PROSTHECLINA", "result_taxon_concept_id": "TC0009", "verbatim_result": "Prostheclina", "source_page": 156 },
+      { "node_id": "KT_HYPOBLEMUM", "result_taxon_concept_id": "TC0005", "verbatim_result": "Hypoblemum", "source_page": 156 },
+      { "node_id": "KT_ANABLEMUM", "result_taxon_concept_id": "TC0004", "verbatim_result": "Anablemum", "source_page": 156 },
+      { "node_id": "KT_SALINATUS", "result_taxon_concept_id": "TC0011", "verbatim_result": "Salinatus", "source_page": 156 },
+      { "node_id": "KT_STRIATTUS", "result_taxon_concept_id": "TC0012", "verbatim_result": "Striattus", "source_page": 156 },
+      { "node_id": "KT_JOTUS", "result_taxon_concept_id": "TC0006", "verbatim_result": "Jotus", "source_page": 156 },
+      { "node_id": "KT_TROPIJOTUS", "result_taxon_concept_id": "TC0013", "verbatim_result": "Tropijotus", "source_page": 156 },
+      { "node_id": "KT_MICROMARATUS", "result_taxon_concept_id": "TC0008", "verbatim_result": "Micromaratus", "source_page": 156 },
+      { "node_id": "KT_MARATUS", "result_taxon_concept_id": "TC0007", "verbatim_result": "Maratus (sensu stricto)", "source_page": 156 },
+      { "node_id": "KT_UMBRATTUS", "result_taxon_concept_id": "TC0014", "verbatim_result": "Umbrattus", "source_page": 156 },
+      { "node_id": "KT_VARIATTUS", "result_taxon_concept_id": "TC0015", "verbatim_result": "Variattus", "source_page": 156 },
+      { "node_id": "KT_SAITIS", "result_taxon_concept_id": "TC0010", "verbatim_result": "Saitis (sensu stricto)", "source_page": 156 }
+    ]
+  }
+}

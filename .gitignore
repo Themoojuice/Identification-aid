@@ -1,0 +1,20 @@
+# Installed dependencies and generated output
+node_modules/
+dist/
+tmp/
+*.log
+
+# Local environment and editor state
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Historical source archive and private-local reference images are retained
+# locally but are not approved for redistribution in this public repository.
+source/
+public/media/private-reference/
+

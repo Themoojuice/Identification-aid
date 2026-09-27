@@ -1,0 +1,186 @@
+{
+  "schema_version": "1.0",
+  "examples": [
+    {
+      "id": "EX01",
+      "title": "Ordinary genus identification with unknown sex",
+      "synthetic": true,
+      "specimen": {
+        "sex": "unknown",
+        "life_stage": "adult_or_unknown",
+        "evidence": "Several good dorsal, lateral and frontal macro photographs"
+      },
+      "situation": "The user can answer broad Lucid characters but cannot determine sex and leaves difficult genital and fine-spine observations unknown.",
+      "source_references": ["01_lucid_schema.json", "02_lucid_matrix.json", "03_lucid_dependencies.json"],
+      "expected": [
+        "Record sex as Lucid state S004 without converting unanswered observations into absent scores.",
+        "Apply only characters that remain applicable under the Lucid dependencies.",
+        "Retain and rank all compatible Lucid genera rather than demanding an answer to every feature.",
+        "Explain which additional observable characters would best separate the leading candidates."
+      ],
+      "must_not": [
+        "Invent a sex from photographs that do not establish it.",
+        "Treat unknown user answers as Lucid code 0.",
+        "Return a single genus merely because it is first in source order."
+      ]
+    },
+    {
+      "id": "EX02",
+      "title": "Adult male enters the Saitis-group candidate region",
+      "synthetic": true,
+      "specimen": {
+        "sex": "male",
+        "life_stage": "adult",
+        "evidence": "Lucid observations leave Saitis-group genera among the leading candidates"
+      },
+      "situation": "Broad Lucid evidence narrows the specimen to the part of concept space covered by Schubert's male genus key and diagnostic assertions.",
+      "source_references": ["04_taxon_concepts.json", "05_schubert_genus_characters.json"],
+      "expected": [
+        "Make the applicable Schubert male characters available automatically.",
+        "Continue the same identification session while preserving which observations came from which source ontology.",
+        "Use the Schubert key graph and reusable assertions as additional evidence, not as a replacement for the original Lucid record.",
+        "Keep thesis nomenclatural status visible for concepts proposed only there."
+      ],
+      "must_not": [
+        "Require the user to choose or launch a separate Saitis-group key.",
+        "Rewrite Lucid states as though they were Schubert characters.",
+        "Present thesis-only proposed names as formally published."
+      ]
+    },
+    {
+      "id": "EX03",
+      "title": "Female Saitis-group specimen remains ambiguous",
+      "synthetic": true,
+      "specimen": {
+        "sex": "female",
+        "life_stage": "adult",
+        "evidence": "Good habitus photographs but no cleared epigyne or associated male"
+      },
+      "situation": "The specimen is consistent with several Saitis-group genera, while the published Schubert key is explicitly male-only and female morphology is conserved or poorly known in some lineages.",
+      "source_references": ["05_schubert_genus_characters.json"],
+      "expected": [
+        "Recognise that the published key is not applicable as a female key.",
+        "Use source-supported female diagnostic assertions where available.",
+        "Preserve multiple genus candidates and state what evidence would be needed to narrow them.",
+        "Allow the result to remain unresolved."
+      ],
+      "must_not": [
+        "Run male-only key leads against the female as if they were universally applicable.",
+        "Manufacture genus certainty from conserved external morphology.",
+        "Infer a species from locality alone."
+      ]
+    },
+    {
+      "id": "EX04",
+      "title": "Legacy Lucid Maratus sensu lato",
+      "synthetic": true,
+      "specimen": {
+        "lucid_result_taxon_id": "LTX043",
+        "lucid_result_name": "Maratus Karsch, 1878"
+      },
+      "situation": "The Lucid evidence returns its broad legacy Maratus entity, whose contents span several later concepts.",
+      "source_references": ["06_taxon_crosswalk.json#CW005", "04_taxon_concepts.json"],
+      "expected": [
+        "Preserve LTX043 as the original identification result.",
+        "Apply the one-to-many split recorded by CW005 and show the compatible later concepts as a reconciliation layer.",
+        "Use additional morphology to distinguish Schubert Maratus sensu stricto from Anablemum, Hypoblemum, Jotus, Micromaratus, Salinatus, Striattus and Variattus where possible.",
+        "Keep residual or uncertain legacy contents unresolved."
+      ],
+      "must_not": [
+        "Report TC0007 solely because the word Maratus is spelled identically.",
+        "Erase the Lucid result after crosswalking it.",
+        "Treat every former Lycidas or Lucid Maratus species as a member of Maratus sensu stricto."
+      ]
+    },
+    {
+      "id": "EX05",
+      "title": "Prefer an easy observation before a difficult palp character",
+      "synthetic": true,
+      "specimen": {
+        "sex": "male",
+        "life_stage": "adult",
+        "available_views": ["dorsal macro photograph", "uncleared specimen"]
+      },
+      "situation": "A dorsal body or leg character and a fine embolic character would reduce the candidate set by nearly the same amount, but the latter needs microscopy and correct palp orientation.",
+      "source_references": ["01_lucid_schema.json#F027", "01_lucid_schema.json#F065", "05_schubert_genus_characters.json"],
+      "expected": [
+        "Offer the nearly equally discriminating field-visible character first.",
+        "Retain the palp character as a later confirmation option.",
+        "Explain the required view or equipment when a microscopic character is requested.",
+        "Permit 'not sure' without penalising the candidate taxa."
+      ],
+      "must_not": [
+        "Assume that every character has equal observation cost.",
+        "Force microscopy when an easier observation provides nearly the same discrimination.",
+        "Pretend that observation difficulty is source-measured; it is a future curator/product assessment."
+      ]
+    },
+    {
+      "id": "EX06",
+      "title": "Species suggestion follows a genus result",
+      "synthetic": true,
+      "specimen": {
+        "sex": "male",
+        "life_stage": "adult",
+        "genus_concept_id": "TC0008",
+        "observed_evidence": "Silvery-blue iridescent dorsal opisthosoma with a small central dark patch"
+      },
+      "situation": "Genus-level evidence supports Micromaratus, and the dorsal pattern resembles the source diagnosis for SP0008, Micromaratus bluey.",
+      "source_references": ["07_species_hints.json#SP0008"],
+      "expected": [
+        "Show Micromaratus as the primary result.",
+        "Show Micromaratus bluey only as a secondary candidate, preferably as diagnostic-if-character-confirmed.",
+        "Explain that the relevant pattern must be confirmed under useful lighting and that females are unknown in the thesis treatment.",
+        "Keep the thesis-only nomenclatural caveat attached to the proposed species name."
+      ],
+      "must_not": [
+        "Replace the genus result with a species label.",
+        "Treat the Emerald type locality as independently diagnostic.",
+        "Claim certainty from iridescent colour in a poor or angle-dependent photograph."
+      ]
+    },
+    {
+      "id": "EX07",
+      "title": "Taxonomy changes after release",
+      "synthetic": true,
+      "specimen": {
+        "stored_evidence_layer": "lucid",
+        "stored_taxon_id": "LTX043"
+      },
+      "situation": "A later qualifying publication changes preferred names, availability or concept boundaries after observations have already been stored.",
+      "source_references": ["01_lucid_schema.json", "02_lucid_matrix.json", "04_taxon_concepts.json", "06_taxon_crosswalk.json"],
+      "expected": [
+        "Leave the original Lucid ontology and score evidence unchanged.",
+        "Update concept, name-usage and crosswalk records independently.",
+        "Re-evaluate presentation of the stored result through the updated mapping while preserving its original provenance.",
+        "Retain superseded or conflicting assertions where historical reproducibility requires them."
+      ],
+      "must_not": [
+        "Rewrite historical Lucid labels or matrix cells to match the new taxonomy.",
+        "Use a taxon name string as the join key.",
+        "Destroy the ability to reproduce an identification under the earlier source snapshot."
+      ]
+    },
+    {
+      "id": "EX08",
+      "title": "Conflicting source assertions remain visible",
+      "synthetic": true,
+      "specimen": {
+        "candidate_taxon_concept_id": "TC0014",
+        "context": "Reviewing Umbrattus concept metadata"
+      },
+      "situation": "Schubert Chapter V names Umbrattus spectabilis as type species in the genus heading, while the composition line labels Umbrattus bimaculatus as type species.",
+      "source_references": ["04_taxon_concepts.json#TC0014", "Schubert thesis PDF pages 239–240"],
+      "expected": [
+        "Present both source assertions with their page provenance.",
+        "Mark the type-species question unresolved pending author clarification or a qualifying publication.",
+        "Continue to use the biological concept and its diagnostic evidence without pretending the nomenclatural conflict is settled."
+      ],
+      "must_not": [
+        "Silently choose one type species because it appears first or last.",
+        "Overwrite one source assertion with the other.",
+        "Convert a draft inconsistency into an accepted nomenclatural act."
+      ]
+    }
+  ]
+}

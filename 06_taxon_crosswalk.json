@@ -1,0 +1,629 @@
+{
+  "schema_version": "1.0",
+  "mappings": [
+    {
+      "mapping_id": "CW001",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX012",
+        "name": "Barraina Richardson, 2013"
+      },
+      "relationship": "equivalent_to",
+      "to": [
+        {
+          "taxon_concept_id": "TC0016",
+          "relationship": "equivalent_to"
+        }
+      ],
+      "confidence": "high",
+      "basis": "taxonomic_revision",
+      "source_pages": [265, 266],
+      "rationale": "The Lucid and Schubert treatments share the same type species, Barraina anfracta, and the same six-species composition: B. abbedar, B. anfracta, B. banyabba, B. melanoros, B. occidentalis and B. pilata. Schubert questions the genus's monophyly and Saitis-group placement, but does not propose a different circumscription for the named genus concept.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX012",
+            "source/lucid-original/media/Html/entities/barraina_richardson_2013.htm"
+          ],
+          "evidence": "Type-linked six-species Lucid entity and fact sheet."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [265, 266],
+          "evidence": "Same type and six-species composition; placement and monophyly explicitly unverified."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_scope": ["Barraina abbedar", "Barraina anfracta", "Barraina banyabba", "Barraina melanoros", "Barraina occidentalis", "Barraina pilata"],
+          "schubert_scope": ["Barraina abbedar", "Barraina anfracta", "Barraina banyabba", "Barraina melanoros", "Barraina occidentalis", "Barraina pilata"],
+          "relationship": "equivalent_to",
+          "confidence": "high"
+        }
+      ],
+      "notes": "Equivalence concerns the genus circumscription represented by the two sources; it does not convert Schubert's provisional Saitis-group placement into an accepted placement."
+    },
+    {
+      "mapping_id": "CW002",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX028",
+        "name": "Frewena Richardson, 2013"
+      },
+      "relationship": "equivalent_to",
+      "to": [
+        {
+          "taxon_concept_id": "TC0017",
+          "relationship": "equivalent_to"
+        }
+      ],
+      "confidence": "high",
+      "basis": "taxonomic_revision",
+      "source_pages": [266],
+      "rationale": "Both sources anchor Frewena to F. maculata and include the same two species, F. maculata and F. terraregina. Schubert leaves monophyly, boundaries and Saitis-group placement provisional but does not replace the genus circumscription with another named concept.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX028",
+            "source/lucid-original/media/Html/entities/frewena_richardson_2013.htm"
+          ],
+          "evidence": "Two-species Lucid entity and fact sheet."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [266],
+          "evidence": "Same type and two-species composition; placement and monophyly explicitly untested."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_scope": ["Frewena maculata", "Frewena terraregina"],
+          "schubert_scope": ["Frewena maculata", "Frewena terraregina"],
+          "relationship": "equivalent_to",
+          "confidence": "high"
+        }
+      ],
+      "notes": "Equivalence does not imply that Frewena is a confirmed member of the Saitis group."
+    },
+    {
+      "mapping_id": "CW003",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX037",
+        "name": "Hypoblemum Peckham & Peckham, 1886"
+      },
+      "relationship": "partially_overlaps",
+      "to": [
+        {
+          "taxon_concept_id": "TC0005",
+          "relationship": "partially_overlaps"
+        }
+      ],
+      "confidence": "moderate",
+      "basis": "mixed_evidence",
+      "source_pages": [146, 147, 155, 163, 164],
+      "rationale": "The Lucid entity deliberately retains Hypoblemum but describes a confused two-name concept based on H. villosum and H. albovittatum, including an assertion that Australian material called H. albovittatum may be the missing male of Maratus scutulatus. Schubert restores a type-anchored Hypoblemum containing H. griseum, H. magnum, H. scutulatum and H. unicum, and synonymises Saitis taeniatus with H. griseum. The shared generic name and probable scutulatum connection support overlap, but the source compositions and name usages are not equivalent.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX037",
+            "source/lucid-original/media/Html/entities/hypoblemum_peckham__peckham_1886.htm"
+          ],
+          "evidence": "Legacy two-species treatment with explicit nomenclatural confusion; Hypoblemum retained despite a cited proposal to synonymise it with Maratus."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [146, 147, 155, 163, 164],
+          "evidence": "Restored, rediagnosed Hypoblemum concept with four included species and a type-species anchor."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_name": "Hypoblemum albovittatum",
+          "schubert_name": "Hypoblemum scutulatum",
+          "relationship": "probably_corresponds_to",
+          "confidence": "moderate",
+          "rationale": "Lucid itself suggests that Australian H. albovittatum sensu Keyserling represents the missing male of Maratus scutulatus; Schubert restores that species to Hypoblemum. This is a cross-source inference, not an explicit synonymy in the thesis."
+        },
+        {
+          "lucid_name": "Hypoblemum villosum",
+          "schubert_name": null,
+          "relationship": "unresolved",
+          "confidence": "unresolved",
+          "rationale": "The relevant Schubert revision does not explicitly dispose of the Lucid H. villosum name usage."
+        }
+      ],
+      "notes": "Do not use the identical genus spelling to collapse these concepts. The restoration and combinations proposed in the thesis are not formally published under the ICZN merely by appearing there."
+    },
+    {
+      "mapping_id": "CW004",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX039",
+        "name": "Jotus L. Koch, 1881"
+      },
+      "relationship": "partially_overlaps",
+      "to": [
+        {
+          "taxon_concept_id": "TC0006",
+          "relationship": "partially_overlaps"
+        }
+      ],
+      "confidence": "high",
+      "basis": "taxonomic_revision",
+      "source_pages": [120, 121, 152, 173, 174, 175],
+      "rationale": "The two concepts share the type species and five accepted species: J. auripes, J. braccatus, J. frosti, J. minutus and J. remus. Schubert's Chapter IV concept is broader in accepted composition and transfers three species from Maratus, while J. debilis and J. insulanus, accepted in Lucid, are treated as of doubtful generic placement. The later concept therefore overlaps substantially but is not coextensive with the Lucid entity.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX039",
+            "source/lucid-original/media/Html/entities/jotus_l._koch_1881.htm"
+          ],
+          "evidence": "Seven-species Australian Jotus concept: auripes, braccatus, debilis, frosti, insulanus, minutus and remus."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [120, 121, 152, 173, 174, 175],
+          "evidence": "Revised Jotus concept, diagnosis and composition; Chapter IV and Chapter V composition discrepancy is preserved in TC0006."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_names": ["Jotus auripes", "Jotus braccatus", "Jotus frosti", "Jotus minutus", "Jotus remus"],
+          "taxon_concept_id": "TC0006",
+          "relationship": "equivalent_to",
+          "confidence": "high",
+          "rationale": "These species are included under Jotus in both sources."
+        },
+        {
+          "lucid_names": ["Jotus debilis", "Jotus insulanus"],
+          "taxon_concept_id": "TC0006",
+          "relationship": "incertae_sedis",
+          "confidence": "high",
+          "rationale": "Schubert explicitly lists both as doubtful generic placements rather than accepted members of the revised genus."
+        }
+      ],
+      "notes": "Tropijotus fortiniae was transferred from Jotus in the thesis, but it is not listed in the Lucid Jotus fact-sheet composition. No Lucid-Jotus-to-Tropijotus component mapping is fabricated from historical genus placement alone."
+    },
+    {
+      "mapping_id": "CW005",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX043",
+        "name": "Maratus Karsch, 1878"
+      },
+      "relationship": "split_into",
+      "to": [
+        {
+          "taxon_concept_id": "TC0007",
+          "relationship": "contains_some"
+        },
+        {
+          "taxon_concept_id": "TC0004",
+          "relationship": "new_combination"
+        },
+        {
+          "taxon_concept_id": "TC0005",
+          "relationship": "contains_some"
+        },
+        {
+          "taxon_concept_id": "TC0006",
+          "relationship": "new_combination"
+        },
+        {
+          "taxon_concept_id": "TC0008",
+          "relationship": "new_combination"
+        },
+        {
+          "taxon_concept_id": "TC0011",
+          "relationship": "new_combination"
+        },
+        {
+          "taxon_concept_id": "TC0012",
+          "relationship": "new_combination"
+        },
+        {
+          "taxon_concept_id": "TC0015",
+          "relationship": "new_combination"
+        }
+      ],
+      "confidence": "high",
+      "basis": "explicit_transfer",
+      "source_pages": [121, 146, 147, 155, 157, 163, 176, 178, 179, 180, 181, 185, 207, 210, 251],
+      "rationale": "Lucid explicitly defines Maratus as a composite of peacock spiders and unrevised species inherited through the synonymised Lycidas. Schubert restricts Maratus sensu stricto and explicitly reallocates named members of the Lucid list to Anablemum, Hypoblemum, Jotus, Micromaratus, Salinatus, Striattus and Variattus. Lucid Maratus is therefore a broad legacy concept split across eight later biological concepts, not an equivalent of TC0007.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX043",
+            "source/lucid-original/media/Html/entities/maratus_karsch_1878.htm"
+          ],
+          "evidence": "The fact sheet states that the entity combines true peacock spiders with misplaced species inherited from Lycidas and supplies a 108-name list plus a generic-placement-uncertain section."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [121, 146, 147, 155, 157, 163, 176, 178, 179, 180, 181, 185, 207, 210, 251],
+          "evidence": "Restricted Maratus diagnosis and composition together with explicit transfers into seven other concepts."
+        }
+      ],
+      "component_evidence": [
+        {
+          "taxon_concept_id": "TC0007",
+          "relationship": "contains_some",
+          "confidence": "high",
+          "lucid_names": ["Maratus amabilis", "Maratus anomalus", "Maratus pavonis", "Maratus speciosus", "Maratus volans"],
+          "rationale": "Representative Lucid-listed species retained in Schubert's Maratus sensu stricto; the target list is illustrative rather than a second complete composition."
+        },
+        {
+          "taxon_concept_id": "TC0004",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "lucid_names": ["Maratus pilosus"],
+          "schubert_names": ["Anablemum pilosum"],
+          "rationale": "Explicitly transferred from Maratus. The thesis notes that this species had entered Maratus through the Lycidas synonymy."
+        },
+        {
+          "taxon_concept_id": "TC0005",
+          "relationship": "contains_some",
+          "confidence": "high",
+          "lucid_names": ["Maratus griseus", "Maratus scutulatus"],
+          "schubert_names": ["Hypoblemum griseum", "Hypoblemum scutulatum"],
+          "rationale": "Both are restored to Hypoblemum in the thesis. The controlled crosswalk vocabulary has no restored-combination term, so the target relationship is conservatively recorded as contains_some."
+        },
+        {
+          "taxon_concept_id": "TC0006",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "lucid_names": ["Maratus chlorophthalmus", "Maratus michaelseni", "Maratus vittatus"],
+          "schubert_names": ["Jotus chlorophthalmus", "Jotus michaelseni", "Jotus vittatus"],
+          "rationale": "Three explicit Chapter IV transfers from Maratus to Jotus."
+        },
+        {
+          "taxon_concept_id": "TC0008",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "lucid_names": ["Maratus chrysomelas", "Maratus kiwirrkurra", "Maratus nigromaculatus", "Maraus nimbus", "Maratus nubilus", "Maratus purcellae", "Maratus robinsoni", "Maratus spicatus"],
+          "schubert_names": ["Micromaratus chrysomelas", "Micromaratus kiwirrkurra", "Micromaratus nigromaculatus", "Micromaratus nimbus", "Micromaratus nubilis", "Micromaratus purcellae", "Micromaratus robinsoni", "Micromaratus spicatus"],
+          "rationale": "Eight explicit transfers. The Lucid list's original labels 'Maraus nimbus' and 'Maratus nubilus' are preserved here; correspondence to the thesis spellings is based on the otherwise matching epithets and is not used to alter the Lucid source."
+        },
+        {
+          "taxon_concept_id": "TC0011",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "lucid_names": ["Maratus ammophilus", "Maratus fimbriatus", "Maratus speculiferus", "Maratus volpei"],
+          "schubert_names": ["Salinatus ammophilus", "Salinatus fimbriatus", "Salinatus speculifer", "Salinatus volpei"],
+          "rationale": "The first, second and fourth pairs are explicit exact-epithet transfers. Lucid 'speculiferus' versus thesis 'speculifer' is retained as a spelling discrepancy rather than silently normalised."
+        },
+        {
+          "taxon_concept_id": "TC0012",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "lucid_names": ["Maratus piliger"],
+          "schubert_names": ["Striattus piliger"],
+          "rationale": "Explicit transfer from Maratus."
+        },
+        {
+          "taxon_concept_id": "TC0015",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "lucid_names": ["Maratus expolitus"],
+          "schubert_names": ["Variattus expolitus"],
+          "rationale": "Explicit transfer from Maratus."
+        }
+      ],
+      "notes": "This mapping records Schubert's thesis treatment as a concept reconciliation. The proposed new genera and combinations are not formally published under the ICZN merely by appearing in the thesis. Lucid labels, including apparent spelling inconsistencies, remain unmodified."
+    },
+    {
+      "mapping_id": "CW006",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX044",
+        "name": "Margaromma Keyserling, 1882"
+      },
+      "relationship": "partially_overlaps",
+      "to": [
+        {
+          "taxon_concept_id": "TC0020",
+          "relationship": "partially_overlaps"
+        }
+      ],
+      "confidence": "high",
+      "basis": "taxonomic_revision",
+      "source_pages": [267, 268],
+      "rationale": "Both concepts are anchored to Margaromma funestum. Lucid also accepts M. obscurum while already warning that it likely does not belong in the genus; Schubert treats M. obscurum as a nomen dubium, adds other doubtful names, and states that Margaromma is poorly defined and needs type re-examination. The type-linked concepts overlap, but their accepted and unresolved contents are not equivalent.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX044",
+            "source/lucid-original/media/Html/entities/margaromma_keyserling_1882.htm"
+          ],
+          "evidence": "Australian treatment containing M. funestum and M. obscurum, with explicit doubt about the latter."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [267, 268],
+          "evidence": "Type-anchored but poorly defined concept; M. obscurum declared nomen dubium and four additional species treated incertae sedis."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_name": "Margaromma funestum",
+          "schubert_name": "Margaromma funestum",
+          "relationship": "equivalent_to",
+          "confidence": "high",
+          "rationale": "Shared type species."
+        },
+        {
+          "lucid_name": "Margaromma obscurum",
+          "schubert_name": "Margaromma obscurum",
+          "relationship": "unresolved",
+          "confidence": "high",
+          "rationale": "The thesis declares the name a nomen dubium. Because the controlled crosswalk vocabulary has no nomen-dubium relationship, unresolved is used without converting that status into incertae sedis; the exact status is retained here and in TC0020."
+        }
+      ],
+      "notes": "Identical genus spelling and a shared type species do not erase the changed status of non-type contents."
+    },
+    {
+      "mapping_id": "CW007",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX065",
+        "name": "Prostheclina Keyserling, 1882"
+      },
+      "relationship": "equivalent_to",
+      "to": [
+        {
+          "taxon_concept_id": "TC0009",
+          "relationship": "equivalent_to"
+        }
+      ],
+      "confidence": "high",
+      "basis": "taxonomic_revision",
+      "source_pages": [152, 198, 199, 201],
+      "rationale": "Both sources use Prostheclina pallida as the type anchor and list the same seven described species: P. amplior, P. basilonesa, P. boreoaitha, P. boreoxantha, P. bulburin, P. eungella and P. pallida. Schubert's separately modelled cf. Prostheclina lineage is not forced into the genus and therefore does not broaden this equivalence.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX065",
+            "source/lucid-original/media/Html/entities/prostheclina_keyserling_1882.htm"
+          ],
+          "evidence": "Seven-species type-linked entity."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [152, 198, 199, 201],
+          "evidence": "Same seven-species type-linked composition; cf. Prostheclina kept unresolved outside the confident genus concept."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_scope": ["Prostheclina amplior", "Prostheclina basilonesa", "Prostheclina boreoaitha", "Prostheclina boreoxantha", "Prostheclina bulburin", "Prostheclina eungella", "Prostheclina pallida"],
+          "schubert_scope": ["Prostheclina amplior", "Prostheclina basilonesa", "Prostheclina boreoaitha", "Prostheclina boreoxantha", "Prostheclina bulburin", "Prostheclina eungella", "Prostheclina pallida"],
+          "relationship": "equivalent_to",
+          "confidence": "high"
+        }
+      ],
+      "notes": "TC0023 (cf. Prostheclina sp.) remains an unresolved separate lineage and is not included in this mapping."
+    },
+    {
+      "mapping_id": "CW008",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX072",
+        "name": "Saitis Simon, 1876"
+      },
+      "relationship": "split_into",
+      "to": [
+        {
+          "taxon_concept_id": "TC0010",
+          "relationship": "not_equivalent"
+        },
+        {
+          "taxon_concept_id": "TC0015",
+          "relationship": "new_combination"
+        },
+        {
+          "taxon_concept_id": "TC0005",
+          "relationship": "contains_some"
+        },
+        {
+          "taxon_concept_id": "TC0014",
+          "relationship": "contains_some"
+        },
+        {
+          "taxon_concept_id": "TC0011",
+          "relationship": "probably_corresponds_to"
+        }
+      ],
+      "confidence": "moderate",
+      "basis": "mixed_evidence",
+      "source_pages": [146, 153, 163, 203, 204, 207, 239, 240, 251],
+      "rationale": "The Lucid entity is an Australian holding concept containing S. insectus, S. insulanus, S. lacustris, S. magniceps, S. mutans, S. signatus, S. taeniatus and S. virgatus. Schubert's Saitis sensu stricto is instead restricted provisionally to the Mediterranean type species S. barbipes plus S. graecus and S. tauricus. None of those three occurs in the Lucid Australian list. Schubert transfers S. mutans to Variattus, synonymises S. taeniatus with Hypoblemum griseum, synonymises S. virgatus with Umbrattus bimaculatus, and leaves or declares several other Lucid names unresolved or dubious. The concepts are therefore explicitly not equivalent and the legacy contents have multiple later dispositions.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX072",
+            "source/lucid-original/media/Html/entities/saitis_simon_1876.htm"
+          ],
+          "evidence": "Eight-name Australian Saitis holding concept whose fact sheet already calls several placements problematic."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [146, 153, 163, 203, 204, 207, 239, 240, 251],
+          "evidence": "Provisional Saitis sensu stricto, explicit transfer and synonymies, plus incertae-sedis and nomen-dubium treatments."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_scope": ["Saitis insectus", "Saitis insulanus", "Saitis lacustris", "Saitis magniceps", "Saitis mutans", "Saitis signatus", "Saitis taeniatus", "Saitis virgatus"],
+          "taxon_concept_id": "TC0010",
+          "relationship": "not_equivalent",
+          "confidence": "high",
+          "rationale": "The Lucid Australian contents do not include the three species retained in Schubert's Saitis sensu stricto."
+        },
+        {
+          "lucid_name": "Saitis mutans",
+          "schubert_name": "Variattus mutans",
+          "taxon_concept_id": "TC0015",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "rationale": "Explicit thesis transfer."
+        },
+        {
+          "lucid_name": "Saitis taeniatus",
+          "schubert_name": "Hypoblemum griseum",
+          "taxon_concept_id": "TC0005",
+          "relationship": "junior_synonym_of",
+          "confidence": "high",
+          "rationale": "Explicitly treated as a junior synonym of H. griseum."
+        },
+        {
+          "lucid_name": "Saitis virgatus",
+          "schubert_name": "Umbrattus bimaculatus",
+          "taxon_concept_id": "TC0014",
+          "relationship": "junior_synonym_of",
+          "confidence": "high",
+          "rationale": "Explicitly treated as a junior synonym of the species recombined as U. bimaculatus."
+        },
+        {
+          "lucid_name": "Saitis lacustris",
+          "schubert_name": null,
+          "taxon_concept_id": "TC0011",
+          "relationship": "probably_corresponds_to",
+          "confidence": "low",
+          "rationale": "Schubert leaves the species incertae sedis but states that its external morphology and salt-lake habitat suggest Salinatus; no transfer is made."
+        },
+        {
+          "lucid_names": ["Saitis insectus", "Saitis insulanus"],
+          "taxon_concept_id": null,
+          "relationship": "incertae_sedis",
+          "confidence": "high",
+          "rationale": "Both are explicitly excluded from confident Saitis placement; S. insulanus is stated not to be a euophryine. No destination concept is established."
+        },
+        {
+          "lucid_name": "Saitis magniceps",
+          "taxon_concept_id": null,
+          "relationship": "unresolved",
+          "confidence": "high",
+          "rationale": "The thesis declares it a nomen dubium. Because nomen_dubium is not in the controlled crosswalk relationship list, the exact status is preserved here and in TC0010 rather than inventing a destination."
+        },
+        {
+          "lucid_name": "Saitis signatus",
+          "taxon_concept_id": null,
+          "relationship": "unresolved",
+          "confidence": "unresolved",
+          "rationale": "The Chapter V Saitis treatment does not account for this Lucid-listed name."
+        }
+      ],
+      "notes": "The mapping is a split with unresolved residues, not a transfer of the Lucid entity wholesale. Thesis-only combinations and synonymies retain the nomenclatural caveat recorded in 04_taxon_concepts.json."
+    },
+    {
+      "mapping_id": "CW009",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX073",
+        "name": "Salpesia Simon, 1901"
+      },
+      "relationship": "split_into",
+      "to": [
+        {
+          "taxon_concept_id": "TC0021",
+          "relationship": "not_equivalent"
+        },
+        {
+          "taxon_concept_id": "TC0014",
+          "relationship": "new_combination"
+        }
+      ],
+      "confidence": "high",
+      "basis": "mixed_evidence",
+      "source_pages": [146, 239, 240, 268, 269],
+      "rationale": "The Lucid fact sheet explicitly says its entity describes four misplaced Australian species rather than the Seychelles type species Salpesia soricina. Schubert likewise finds no evidence that those Australian usages are congeneric with the type. Salpesia bimaculata is transferred to Umbrattus and treated as the senior synonym of Saitis virgatus; S. bicolor and S. villosa become nomina dubia, while S. squalida is incertae sedis and recovered sister to Servaea. The Lucid entity is therefore not equivalent to Schubert's type-anchored Salpesia concept and has no single later destination.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX073",
+            "source/lucid-original/media/Html/entities/salpesia_simon_1901.htm"
+          ],
+          "evidence": "Australian holding entity for S. bicolor, S. bimaculata, S. squalida and S. villosa; explicitly excludes the morphology of the Seychelles type species from its description."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [146, 239, 240, 268, 269],
+          "evidence": "Type-anchored Salpesia concept, explicit transfer/synonymy for S. bimaculata, and doubtful-status treatments for the other Australian names."
+        }
+      ],
+      "component_evidence": [
+        {
+          "lucid_scope": ["Salpesia bicolor", "Salpesia bimaculata", "Salpesia squalida", "Salpesia villosa"],
+          "taxon_concept_id": "TC0021",
+          "relationship": "not_equivalent",
+          "confidence": "high",
+          "rationale": "The Lucid description explicitly concerns Australian species and not the type-species-anchored Salpesia sensu stricto."
+        },
+        {
+          "lucid_name": "Salpesia bimaculata",
+          "schubert_name": "Umbrattus bimaculatus",
+          "taxon_concept_id": "TC0014",
+          "relationship": "new_combination",
+          "confidence": "high",
+          "rationale": "Explicit thesis transfer; Saitis virgatus is treated as its junior synonym."
+        },
+        {
+          "lucid_names": ["Salpesia bicolor", "Salpesia villosa"],
+          "taxon_concept_id": null,
+          "relationship": "unresolved",
+          "confidence": "high",
+          "rationale": "The thesis declares both names nomina dubia; no defensible destination concept exists."
+        },
+        {
+          "lucid_name": "Salpesia squalida",
+          "taxon_concept_id": null,
+          "relationship": "incertae_sedis",
+          "confidence": "high",
+          "rationale": "The thesis treats it as incertae sedis and recovers it as sister to Servaea, not as a member of a revised Servaea concept."
+        }
+      ],
+      "notes": "The Salpesia name is shared, but the source concepts are expressly different. The internally conflicting Umbrattus type-species assertions remain unresolved in TC0014 and are not adjudicated here."
+    },
+    {
+      "mapping_id": "CW010",
+      "from": {
+        "source": "lucid",
+        "taxon_id": "LTX075",
+        "name": "Servaea Simon, 1887"
+      },
+      "relationship": "unresolved",
+      "to": [],
+      "confidence": "unresolved",
+      "basis": "insufficient_evidence",
+      "source_pages": [152, 268, 269],
+      "rationale": "Schubert uses Servaea as an external phylogenetic comparator and recovers Salpesia squalida as its sister, but does not revise, diagnose or delimit a Servaea genus concept in Chapters III-V. No Servaea concept exists in 04_taxon_concepts.json, and a sister relationship involving one misplaced species is not evidence that the Lucid Servaea entity should be merged with or expanded to include it.",
+      "source_evidence": [
+        {
+          "source": "lucid",
+          "references": [
+            "01_lucid_schema.json:LTX075",
+            "source/lucid-original/media/Html/entities/servaea_simon_1887.htm"
+          ],
+          "evidence": "Six-species Australian Servaea entity whose wider relationships are described as uncertain."
+        },
+        {
+          "source": "schubert_2025_thesis",
+          "pages": [152, 268, 269],
+          "evidence": "Servaea is outside the Saitis group and sister to the sampled Salpesia squalida lineage; no revised Servaea circumscription is supplied."
+        }
+      ],
+      "component_evidence": [],
+      "notes": "Reviewed because of the explicit phylogenetic result, but intentionally left without a target concept rather than fabricating coverage."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "manifest_version": "1.0.0",
+  "policy": "Inputs are immutable evidence. Compilation must fail if byte length or SHA-256 differs.",
+  "packet_files": [
+    { "path": "00_START_HERE.md", "bytes": 6472, "sha256": "9cace86384fdff8cd588a702d99f9e6d18cd38510a88efd720f06695e9b4b771", "role": "scope_and_semantics" },
+    { "path": "01_lucid_schema.json", "bytes": 167370, "sha256": "2a29ee92696f8716af264dcdaf0970252910e361d56c612d26ade60b9a9e536b", "role": "lucid_ontology" },
+    { "path": "02_lucid_matrix.json", "bytes": 189776, "sha256": "b215d32c07a038f4ff1cde10184be9dcd3782a075456068d596b8dbf56bc9fdf", "role": "lucid_matrix" },
+    { "path": "03_lucid_dependencies.json", "bytes": 15989, "sha256": "4f5c9db92e67d1c0233d626740a074ce2bdae690e9270a550986e34e9546014a", "role": "lucid_dependencies" },
+    { "path": "04_taxon_concepts.json", "bytes": 79767, "sha256": "d7d177f58aa9fc9d1191c6fd6d32c502c3c27a4bd1b321cbe969b68a9cd2c718", "role": "concepts_and_placements" },
+    { "path": "05_schubert_genus_characters.json", "bytes": 97875, "sha256": "b134d4c70f7965ce4b56419f84a71a91d3a6dec557674b8ce22549ce766536a6", "role": "characters_assertions_and_key" },
+    { "path": "06_taxon_crosswalk.json", "bytes": 30112, "sha256": "4a06ebd633550e41a15f3aac671138338c4da0174898cd47a0bdef7dcf1aaf95", "role": "reviewed_reconciliation" },
+    { "path": "07_species_hints.json", "bytes": 58680, "sha256": "7c4a786bfad1dd728983ad7819a1ada7d3a18dd46a5b6bbc80107806f9164383", "role": "selective_species_hints" },
+    { "path": "08_media_manifest.json", "bytes": 775387, "sha256": "db9eaf15160ef61e6623615ad0d98f4ccbdff8587f84d239e3ede36ebec2228a", "role": "media_associations_and_rights" },
+    { "path": "09_examples.json", "bytes": 9642, "sha256": "e40340bfe21d2f6a58ecf9b3e47ce6ecdd85ed52261a925249a4b5349220ffb0", "role": "synthetic_behaviour_examples" },
+    { "path": "10_validation_report.md", "bytes": 20891, "sha256": "cbded7050d3e470c8b121886f2abb8c1c7632a631feb87a66ca561cfb9cc2d57", "role": "validation_and_review_issues" }
+  ],
+  "additional_immutable_sources": [
+    { "path": "salticidae.json", "bytes": 286072, "sha256": "cea9492cd5649764482748e88be2d6cfab91344c573b3dada2f85b9d4aa6b4c8", "role": "original_lucid_payload" },
+    { "path": "source/lucid-original/salticidae.json", "bytes": 286072, "sha256": "cea9492cd5649764482748e88be2d6cfab91344c573b3dada2f85b9d4aa6b4c8", "role": "archived_lucid_payload" }
+  ]
+}

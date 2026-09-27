@@ -1,0 +1,387 @@
+{
+  "format": "taxonomytool.player-asset-manifest.v1",
+  "observed_at": "2026-09-03T23:37:10.217Z",
+  "live_page": "https://apps.lucidcentral.org/salticidae/key.html",
+  "records": [
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/key/salticidae.json",
+      "local_path": "source/lucid-original/salticidae.json",
+      "classification": "CORE LOGIC",
+      "discovery": "observed in live player DOM after load",
+      "status": "downloaded",
+      "bytes": 286072,
+      "sha256": "cea9492cd5649764482748e88be2d6cfab91344c573b3dada2f85b9d4aa6b4c8",
+      "notes": "Archived for decoder/player forensics."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/4AE4362F5AC4B0E8494B10D1BF2ED441.cache.js",
+      "local_path": "source/lucid-original/metadata/4AE4362F5AC4B0E8494B10D1BF2ED441.cache.js",
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "downloaded",
+      "bytes": 939968,
+      "sha256": "313800f15eae8462125fd99d2bd2282bc806027809a7384dfc0e198c4ac2f3dc",
+      "notes": "Archived for decoder/player forensics."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/ext/js/base64.min.js",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/ext/js/jquery-3.4.1.min.js",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/ext/js/jquery.fancybox.min.js",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/ext/js/lz-string.min.js",
+      "local_path": "source/lucid-original/metadata/lz-string.min.js",
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "downloaded",
+      "bytes": 4719,
+      "sha256": "9d1a0ef07a2ea5faa8cd4afb60a0518075e6771e341e5ff4e0e481cefedeecbf",
+      "notes": "Archived for decoder/player forensics."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/ext/js/snackbar.min.js",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/player.nocache.js",
+      "local_path": "source/lucid-original/metadata/player.nocache.js",
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "downloaded",
+      "bytes": 7651,
+      "sha256": "11c67f47737d2c15f5d0aa5ce7fc83e33c9ea03ca13a0c1c515bfd7bfd2206d9",
+      "notes": "Archived for decoder/player forensics."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/ext/css/jquery.fancybox.min.css",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/ext/css/snackbar.min.css",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/player.css",
+      "local_path": "source/lucid-original/metadata/player.css",
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "downloaded",
+      "bytes": 3567,
+      "sha256": "5b14269831a6141c7862fa134bdbac1f7056d6fc5d2f9b00fafb3664963b5a29",
+      "notes": "Archived for decoder/player forensics."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/gwt/clean/clean.css",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/css/animation.min.css",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/css/material-icons.min.css",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/css/materialize.min.css",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/restartIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/collapseTreeIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/expandTreeIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/findIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/featureThumbnailsIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/entityThumbnailsIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/subsetsIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/bestIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/pruneIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/differencesIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/shortcutsIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/whyDiscardedIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/preferencesIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/helpIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/aboutIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/entitiesIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/expandBlack_24.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/textIconBlack_24.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/images/featuresIcon.png",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/clear.cache.gif",
+      "local_path": null,
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "observed_live_not_archived",
+      "bytes": null,
+      "sha256": null,
+      "notes": "Generic player presentation/runtime asset; not required for normalized key data."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/key/salticidae/Media/Thumbs/entities/salticidae/figure_1_morphology.jpg",
+      "local_path": "source/lucid-original/Media/Thumbs/entities/salticidae/figure_1_morphology.jpg",
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "observed in live player DOM after load",
+      "status": "downloaded",
+      "bytes": 8558,
+      "sha256": "c7161180713560e66401cff088b98b4e615b2bf602f296f9ebd3c9bab5d7674b",
+      "notes": "Archived for decoder/player forensics."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/4B18E93891BAF0C2E923F399217EF0AF.cache.js",
+      "local_path": "source/lucid-original/metadata/4B18E93891BAF0C2E923F399217EF0AF.cache.js",
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "browser permutation discovered in player.nocache.js",
+      "status": "downloaded",
+      "bytes": 938942,
+      "sha256": "eb47f3fcf1a9ad931fd422bd8280c78461286c30489d29ebebb5f52668376a3d",
+      "notes": "Archived for decoder/player forensics."
+    },
+    {
+      "url": "https://apps.lucidcentral.org/salticidae/player/77D824785DBB0C278F9007571085BA96.cache.js",
+      "local_path": "source/lucid-original/metadata/77D824785DBB0C278F9007571085BA96.cache.js",
+      "classification": "PLAYER-ONLY / NOT NEEDED",
+      "discovery": "browser permutation discovered in player.nocache.js",
+      "status": "downloaded",
+      "bytes": 940097,
+      "sha256": "b00adf54cdd176c23d1688d69eaa14593e8477db21b82631423fa1f915320c07",
+      "notes": "Archived for decoder/player forensics."
+    }
+  ]
+}
