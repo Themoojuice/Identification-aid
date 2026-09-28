@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "npm run app:data && vite",
     "build": "npm run app:data && tsc --noEmit -p tsconfig.app.json && vite build && node scripts/build_offline_package.js && node scripts/verify_offline_package.js",
+    "build:public": "tsc --noEmit -p tsconfig.app.json && vite build && node scripts/build_offline_package.js && node scripts/verify_offline_package.js",
     "start": "node scripts/serve_app.js",
     "app": "npm run build && npm start",
     "app:data": "node scripts/build_app_data.js && node scripts/compile_scientific_package.js",

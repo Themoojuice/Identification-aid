@@ -75,7 +75,7 @@ The root `salticidae.json` remains untouched. Its archived copy has the same SHA
 ## Validate the public checkout
 
 ```text
-npm run build
+npm run build:public
 npm run test:app
 ```
 
