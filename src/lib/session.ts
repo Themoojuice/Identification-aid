@@ -1,12 +1,15 @@
 import type { GenusObservation, LifeStage, PreparationState, Sex, SpecimenContext } from './genus-engine'
 import type { ScientificRuntimePackage } from './scientific-contract'
+import { SPECIES_POLICY_VERSION } from './species-suggestions'
+import type { SpeciesObservation } from './species-suggestions'
 import type { Confidence, KeyData, Observation as LegacyObservation, SpecimenSex, WorkMode } from './types'
 
-export const SESSION_STORAGE_KEY = 'salticidae-genus-session-v4'
-export const PREVIOUS_SESSION_STORAGE_KEY = 'salticidae-genus-session-v3'
+export const SESSION_STORAGE_KEY = 'salticidae-genus-session-v5'
+export const PREVIOUS_SESSION_STORAGE_KEY = 'salticidae-genus-session-v4'
+export const PREVIOUS_SESSION_STORAGE_KEYS = [PREVIOUS_SESSION_STORAGE_KEY, 'salticidae-genus-session-v3', 'salticidae-genus-session-v2'] as const
 export const LEGACY_SESSION_STORAGE_KEY = 'salticidae-key-session-v1'
-export const SESSION_FORMAT = 'australian-salticidae-session@4' as const
-const PREVIOUS_SESSION_FORMATS = ['australian-salticidae-session@3', 'australian-salticidae-session@2']
+export const SESSION_FORMAT = 'australian-salticidae-session@5' as const
+const PREVIOUS_SESSION_FORMATS = ['australian-salticidae-session@4', 'australian-salticidae-session@3', 'australian-salticidae-session@2']
 
 export interface PackagePin {
   scientificPackageVersion: string
@@ -15,6 +18,7 @@ export interface PackagePin {
   genusEngineVersion: string
   schubertPolicyVersion: string
   questionUtilityVersion: string
+  speciesPolicyVersion: string
   offlinePackageId: string | null
 }
 
@@ -40,6 +44,8 @@ export interface IdentificationSession {
   observations: GenusObservation[]
   schubertObservations: GenusObservation[]
   publishedKeyHistory: Array<{ nodeId: string; branchIndex: number }>
+  speciesSuggestionsEnabled: boolean
+  speciesObservations: SpeciesObservation[]
   workMode: WorkMode
   expertMode: boolean
   legacyHistory: LegacyHistoryItem[]
@@ -68,6 +74,8 @@ export function freshSession(): IdentificationSession {
     observations: [],
     schubertObservations: [],
     publishedKeyHistory: [],
+    speciesSuggestionsEnabled: true,
+    speciesObservations: [],
     workMode: 'field',
     expertMode: false,
     legacyHistory: [],
@@ -99,9 +107,11 @@ export function restoreCurrentSession(raw: string | null): IdentificationSession
       format: SESSION_FORMAT,
       schubertObservations: Array.isArray(parsed.schubertObservations) ? parsed.schubertObservations : [],
       publishedKeyHistory: Array.isArray(parsed.publishedKeyHistory) ? parsed.publishedKeyHistory : [],
+      speciesSuggestionsEnabled: parsed.speciesSuggestionsEnabled !== false,
+      speciesObservations: Array.isArray(parsed.speciesObservations) ? parsed.speciesObservations : [],
       legacyHistory: Array.isArray(parsed.legacyHistory) ? parsed.legacyHistory : [],
       migration: parsed.migration ?? { source: 'new', convertedObservations: 0, unconvertedObservations: 0, message: 'Restored local identification.' },
-      packagePin: parsed.packagePin ?? null,
+      packagePin: parsed.packagePin ? { ...parsed.packagePin, speciesPolicyVersion: parsed.packagePin.speciesPolicyVersion ?? SPECIES_POLICY_VERSION } : null,
     }
   } catch {
     return null

@@ -21,7 +21,7 @@ import {
 import type { HistoricalReconciliation, ReconciledGenusEvaluation } from './lib/concept-reconciliation'
 import {
   freshSession, LEGACY_SESSION_STORAGE_KEY, migrateLegacySession, restoreCurrentSession, restoreSessionExport,
-  PREVIOUS_SESSION_STORAGE_KEY, SESSION_STORAGE_KEY, sessionExport,
+  PREVIOUS_SESSION_STORAGE_KEYS, SESSION_STORAGE_KEY, sessionExport,
 } from './lib/session'
 import type { IdentificationSession } from './lib/session'
 import type { CuratedMetadata, FactSheetData, KeyData, WorkMode } from './lib/types'
@@ -36,6 +36,10 @@ import { rankLucidQuestions } from './lib/question-ranking'
 import { loadIndexedSession, rememberPinnedPackage, requestPersistentStorage, saveIndexedSession, storageEstimate } from './lib/offline-storage'
 import { checkForOfflineUpdate, initialOfflineStatus, pinOfflinePackage, rollbackOfflinePackage, subscribeOfflineStatus } from './lib/offline-client'
 import type { OfflineStatus } from './lib/offline-client'
+import {
+  createSpeciesDatasetFromScientificPackage, evaluateSpeciesSuggestions, SPECIES_POLICY_VERSION,
+} from './lib/species-suggestions'
+import type { SpeciesHintResponse, SpeciesObservation, SpeciesSuggestionEvaluation, SpeciesSuggestionResult } from './lib/species-suggestions'
 
 type AppData = { key: KeyData; facts: FactSheetData; curated: CuratedMetadata; scientific: ScientificRuntimePackage }
 type Screen = 'question' | 'evidence' | 'compare' | 'context'
@@ -83,7 +87,7 @@ function App() {
       const indexed = await loadIndexedSession()
       const current = (indexed ? restoreCurrentSession(JSON.stringify(indexed)) : null)
         ?? restoreCurrentSession(localStorage.getItem(SESSION_STORAGE_KEY))
-        ?? restoreCurrentSession(localStorage.getItem(PREVIOUS_SESSION_STORAGE_KEY))
+        ?? PREVIOUS_SESSION_STORAGE_KEYS.map((key) => restoreCurrentSession(localStorage.getItem(key))).find((saved) => saved !== null)
       const legacy = current ? null : migrateLegacySession(localStorage.getItem(LEGACY_SESSION_STORAGE_KEY), data.scientific, data.key)
       if (!cancelled) { setSession(current ?? legacy ?? freshSession()); setHydrated(true) }
     })()
@@ -106,6 +110,7 @@ function App() {
       genusEngineVersion: REVIEWED_POLICY.version,
       schubertPolicyVersion: SCHUBERT_POLICY_VERSION,
       questionUtilityVersion: QUESTION_UTILITY_VERSION,
+      speciesPolicyVersion: SPECIES_POLICY_VERSION,
       offlinePackageId: offlineStatus.activePackageId,
     } }))
   }, [data, hydrated, offlineStatus.activePackageId, session.packagePin])
@@ -126,6 +131,7 @@ function App() {
       genus: createGenusDatasetFromScientificPackage(data.scientific),
       reconciliation: createReconciliationDatasetFromScientificPackage(data.scientific),
       schubert: createSchubertDatasetFromScientificPackage(data.scientific),
+      species: createSpeciesDatasetFromScientificPackage(data.scientific),
     }
   }, [data])
   const evaluation = useMemo(() => domain
@@ -149,6 +155,15 @@ function App() {
       ...(keyNode?.kind === 'terminal' && keyAvailability(session.specimen).available ? [keyTerminalEvidence(keyNode)] : []),
     ])
     : null, [domain, evaluation, keyNode, schubertEvaluation])
+  const speciesEvaluation = useMemo(() => domain && reconciled
+    ? evaluateSpeciesSuggestions(domain.species, {
+      enabled: session.speciesSuggestionsEnabled,
+      context: session.specimen,
+      workMode: session.workMode,
+      conceptCandidates: reconciled.concepts,
+      observations: session.speciesObservations,
+    })
+    : null, [domain, reconciled, session.speciesObservations, session.speciesSuggestionsEnabled, session.specimen, session.workMode])
   const ui = useMemo(() => data && domain ? buildUiIndexes(data, domain.genus.characters, domain.genus.states) : null, [data, domain])
 
   const questionPool = useMemo(() => {
@@ -269,6 +284,31 @@ function App() {
     setActiveQuestionSource('schubert'); setActiveCharacterId(characterId); setScreen('question')
   }
 
+  function recordSpeciesHint(speciesId: string, hintId: string, response: SpeciesHintResponse) {
+    setSession((current) => ({
+      ...current,
+      speciesObservations: [
+        ...current.speciesObservations.filter((item) => !(item.speciesId === speciesId && item.hintId === hintId)),
+        {
+          id: `species-observation:${speciesId}:${hintId}`,
+          specimenId: current.specimen.specimenId,
+          speciesId,
+          hintId,
+          response,
+          certainty: response === 'matches' || response === 'does_not_match' ? 'certain' : 'tentative',
+        },
+      ],
+    }))
+  }
+
+  function changeSpeciesCertainty(speciesId: string, hintId: string, certainty: ObservationCertainty) {
+    setSession((current) => ({ ...current, speciesObservations: current.speciesObservations.map((item) => item.speciesId === speciesId && item.hintId === hintId ? { ...item, certainty } : item) }))
+  }
+
+  function removeSpeciesObservation(speciesId: string, hintId: string) {
+    setSession((current) => ({ ...current, speciesObservations: current.speciesObservations.filter((item) => !(item.speciesId === speciesId && item.hintId === hintId)) }))
+  }
+
   function nextQuestion() {
     setActiveCharacterId(null)
     setActiveQuestionSource(null)
@@ -324,11 +364,13 @@ function App() {
   }
 
   function toggleComparison(id: string) {
+    const adding = !comparisonIds.includes(id)
     setComparisonIds((current) => current.includes(id) ? current.filter((item) => item !== id) : current.length < 4 ? [...current, id] : current)
+    if (adding && comparisonIds.length < 4) setScreen('compare')
   }
 
   if (loadError) return <StatusScreen title="The identification tool could not open" detail={loadError} error />
-  if (!data || !domain || !evaluation || !schubertEvaluation || !reconciled || !ui || !hydrated) return <StatusScreen title="Opening the genus guide…" detail="Preparing the scientific package and your saved work." />
+  if (!data || !domain || !evaluation || !schubertEvaluation || !reconciled || !speciesEvaluation || !ui || !hydrated) return <StatusScreen title="Opening the genus guide…" detail="Preparing the scientific package and your saved work." />
   if (new URLSearchParams(window.location.search).get('illustration-audit') === 'schubert') return <SchubertIllustrationAudit characters={domain.schubert.characters} states={domain.schubert.states} />
   if (!session.contextStarted) return <ContextStart onStart={(sex) => { updateContext('sex', sex); setScreen('question') }} />
 
@@ -369,7 +411,7 @@ function App() {
           {session.expertMode && <PublishedKeyResolver node={keyNode} available={keyAvailability(session.specimen)} onBranch={followKey} onReset={() => setSession((current) => ({ ...current, publishedKeyHistory: [] }))} />}
         </>}
         {screen === 'evidence' && <EvidenceReview session={session} evaluation={evaluation} domain={domain.genus} schubert={{ characters: domain.schubert.characters, states: domain.schubert.states }} schubertEvaluation={schubertEvaluation!} onEdit={(id) => { setActiveQuestionSource('lucid'); setActiveCharacterId(id); setScreen('question') }} onEditSchubert={(id) => { setActiveQuestionSource('schubert'); setActiveCharacterId(id); setScreen('question') }} onRemove={removeObservation} onRemoveSchubert={removeSchubertObservation} />}
-        {screen === 'compare' && <ComparisonPanel candidates={evaluation.candidates} selectedIds={comparisonIds} reconciled={reconciled} onToggle={toggleComparison} onOpen={setSelectedCandidateId} />}
+        {screen === 'compare' && <><ComparisonPanel candidates={evaluation.candidates} selectedIds={comparisonIds} reconciled={reconciled} onToggle={toggleComparison} onOpen={setSelectedCandidateId} /><SpeciesSuggestionPanel evaluation={speciesEvaluation} observations={session.speciesObservations} enabled={session.speciesSuggestionsEnabled} sex={session.specimen.sex} workMode={session.workMode} onToggle={(enabled) => setSession((current) => ({ ...current, speciesSuggestionsEnabled: enabled }))} onRecord={recordSpeciesHint} onCertainty={changeSpeciesCertainty} onRemove={removeSpeciesObservation} /></>}
         {screen === 'context' && <ContextPanel session={session} evaluation={evaluation} offlineStatus={offlineStatus} storageUsage={storageUsage} storageWarning={storageWarning} importMessage={importMessage} onCheckUpdate={checkForOfflineUpdate} onRollback={rollbackOfflinePackage} onExport={exportSession} onImport={() => importRef.current?.click()} onContext={updateContext} onMode={(workMode) => setSession((current) => ({ ...current, workMode }))} onBack={() => setScreen('question')} />}
       </section>
 
@@ -511,6 +553,41 @@ function ContextChoice({ label, value, options, onChange }: { label: string; val
 function ComparisonPanel({ candidates, selectedIds, reconciled, onToggle, onOpen }: { candidates: CandidateResult[]; selectedIds: string[]; reconciled: ReconciledGenusEvaluation; onToggle: (id: string) => void; onOpen: (id: string) => void }) {
   const selected = candidates.filter((item) => selectedIds.includes(item.taxon.id))
   return <div className="page-panel"><header className="page-heading"><span className="eyebrow">Candidate comparison</span><h1>Compare evidence, not percentages.</h1><p>Select two to four genera from the result cards below. Coverage reports how much of your active evidence is actually scored for each genus.</p></header>{selected.length < 2 ? <div className="empty-inline"><FlaskConical /><b>Select {2 - selected.length} more candidate{selected.length ? '' : 's'}.</b><span>Use “Compare” on result cards.</span></div> : <div className="comparison-grid">{selected.map((candidate) => <article key={candidate.taxon.id}><button className="remove-compare" onClick={() => onToggle(candidate.taxon.id)}><X /></button><span className={`band ${candidate.band}`}>{bandCopy[candidate.band].label}</span><h2><i>{genusOnly(candidate.taxon.label)}</i></h2><p>{candidate.explanation}</p><dl><div><dt>Support groups</dt><dd>{candidate.supportGroups + candidate.tentativeSupportGroups}</dd></div><div><dt>Strong conflicts</dt><dd>{candidate.strongContradictions}</dd></div><div><dt>Assessed coverage</dt><dd>{candidate.coverage.assessedObservations} of {candidate.coverage.constrainingObservations}</dd></div></dl><TaxonomySummary historical={historicalFor(reconciled, candidate.taxon.id)} concepts={conceptsFor(reconciled, candidate.taxon.id)} /><button className="text-button" onClick={() => onOpen(candidate.taxon.id)}>Review all evidence <ChevronRight /></button></article>)}</div>}</div>
+}
+
+const speciesOutcomeCopy: Record<SpeciesSuggestionResult['outcome'], { label: string; detail: string }> = {
+  none: { label: 'No suggestion', detail: 'The selective source profiles do not support a species suggestion in the current scope.' },
+  possible: { label: 'Possible', detail: 'Genus and scope allow consideration, but no diagnostic species evidence is confirmed.' },
+  plausible: { label: 'Plausible', detail: 'Some applicable source evidence supports this candidate, with important limitations.' },
+  strong_candidate: { label: 'Strong candidate', detail: 'Applicable source-diagnostic evidence and selective comparison coverage are satisfied.' },
+  diagnostic_if_confirmed: { label: 'Diagnostic if confirmed', detail: 'A specific unresolved observation could materially strengthen this candidate.' },
+}
+
+function SpeciesSuggestionPanel({ evaluation, observations, enabled, sex, workMode, onToggle, onRecord, onCertainty, onRemove }: {
+  evaluation: SpeciesSuggestionEvaluation
+  observations: SpeciesObservation[]
+  enabled: boolean
+  sex: Sex
+  workMode: WorkMode
+  onToggle: (enabled: boolean) => void
+  onRecord: (speciesId: string, hintId: string, response: SpeciesHintResponse) => void
+  onCertainty: (speciesId: string, hintId: string, certainty: ObservationCertainty) => void
+  onRemove: (speciesId: string, hintId: string) => void
+}) {
+  const visible = evaluation.visibleResults
+  return <section className="species-panel" aria-labelledby="species-heading">
+    <header><div><span className="eyebrow">Optional downstream module</span><h1 id="species-heading">Selective species suggestions</h1><p>Genus results above remain primary and are never changed by this module.</p></div><label className="expert-toggle"><input type="checkbox" checked={enabled} onChange={(event) => onToggle(event.target.checked)} /><span>Enable suggestions</span></label></header>
+    <p className="species-coverage"><Info /> {evaluation.coverageNotice}</p>
+    {!enabled ? <div className="empty-inline"><EyeOff /><b>Species suggestions are off.</b><span>Your genus ranking and evidence are unchanged.</span></div>
+      : visible.length === 0 ? <div className="empty-inline"><CircleHelp /><b>No species suggestion</b><span>No sufficiently supported contemporary genus profile applies yet, or the specimen scope is unsupported.</span></div>
+        : <div className="species-results">{visible.map((result) => {
+          const copy = speciesOutcomeCopy[result.outcome]
+          return <details className={`species-card ${result.outcome}`} key={result.species.id} open={result.outcome === 'strong_candidate' || result.outcome === 'plausible'}><summary><span><em>{copy.label}</em><b><i>{result.species.name}</i></b><small>{copy.detail}</small></span><ChevronDown /></summary><div className="species-card-body"><p>{result.explanation}</p><p className="thesis-status"><CircleAlert /> Thesis proposal only; nomenclatural availability has not been established by this tool.</p><dl><div><dt>Specimen scope</dt><dd>{sex} · {workMode}</dd></div><div><dt>Selective comparison</dt><dd>{result.comparisonCoverage.profiledSpeciesInGenus} profiled species in this genus</dd></div><div><dt>Other placements</dt><dd>{result.comparisonCoverage.otherPlacementsUnscored} unscored, not rejected</dd></div></dl>{result.constraints.length > 0 && <ul className="species-constraints">{result.constraints.map((constraint) => <li key={constraint}>{constraint}</li>)}</ul>}<div className="species-hints">{result.applicableHints.map((hint) => {
+            const observation = observations.find((item) => item.speciesId === result.species.id && item.hintId === hint.id)
+            return <article key={hint.id}><header><div><span>{hint.confidence.replaceAll('_', ' ')}</span><h3>{hint.label}</h3></div><small>Thesis p. {hint.sourcePage}</small></header><p>{hint.description}</p><div className="hint-requirements">{hint.requiresMicroscopy && <span><Microscope /> Microscope</span>}{hint.requiresGenitalia && <span><FlaskConical /> Genital anatomy</span>}<span>{hint.sex.join(' / ')}</span></div><div className="hint-actions"><button className={observation?.response === 'matches' ? 'active support' : ''} aria-pressed={observation?.response === 'matches'} onClick={() => onRecord(result.species.id, hint.id, 'matches')}><Check /> Matches</button><button className={observation?.response === 'does_not_match' ? 'active conflict' : ''} aria-pressed={observation?.response === 'does_not_match'} onClick={() => onRecord(result.species.id, hint.id, 'does_not_match')}><X /> Does not match</button><button className={observation?.response === 'not_sure' ? 'active' : ''} aria-pressed={observation?.response === 'not_sure'} onClick={() => onRecord(result.species.id, hint.id, 'not_sure')}>Not sure</button><button className={observation?.response === 'cannot_see' ? 'active' : ''} aria-pressed={observation?.response === 'cannot_see'} onClick={() => onRecord(result.species.id, hint.id, 'cannot_see')}>Can’t see</button>{observation && <button className="quiet" onClick={() => onRemove(result.species.id, hint.id)}>Clear</button>}</div>{observation && (observation.response === 'matches' || observation.response === 'does_not_match') && <div className="hint-certainty"><span>Confidence</span>{(['certain', 'fairly_sure', 'tentative'] as const).map((certainty) => <button className={observation.certainty === certainty ? 'active' : ''} onClick={() => onCertainty(result.species.id, hint.id, certainty)} key={certainty}>{certainty === 'fairly_sure' ? 'Fairly sure' : certainty === 'tentative' ? 'Tentative' : 'Certain'}</button>)}</div>}</article>
+          })}</div><details className="species-source"><summary>Source limits and localities</summary><p>{result.species.limitations}</p><p>Recorded source localities: {result.species.localities.join('; ')}. Locality is displayed as context only and never scores a suggestion.</p><small>Source pages: {result.species.sourcePages.join(', ')} · {result.species.nomenclaturalStatus.replaceAll('_', ' ')}</small></details></div></details>
+        })}</div>}
+  </section>
 }
 
 function CandidateCard({ candidate, rank, reconciliation, concepts, selected, onCompare, onOpen }: { candidate: CandidateResult; rank: number; reconciliation?: HistoricalReconciliation; concepts: ReconciledGenusEvaluation['concepts']; selected: boolean; onCompare: () => void; onOpen: () => void }) {

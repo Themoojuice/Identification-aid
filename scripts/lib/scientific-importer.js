@@ -551,7 +551,7 @@ function buildScientificPackage(root) {
   const inputDigest = sha256(`${sourceManifest.packet_files.map((x) => `${x.path}:${x.sha256}`).join('\n')}\n${provenanceCorrectionPath}:${provenanceCorrectionSha256}`);
   return {
     format: 'australian-salticidae-scientific-package@1',
-    packageVersion: 'pre-stage7-provenance-2026-09-28',
+    packageVersion: 'stage7-species-2026-09-28',
     inputDigest,
     sourceManifest,
     compatibility: {
@@ -634,6 +634,21 @@ function buildScientificPackage(root) {
           splitCopiesSourceEvidence: false,
           partialOverlapTransfersUniversalAbsence: false,
           unmappedSourcePolicy: 'retain_historical_unreviewed',
+        },
+        speciesSuggestions: {
+          policyVersion: 'stage7-selective-species@1',
+          profileCount: 32,
+          otherPlacementsUnscored: 195,
+          downstreamOnly: true,
+          affectsGenusEvaluation: false,
+          localityCanCreateOrUpgradeSuggestion: false,
+          requiresSupportedConcept: true,
+          possibleDestinationActivatesProfile: false,
+          sexSpecificFeasibilityOverridesSpeciesWideFlags: true,
+          strongRequiresCompleteApplicableDiagnosticsAndComparisonCoverage: true,
+          thesisNomenclaturalQualificationRetained: true,
+          sourceFactsRemainUnmodified: true,
+          provenance: ['07_species_hints.json', 'data/scientific/review-register.json#AU13', 'data/scientific/review-register.json#VR21', 'data/scientific/review-register.json#VR22'],
         },
       },
     },

@@ -1,10 +1,10 @@
 # Implementation status
 
-Updated: 2026-09-28, Stage 6 complete; pre-Stage-7/8 provenance and repository cleanup completed and verified.
+Updated: 2026-09-28, Stage 7 complete and verified; ready for Stage 8 when requested.
 
 ## Current state
 
-- Stages 1–6 are implemented over the existing React/TypeScript/Vite prototype. Stage 6 has completed automated, production-build and real server-offline browser verification at desktop and 390 × 844 mobile viewport sizes. Stage 7 remains not started.
+- Stages 1–7 are implemented over the existing React/TypeScript/Vite prototype. The optional Stage 7 species module is downstream of the unchanged genus and concept results and covers only the 32 supplied selective profiles.
 - The eleven supplied packet files, `salticidae.json`, archived Lucid payload and `source/` evidence remain byte-identical and were not re-extracted.
 - The application interface now uses the Stage 2 historical genus engine and Stage 3 concept reconciliation. The retained legacy engine remains available for source/regression comparison but no longer drives the user-facing ranking.
 - The project is now a Git repository with `main` tracking `https://github.com/Themoojuice/Identification-aid.git`. The initial public import is commit `b812ed3c5dc3514df4caf181fd27815c5190702d`; private reference images, the local source archive, dependencies and build output are excluded by policy and remain intact locally.
@@ -138,6 +138,29 @@ Updated: 2026-09-28, Stage 6 complete; pre-Stage-7/8 provenance and repository c
 - `npm run build`: passed — deterministic compiler, TypeScript check, Vite production build and offline verification; 1,836 modules transformed.
 - Offline core `core-c3292ac3bec585426d31` contains eight verified assets totalling 4,770,678 bytes; private media remain excluded.
 
+## Stage 7 changes — optional selective species suggestions
+
+- Added `src/lib/species-suggestions.ts`, a pure downstream service over all 32 records in `07_species_hints.json`. It uses stable provenance identities and supported contemporary concept IDs rather than name-string joins.
+- Implemented all five specified outcomes: no suggestion, possible, plausible, strong candidate and diagnostic-if-confirmed. A strong candidate requires certain confirmation of every applicable source-diagnostic hint, adult and resolved sex scope, required preparation/equipment, and at least two selective profiles within the supported genus.
+- Limited activation to independently strong, independently compatible or historically compatible contemporary concepts. A split or partial-overlap `possible_destination` alone cannot activate or inherit a species profile.
+- Kept locality and habitat as displayed context only. They cannot create, upgrade or settle a suggestion. The interface states that only 32 thesis profiles are represented and the other 195 placements are unscored rather than rejected competitors.
+- Applied sex-specific hint scope before coarse profile feasibility. Juveniles receive no adult-diagnosis suggestion, male-only records cannot be suggested for females, and female genitalic confirmation requires suitable preparation where stated.
+- Quarantined SP0008 to at most plausible: it is male-only, conditional on supported genus evidence, and carries its angle/lighting-sensitive iridescence warning. Difficult female records retain their association, genital and molecular limitations.
+- Added the optional section below the primary genus comparison. It explains supporting/missing hint observations, confidence, specimen scope, microscopy/genital requirements, selective comparison coverage, source pages, localities and thesis-only nomenclatural qualification. It can be disabled without removing genus results.
+- Upgraded sessions to `australian-salticidae-session@5` with independent species observations, module preference and a species-policy version pin. Stage 4–6 session formats remain migratable.
+- Added a machine-readable Stage 7 interpretation policy to the compiled scientific package. The 11 packet inputs and all source records remain unchanged.
+- Fixed desktop Results access found during browser verification: selecting a genus with “Compare” now opens the comparison/results screen, matching the mobile Results navigation.
+
+## Stage 7 verification
+
+- `npm test`: passed — 28 source/foundation/offline checks and 83 application/domain/session checks, 0 failures.
+- New tests cover all 32 profiles and five outcomes, stable hint provenance, non-scoring locality, inactive split destinations, male-only and juvenile scope, SP0008's cap, difficult female limitations, strong-status comparison coverage, module removal invariance and v4→v5 session migration.
+- `npm run build`: passed — deterministic compiler, TypeScript check, Vite production build and offline-package verification; 1,837 modules transformed. Scientific package SHA-256 is `eaf7dca140505e419120155cc1f92207212563f4d43d3d5bb925f3359c277574`.
+- Offline core `core-b4f11a75f0806e4990a8` contains eight verified assets totalling 4,791,010 bytes; private media remain excluded.
+- Exercised the current development build in the Codex in-app browser. Desktop comparison opened the downstream species panel; its empty/no-suggestion explanation and enable/disable states rendered correctly while genus results remained present.
+- Rechecked the Results view at a 390 × 844 viewport. The primary historical-genus results and optional species section were both present, the bottom Results navigation worked, and the DOM reported `scrollWidth` equal to `clientWidth` (375 px).
+- Live species cards with real observations are covered by deterministic domain tests rather than a known specimen browser fixture. Their scientific accuracy and practical field usefulness still require Stage 8 expert and real-specimen evaluation.
+
 ## Verification after Stages 2 and 3
 
 - `npm test`: passed.
@@ -153,7 +176,8 @@ Updated: 2026-09-28, Stage 6 complete; pre-Stage-7/8 provenance and repository c
 
 - The 36 review issues remain open. No taxonomy, nomenclature, source score, caption, media association or licence issue was silently resolved.
 - The 21 reviewed page overlays correct provenance precision only. They do not constitute expert validation of the biological assertions.
-- Stage 5 evaluates the supplied Schubert assertion set, but this is source-faithful logic rather than independent evidence of identification accuracy. No species suggestion logic was added.
+- Stage 5 evaluates the supplied Schubert assertion set and Stage 7 evaluates the supplied selective species hints, but both remain source-faithful logic rather than independent evidence of identification accuracy.
+- Species coverage is deliberately incomplete: the 32 profiles are thesis-only proposals and 195 other placements are unscored. A suggestion is a qualified downstream aid, not a comprehensive species identification.
 - Stage 4 has no known blocking defect after automated and in-app-browser verification. Actual 200% browser zoom, NVDA/VoiceOver, and physical-device testing remain release-evaluation limitations rather than blockers to beginning Stage 5.
 - No expert scientific review, independently identified specimen study, physical-device test or assistive-technology audit was performed. Automated source-derived checks, schematic review and offline runtime tests are integrity/usability evidence, not identification-accuracy validation.
 - Media rights remain unresolved. Archived and user-supplied images are visible only through the private local prototype and are excluded from the distributable core; they are not approved for redistribution, publication or an optional offline media pack. No backend, dependency upgrade, deployment or source re-extraction occurred.
@@ -171,9 +195,9 @@ Updated: 2026-09-28, Stage 6 complete; pre-Stage-7/8 provenance and repository c
 | 5 Schubert/questions | Complete | 23 source and 63 application tests pass; complete scoped assertion integration, exact adult-male key logic, AU03–AU05 quarantine, conservative utility/manual selection and desktop/mobile production checks. Expert cost calibration and real-specimen validation remain deferred. |
 | 6 Offline reliability | Complete | Hash-verified atomic core staging, IndexedDB sessions/version pins, rollback path, recovery UI and private-media exclusion; real server-offline cold reload, new deep link and restored observation verified. Live two-version rollback remains a release check. |
 | Pre-Stage-7/8 cleanup | Complete | Versioned 21-record locator overlay, original/reviewed provenance retention, stale-target compile failures, current Git/public-private documentation, 27 source tests, 74 app tests and production/offline build passed. |
-| 7 Species suggestions | Not started | Selective records remain preserved only. |
+| 7 Species suggestions | Complete | Removable downstream service for all 32 selective profiles, five qualified outcomes, locality exclusion, scope/coverage safeguards, v5 sessions, 28 source tests, 83 app tests, production/offline build and desktop/mobile browser checks passed. |
 | 8 Release evaluation | Not started | Expert, specimen, browser and rights review remain future work. |
 
 ## Next stage
 
-Stage 7 is ready to commence when explicitly requested. Keep species suggestions removable and downstream of an unchanged genus result; do not infer comprehensive negative competitors from the selective packet records.
+Stage 8 release review is ready to commence when explicitly requested. It should exercise the eight packet examples and real-specimen workflows, obtain expert review, revisit accessibility/performance and media rights, and report readiness without treating source-derived tests as identification-accuracy evidence.

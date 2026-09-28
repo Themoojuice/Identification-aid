@@ -155,3 +155,19 @@ test('reviewed Schubert page locators supplement 21 immutable packet assertions'
   assert(correctedAssertions.every((item) => item.locator.page !== item.reviewedLocator.page));
   assert(correctedAssertions.every((item) => item.reviewedLocator.sourceReference.startsWith('data/scientific/provenance-corrections.json#PLC')));
 });
+
+test('Stage 7 declares selective species guidance as downstream and non-comprehensive', () => {
+  const scientific = build();
+  const packet = scientific.rawSnapshots['07_species_hints.json'];
+  const policy = scientific.model.interpretations.speciesSuggestions;
+  assert.equal(packet.species.length, 32);
+  assert.equal(policy.profileCount, 32);
+  assert.equal(policy.otherPlacementsUnscored, 195);
+  assert.equal(policy.downstreamOnly, true);
+  assert.equal(policy.affectsGenusEvaluation, false);
+  assert.equal(policy.localityCanCreateOrUpgradeSuggestion, false);
+  assert.equal(policy.possibleDestinationActivatesProfile, false);
+  assert.equal(policy.sexSpecificFeasibilityOverridesSpeciesWideFlags, true);
+  assert.equal(policy.sourceFactsRemainUnmodified, true);
+  assert(packet.species.every((species) => species.status === 'proposed_new_species_in_thesis_not_formally_published_under_iczn'));
+});

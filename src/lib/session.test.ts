@@ -51,12 +51,22 @@ describe('versioned session persistence', () => {
     expect(restored?.schubertObservations).toHaveLength(1)
   })
 
+  it('upgrades a Stage 6 session with removable species guidance defaults', () => {
+    const previous = { ...freshSession(), format: 'australian-salticidae-session@4' }
+    delete (previous as Partial<typeof previous>).speciesSuggestionsEnabled
+    delete (previous as Partial<typeof previous>).speciesObservations
+    const restored = restoreCurrentSession(JSON.stringify(previous))
+    expect(restored?.format).toBe(SESSION_FORMAT)
+    expect(restored?.speciesSuggestionsEnabled).toBe(true)
+    expect(restored?.speciesObservations).toEqual([])
+  })
+
   it('round-trips portable exports with the complete package pin', () => {
     const session = freshSession()
     session.packagePin = {
       scientificPackageVersion: packageData.packageVersion, sourceManifestVersion: packageData.packageVersion,
       interpretationVersion: 'reviewed@1', genusEngineVersion: 'engine@1', schubertPolicyVersion: 'schubert@1',
-      questionUtilityVersion: 'questions@1', offlinePackageId: 'core-test',
+      questionUtilityVersion: 'questions@1', speciesPolicyVersion: 'species@1', offlinePackageId: 'core-test',
     }
     const restored = restoreSessionExport(sessionExport(session, packageData.packageVersion))
     expect(restored?.packagePin).toEqual(session.packagePin)

@@ -32,6 +32,7 @@ For live development with automatic refresh, use `npm run dev`.
 - readable support, conflict and unchecked-character explanations;
 - useful next-character suggestions based on separation, coverage and difficulty;
 - an image-led 2–5 genus differential comparison showing only meaningful separators and explicit “not scored” cells;
+- optional, removable species suggestions for the 32 selective thesis profiles, with explicit sex, preparation, microscopy and comparison-coverage limits;
 - structured fact-sheet sections and private-local genus plates where the separately retained media archive is present;
 - obvious remove/revise/restart controls, dark mode and local session restore;
 - responsive phone and desktop layouts, plus a local offline cache.
@@ -84,6 +85,7 @@ The full suite first verifies the complete reconstructed source, then tests the 
 
 - `src/App.tsx` — identification workspace and genus detail experience
 - `src/lib/engine.ts` — dependency, ranking, suggestion and comparison logic
+- `src/lib/genus-engine.ts`, `concept-reconciliation.ts` and `species-suggestions.ts` — the current genus-first scientific evaluation pipeline and downstream selective species guidance
 - `src/lib/engine.test.ts` — repeatable app-engine scenarios
 - `data/curated/character_metadata.json` — provisional difficulty/method guidance
 - `public/data/` — generated compact app bundle with source IDs and UUIDs retained

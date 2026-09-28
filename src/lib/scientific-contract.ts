@@ -257,6 +257,21 @@ export interface ScientificRuntimePackage {
         partialOverlapTransfersUniversalAbsence: false
         unmappedSourcePolicy: 'retain_historical_unreviewed'
       }
+      speciesSuggestions: {
+        policyVersion: string
+        profileCount: 32
+        otherPlacementsUnscored: 195
+        downstreamOnly: true
+        affectsGenusEvaluation: false
+        localityCanCreateOrUpgradeSuggestion: false
+        requiresSupportedConcept: true
+        possibleDestinationActivatesProfile: false
+        sexSpecificFeasibilityOverridesSpeciesWideFlags: true
+        strongRequiresCompleteApplicableDiagnosticsAndComparisonCoverage: true
+        thesisNomenclaturalQualificationRetained: true
+        sourceFactsRemainUnmodified: true
+        provenance: string[]
+      }
     }
   }
   provenance: ProvenanceRecord[]
