@@ -2,7 +2,9 @@ const DB_NAME = 'australian-salticidae-offline'
 const DB_VERSION = 1
 const META_STORE = 'metadata'
 const PACKAGE_PREFIX = 'salticidae-core:'
-const MANIFEST_URL = '/offline-manifest.json'
+const SCOPE_PATH = new URL(self.registration.scope).pathname.replace(/\/?$/, '/')
+const scoped = (relative) => `${SCOPE_PATH}${relative}`.replace(/\/{2,}/g, '/')
+const MANIFEST_URL = scoped('offline-manifest.json')
 
 function openDatabase() {
   return new Promise((resolve, reject) => {
@@ -67,7 +69,7 @@ async function fetchManifest() {
   if (!response.ok) throw new Error('Offline package manifest could not be downloaded.')
   const manifest = await response.json()
   if (!manifest.packageId || !Array.isArray(manifest.coreAssets) || !manifest.coreAssets.length) throw new Error('Offline package manifest is invalid.')
-  const required = ['/index.html', '/data/key.json', '/data/fact_sheets.json', '/data/character_metadata.json', '/data/scientific-package.json']
+  const required = ['index.html', 'data/key.json', 'data/fact_sheets.json', 'data/character_metadata.json', 'data/scientific-package.json'].map(scoped)
   for (const url of required) if (!manifest.coreAssets.some((asset) => asset.url === url)) throw new Error(`Required core asset is missing: ${url}`)
   return manifest
 }
@@ -108,14 +110,14 @@ self.addEventListener('activate', (event) => { event.waitUntil(self.clients.clai
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET' || new URL(event.request.url).origin !== self.location.origin) return
   const url = new URL(event.request.url)
-  if (url.pathname === '/sw.js' || url.pathname === MANIFEST_URL) return
+  if (url.pathname === scoped('sw.js') || url.pathname === MANIFEST_URL) return
   event.respondWith((async () => {
     const packageId = await readMeta('active-package')
     const record = packageId ? await readMeta(`package:${packageId}`) : null
     if (await packageReady(packageId, record)) {
       const cache = await caches.open(`${PACKAGE_PREFIX}${packageId}`)
       if (event.request.mode === 'navigate') {
-        const shell = await cache.match('/index.html')
+        const shell = await cache.match(scoped('index.html'))
         if (shell) return shell
       }
       const cached = await cache.match(url.pathname)

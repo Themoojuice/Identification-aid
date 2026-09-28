@@ -2,11 +2,12 @@ import type { CuratedMetadata, FactSheetData, KeyData } from './types'
 import type { ScientificRuntimePackage } from './scientific-contract'
 
 export async function loadAppData() {
+  const base = import.meta.env.BASE_URL
   const [keyResponse, factsResponse, curatedResponse, scientificResponse] = await Promise.all([
-    fetch('/data/key.json'),
-    fetch('/data/fact_sheets.json'),
-    fetch('/data/character_metadata.json'),
-    fetch('/data/scientific-package.json'),
+    fetch(`${base}data/key.json`),
+    fetch(`${base}data/fact_sheets.json`),
+    fetch(`${base}data/character_metadata.json`),
+    fetch(`${base}data/scientific-package.json`),
   ])
   if (!keyResponse.ok || !factsResponse.ok || !curatedResponse.ok || !scientificResponse.ok) {
     throw new Error('The local key data could not be loaded.')
@@ -28,7 +29,7 @@ export function mediaUrl(path?: string) {
     try { return encodeURIComponent(decodeURIComponent(segment)) }
     catch { return encodeURIComponent(segment) }
   })
-  return `/source/lucid-original/media/${segments.join('/')}`
+  return `${import.meta.env.BASE_URL}source/lucid-original/media/${segments.join('/')}`
 }
 
 export function plainCaption(html?: string) {

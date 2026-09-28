@@ -43,6 +43,8 @@ Compatibility is deliberately labelled as a heuristic match—not a calibrated p
 
 The current build is ready for controlled private field evaluation as a research prototype. It is not yet a scientifically validated identification product or a distributable media release. Independent expert/specimen evaluation, physical-device and assistive-technology checks, a live two-version rollback exercise, and per-asset rights decisions remain required. See `docs/sol/STAGE8_READINESS.md` for the evidence, limitations and proposed evaluation measures.
 
+The distributable, rights-safe build is published at `https://themoojuice.github.io/Identification-aid/`. Private-local source illustrations and reference files are deliberately omitted; the included explanatory diagrams remain available.
+
 ## Results at a glance
 
 - 86 entities: one Salticidae root and 85 genus leaves

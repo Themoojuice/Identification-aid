@@ -2,7 +2,8 @@
   "name": "Australian Salticidae Interactive Key",
   "short_name": "Salticidae Key",
   "description": "A forgiving local key to Australian jumping spider genera.",
-  "start_url": "/",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#eef4f5",
   "theme_color": "#102c3d"

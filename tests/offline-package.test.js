@@ -18,7 +18,7 @@ test('offline fetches use only a complete active package and deep links fall bac
   const worker = fs.readFileSync(path.join(root, 'public', 'sw.js'), 'utf8')
   assert.match(worker, /if \(await packageReady\(packageId, record\)\)/)
   assert.match(worker, /record\?\.status !== 'complete'[\s\S]*record\.assets\.map/)
-  assert.match(worker, /event\.request\.mode === 'navigate'[\s\S]*cache\.match\('\/index\.html'\)/)
+  assert.match(worker, /event\.request\.mode === 'navigate'[\s\S]*cache\.match\(scoped\('index\.html'\)\)/)
   assert.doesNotMatch(worker, /cache\.put\(event\.request/)
 })
 
