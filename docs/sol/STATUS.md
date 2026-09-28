@@ -221,4 +221,11 @@ Updated: 2026-09-28, Stage 8 implementation and release evaluation complete; con
 
 ## Next work
 
-The implementation plan is complete through Stage 8. The appropriate next activity is a controlled private field evaluation with independently identified specimens, following `docs/sol/STAGE8_READINESS.md`. Broader release should wait for expert review, measured specimen outcomes, assistive-technology and physical-device checks, live two-version rollback, and explicit media-rights decisions. No deployment or publication was performed.
+The implementation plan is complete through Stage 8. The appropriate next activity is a controlled private field evaluation with independently identified specimens, following `docs/sol/STAGE8_READINESS.md`. Broader scientific or media release should wait for expert review, measured specimen outcomes, assistive-technology and physical-device checks, live two-version rollback, and explicit media-rights decisions. Stage 8 itself performed no deployment; the later user-requested prototype publication is recorded below.
+
+## Requested prototype publication
+
+- At the user's separate request after Stage 8, the rights-safe prototype was published through GitHub Pages at `https://themoojuice.github.io/Identification-aid/`.
+- The Pages workflow builds from the committed public scientific artifacts, runs the application tests, verifies a subpath-aware offline package, and deploys on changes to `main`.
+- The public bundle excludes the Lucid source archive and private-local anatomy references. Option-specific explanatory diagrams remain available for every discriminator option; controls for unavailable private references are omitted from the distributable build.
+- Publication does not change the Stage 8 readiness verdict: this remains a research prototype, not a scientifically validated identification authority or a rights-cleared media release.

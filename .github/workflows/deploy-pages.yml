@@ -28,6 +28,7 @@ jobs:
       - run: npm run build:public
         env:
           VITE_BASE_PATH: /Identification-aid/
+          VITE_DISTRIBUTABLE_BUILD: true
       - uses: actions/configure-pages@v5
         with:
           enablement: true

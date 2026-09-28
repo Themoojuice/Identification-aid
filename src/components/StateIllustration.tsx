@@ -145,6 +145,7 @@ export function StateIllustration(props: StateIllustrationProps) {
 }
 
 export function AnatomyReference({ characterLabel, anatomicalRegion }: { characterLabel: string; anatomicalRegion?: string }) {
+  if (import.meta.env.VITE_DISTRIBUTABLE_BUILD === 'true') return null
   const text = `${characterLabel} ${anatomicalRegion ?? ''}`.toLowerCase()
   const base = import.meta.env.BASE_URL
   const source = /palp|embol|tegul|cymbium|epig|spermat|leg|tibia|tars|femur|patella/.test(text)
