@@ -3,7 +3,7 @@ import type { GenusObservation, ObservationCertainty, SpecimenContext } from './
 import type { ScientificRuntimePackage } from './scientific-contract'
 import type { WorkMode } from './types'
 
-export const SCHUBERT_POLICY_VERSION = 'stage5-schubert-reviewed@1'
+export const SCHUBERT_POLICY_VERSION = 'stage5-schubert-reviewed@2'
 export const QUESTION_UTILITY_VERSION = 'stage5-question-utility@1'
 
 export interface SchubertState {
@@ -46,6 +46,9 @@ export interface SchubertAssertion {
   sex: string[]
   lifeStage: string[]
   notes: string | null
+  sourcePage: number
+  originalSourcePage: number
+  provenanceCorrectionId: string | null
   provenance: string[]
 }
 
@@ -167,6 +170,7 @@ function observationCost(region: string, requiresGenitalia: boolean): Observatio
 export function createSchubertDatasetFromScientificPackage(scientific: ScientificRuntimePackage): SchubertDataset {
   const raw = object(scientific.rawSnapshots['05_schubert_genus_characters.json'], 'Schubert packet')
   const lookup = persistentLookup(scientific)
+  const correctionByPointer = new Map(scientific.model.interpretations.provenanceCorrections.map((correction) => [correction.target.jsonPointer, correction]))
   const rawCharacters = list(raw.characters, 'Schubert characters').map((value) => object(value, 'Schubert character'))
   const characters: SchubertCharacter[] = rawCharacters.map((item) => {
     const packet = string(item.character_id, 'character ID')
@@ -209,6 +213,10 @@ export function createSchubertDatasetFromScientificPackage(scientific: Scientifi
     const conceptPacket = string(item.taxon_concept_id, 'assertion concept ID')
     const characterPacket = string(item.character_id, 'assertion character ID')
     const statePacket = string(item.state_id, 'assertion state ID')
+    const pointer = `/taxon_character_assertions/${index}`
+    const correction = correctionByPointer.get(pointer)
+    const originalSourcePage = Number(source.page)
+    const sourcePage = correction?.reviewedLocator.page ?? originalSourcePage
     return {
       id: `schubert:assertion:${index + 1}`,
       conceptId: lookup.get(conceptPacket)!, characterId: lookup.get(characterPacket)!, stateId: lookup.get(statePacket)!,
@@ -217,7 +225,14 @@ export function createSchubertDatasetFromScientificPackage(scientific: Scientifi
       variation: string(item.variation, 'assertion variation') as SchubertAssertion['variation'],
       sex: strings(item.sex, 'assertion sex'), lifeStage: strings(item.life_stage, 'assertion life stage'),
       notes: item.notes === null ? null : string(item.notes, 'assertion notes'),
-      provenance: [`05_schubert_genus_characters.json#/taxon_character_assertions/${index}`, `Schubert thesis p. ${String(source.page)}`],
+      sourcePage,
+      originalSourcePage,
+      provenanceCorrectionId: correction?.id ?? null,
+      provenance: [
+        `05_schubert_genus_characters.json#${pointer}`,
+        `Schubert thesis p. ${sourcePage}`,
+        ...(correction ? [`Original packet locator: Schubert thesis p. ${originalSourcePage}`, correction.evidence.correctionRecord, `interpretation:${correction.interpretationVersion}`] : []),
+      ],
     }
   })
   const rawKey = object(raw.published_key, 'published male key')

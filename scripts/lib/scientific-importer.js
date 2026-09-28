@@ -275,6 +275,9 @@ function validateReferences(data) {
 function buildScientificPackage(root) {
   const sourceManifest = readJson(root, 'data/scientific/source-manifest.json');
   const reviewRegister = readJson(root, 'data/scientific/review-register.json');
+  const provenanceCorrectionPath = 'data/scientific/provenance-corrections.json';
+  const provenanceCorrectionBytes = fs.readFileSync(path.join(root, provenanceCorrectionPath));
+  const provenanceCorrectionDocument = JSON.parse(provenanceCorrectionBytes.toString('utf8'));
   const allSources = [...sourceManifest.packet_files, ...sourceManifest.additional_immutable_sources];
   for (const source of allSources) {
     const bytes = fs.readFileSync(path.join(root, source.path));
@@ -290,6 +293,50 @@ function buildScientificPackage(root) {
   const concepts = data['04_taxon_concepts.json'];
   const schubert = data['05_schubert_genus_characters.json'];
   const crosswalk = data['06_taxon_crosswalk.json'];
+
+  assert(provenanceCorrectionDocument.format === 'australian-salticidae-provenance-corrections@1', 'unsupported provenance correction format');
+  assert(typeof provenanceCorrectionDocument.version === 'string' && provenanceCorrectionDocument.version, 'provenance correction version is missing');
+  assert(Array.isArray(provenanceCorrectionDocument.corrections), 'provenance corrections are not an array');
+  assert(provenanceCorrectionDocument.corrections.length === 21, `provenance correction set has ${provenanceCorrectionDocument.corrections.length} entries, expected 21`);
+  assertUnique(provenanceCorrectionDocument.corrections, (x) => x.id, 'provenance correction');
+  const provenanceCorrections = provenanceCorrectionDocument.corrections.map((correction) => {
+    const target = correction.target;
+    assert(target.packet_file === '05_schubert_genus_characters.json', `${correction.id} targets an unsupported packet`);
+    const match = /^\/taxon_character_assertions\/(\d+)$/.exec(target.json_pointer);
+    assert(match, `${correction.id} has an invalid assertion pointer`);
+    const assertion = schubert.taxon_character_assertions[Number(match[1])];
+    assert(assertion, `${correction.id} targets a missing assertion`);
+    assert(assertion.taxon_concept_id === target.taxon_concept_id, `${correction.id} concept identity changed`);
+    assert(assertion.character_id === target.character_id, `${correction.id} character identity changed`);
+    assert(assertion.state_id === target.state_id, `${correction.id} state identity changed`);
+    assert(assertion.source.page === correction.original_locator.page, `${correction.id} original page no longer matches the packet`);
+    assert(assertion.source.section === correction.original_locator.section, `${correction.id} original section no longer matches the packet`);
+    assert(Number.isInteger(correction.reviewed_locator.page) && correction.reviewed_locator.page > 0, `${correction.id} reviewed page is invalid`);
+    assert(typeof correction.reason === 'string' && correction.reason, `${correction.id} reason is missing`);
+    return {
+      id: correction.id,
+      interpretationVersion: provenanceCorrectionDocument.version,
+      target: {
+        packetFile: target.packet_file,
+        jsonPointer: target.json_pointer,
+        taxonConceptPacketId: target.taxon_concept_id,
+        characterPacketId: target.character_id,
+        statePacketId: target.state_id,
+      },
+      originalLocator: correction.original_locator,
+      reviewedLocator: correction.reviewed_locator,
+      reason: correction.reason,
+      evidence: {
+        sourceId: provenanceCorrectionDocument.review.source_id,
+        sourcePath: provenanceCorrectionDocument.review.source_path,
+        sourceSha256: provenanceCorrectionDocument.review.source_sha256,
+        method: provenanceCorrectionDocument.review.method,
+        reviewedOn: provenanceCorrectionDocument.review.reviewed_on,
+        correctionRecord: `${provenanceCorrectionPath}#${correction.id}`,
+      },
+    };
+  });
+  const provenanceCorrectionByPointer = new Map(provenanceCorrections.map((correction) => [correction.target.jsonPointer, correction]));
 
   assert(reviewRegister.issues.length === 36, `review register has ${reviewRegister.issues.length} issues, expected 36`);
   assertUnique(reviewRegister.issues, (x) => x.id, 'review issue');
@@ -430,16 +477,22 @@ function buildScientificPackage(root) {
     })),
   ];
 
-  const characterAssertions = schubert.taxon_character_assertions.map((assertion) => ({
-    id: contentId('character-assertion', assertion),
-    subjectConceptId: pid(assertion.taxon_concept_id),
-    stateId: pid(assertion.state_id),
-    assertionType: assertion.assertion_type,
-    sex: assertion.sex,
-    lifeStage: assertion.life_stage,
-    variation: assertion.variation,
-    locator: { packetFile: '05_schubert_genus_characters.json', sourceId: assertion.source.source_id, page: assertion.source.page, packetSha256: packetSha['05_schubert_genus_characters.json'] },
-  }));
+  const characterAssertions = schubert.taxon_character_assertions.map((assertion, index) => {
+    const jsonPointer = `/taxon_character_assertions/${index}`;
+    const correction = provenanceCorrectionByPointer.get(jsonPointer);
+    const locator = { packetFile: '05_schubert_genus_characters.json', jsonPointer, sourceId: assertion.source.source_id, page: assertion.source.page, packetSha256: packetSha['05_schubert_genus_characters.json'] };
+    return {
+      id: contentId('character-assertion', assertion),
+      subjectConceptId: pid(assertion.taxon_concept_id),
+      stateId: pid(assertion.state_id),
+      assertionType: assertion.assertion_type,
+      sex: assertion.sex,
+      lifeStage: assertion.life_stage,
+      variation: assertion.variation,
+      locator,
+      reviewedLocator: correction ? { ...locator, page: correction.reviewedLocator.page, sourceReference: correction.evidence.correctionRecord } : null,
+    };
+  });
 
   const conceptRelations = crosswalk.mappings.map((mapping) => ({
     id: pid(mapping.mapping_id),
@@ -494,10 +547,11 @@ function buildScientificPackage(root) {
     }]))
   };
 
-  const inputDigest = sha256(sourceManifest.packet_files.map((x) => `${x.path}:${x.sha256}`).join('\n'));
+  const provenanceCorrectionSha256 = sha256(provenanceCorrectionBytes);
+  const inputDigest = sha256(`${sourceManifest.packet_files.map((x) => `${x.path}:${x.sha256}`).join('\n')}\n${provenanceCorrectionPath}:${provenanceCorrectionSha256}`);
   return {
     format: 'australian-salticidae-scientific-package@1',
-    packageVersion: 'stage3-2026-09-27',
+    packageVersion: 'pre-stage7-provenance-2026-09-28',
     inputDigest,
     sourceManifest,
     compatibility: {
@@ -523,6 +577,13 @@ function buildScientificPackage(root) {
       })),
       interpretations: {
         allZeroProfiles,
+        provenanceCorrections,
+        provenanceCorrectionSource: {
+          path: provenanceCorrectionPath,
+          sha256: provenanceCorrectionSha256,
+          version: provenanceCorrectionDocument.version,
+          sourceFactsRemainUnmodified: true,
+        },
         quarantinedIssueIds: ['AU03', 'AU04', 'AU05', 'AU06', 'AU07', 'AU08', 'AU09', 'AU10', 'AU11', 'AU12'],
         sourceFactsRemainUnmodified: true,
         genusEngine: {
@@ -594,6 +655,7 @@ function buildScientificPackage(root) {
         terminals: schubert.published_key.nodes.filter((x) => x.result_taxon_concept_id).length,
       },
       reviewIssues: reviewRegister.issues.length,
+      provenanceCorrections: provenanceCorrections.length,
       referenceErrors: 0,
     },
     provenance,

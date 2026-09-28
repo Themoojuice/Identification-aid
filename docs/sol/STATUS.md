@@ -1,13 +1,13 @@
 # Implementation status
 
-Updated: 2026-09-27, Stage 6 completed and verified within the available environment.
+Updated: 2026-09-28, Stage 6 complete; pre-Stage-7/8 provenance and repository cleanup completed and verified.
 
 ## Current state
 
-- Stages 1–6 are implemented over the existing React/TypeScript/Vite prototype. Stage 6 has completed automated, production-build and real server-offline browser verification at desktop and 390 × 844 mobile viewport sizes.
+- Stages 1–6 are implemented over the existing React/TypeScript/Vite prototype. Stage 6 has completed automated, production-build and real server-offline browser verification at desktop and 390 × 844 mobile viewport sizes. Stage 7 remains not started.
 - The eleven supplied packet files, `salticidae.json`, archived Lucid payload and `source/` evidence remain byte-identical and were not re-extracted.
 - The application interface now uses the Stage 2 historical genus engine and Stage 3 concept reconciliation. The retained legacy engine remains available for source/regression comparison but no longer drives the user-facing ranking.
-- No Git repository is present at the project root; none was initialized.
+- The project is now a Git repository with `main` tracking `https://github.com/Themoojuice/Identification-aid.git`. The initial public import is commit `b812ed3c5dc3514df4caf181fd27815c5190702d`; private reference images, the local source archive, dependencies and build output are excluded by policy and remain intact locally.
 
 ## Baseline verified before Stage 2
 
@@ -122,6 +122,22 @@ Updated: 2026-09-27, Stage 6 completed and verified within the available environ
 - The offline recovery panel was inspected at desktop and 390 × 844. The mobile DOM reported `scrollWidth` equal to `clientWidth` (375 px) and no browser warnings/errors. The test browser declined persistent-storage protection, and the UI correctly displayed an export recommendation.
 - A live rollback between two distinct complete releases was not performed because only one reviewed package exists. Rollback and interrupted-update invariants are implemented and contract-tested; a future second package should exercise the full browser transition before release. File-picker import was unit-tested at the session boundary but not completed through a native chooser in this pass.
 
+## Pre-Stage-7/8 cleanup — provenance and repository continuity
+
+- Added `data/scientific/provenance-corrections.json`, a versioned curator-interpretation layer for the 21 assertion citations identified by passage-level thesis review. The eleven immutable packet files remain byte-identical and the raw assertion locators remain embedded unchanged.
+- Eleven Maratus assertions retain their packet locator at PDF page 176 and now expose reviewed diagnosis page 178. Eight Prostheclina assertions retain page 198 and expose page 200; two retain page 199 and expose page 201.
+- Each correction targets a stable assertion JSON pointer and validates the original concept, character, state, page and section before compilation. A mismatch now fails the scientific build instead of applying a stale correction.
+- Normalized character assertions expose both `locator` and `reviewedLocator`. The Schubert runtime uses the reviewed page in user-facing provenance while retaining the original packet page, correction ID, interpretation version and review record.
+- Updated the scientific package version to `pre-stage7-provenance-2026-09-28`. The compiled package SHA-256 is `60d3e21355f6dfc98956b0bd6f6dcf8e38756793867e51e26c7a969482c9c835`.
+- Updated repository documentation to distinguish the complete runnable public checkout from the locally preserved, redistribution-restricted source and private-media collections.
+
+## Pre-Stage-7/8 cleanup verification
+
+- `npm test`: passed — 27 source/foundation/offline tests and 74 application tests, 0 failures.
+- New tests verify all 21 corrections, the 11/10 genus split, immutable raw packet pages, corrected runtime citations and recoverable correction provenance.
+- `npm run build`: passed — deterministic compiler, TypeScript check, Vite production build and offline verification; 1,836 modules transformed.
+- Offline core `core-c3292ac3bec585426d31` contains eight verified assets totalling 4,770,678 bytes; private media remain excluded.
+
 ## Verification after Stages 2 and 3
 
 - `npm test`: passed.
@@ -136,6 +152,7 @@ Updated: 2026-09-27, Stage 6 completed and verified within the available environ
 ## Limitations and unresolved work
 
 - The 36 review issues remain open. No taxonomy, nomenclature, source score, caption, media association or licence issue was silently resolved.
+- The 21 reviewed page overlays correct provenance precision only. They do not constitute expert validation of the biological assertions.
 - Stage 5 evaluates the supplied Schubert assertion set, but this is source-faithful logic rather than independent evidence of identification accuracy. No species suggestion logic was added.
 - Stage 4 has no known blocking defect after automated and in-app-browser verification. Actual 200% browser zoom, NVDA/VoiceOver, and physical-device testing remain release-evaluation limitations rather than blockers to beginning Stage 5.
 - No expert scientific review, independently identified specimen study, physical-device test or assistive-technology audit was performed. Automated source-derived checks, schematic review and offline runtime tests are integrity/usability evidence, not identification-accuracy validation.
@@ -153,6 +170,7 @@ Updated: 2026-09-27, Stage 6 completed and verified within the available environ
 | 4 Mobile genus flow | Complete | Full automated suite and build passed; clean/legacy, unknown-sex, Maratus, female unresolved, responsive, contrast and keyboard/modal scenarios exercised in the in-app browser. Actual 200% zoom, assistive-technology and physical-device checks remain deferred. |
 | 5 Schubert/questions | Complete | 23 source and 63 application tests pass; complete scoped assertion integration, exact adult-male key logic, AU03–AU05 quarantine, conservative utility/manual selection and desktop/mobile production checks. Expert cost calibration and real-specimen validation remain deferred. |
 | 6 Offline reliability | Complete | Hash-verified atomic core staging, IndexedDB sessions/version pins, rollback path, recovery UI and private-media exclusion; real server-offline cold reload, new deep link and restored observation verified. Live two-version rollback remains a release check. |
+| Pre-Stage-7/8 cleanup | Complete | Versioned 21-record locator overlay, original/reviewed provenance retention, stale-target compile failures, current Git/public-private documentation, 27 source tests, 74 app tests and production/offline build passed. |
 | 7 Species suggestions | Not started | Selective records remain preserved only. |
 | 8 Release evaluation | Not started | Expert, specimen, browser and rights review remain future work. |
 

@@ -4,6 +4,7 @@ This directory contains versioned interpretation and compiler-control inputs. It
 
 - `source-manifest.json` locks every packet byte and the two Lucid payload copies by size and SHA-256. Compilation fails on drift.
 - `review-register.json` contains open `VR01`–`VR22` and `AU01`–`AU14` issues, their source wording/locator and interim policy.
+- `provenance-corrections.json` contains reviewed locator overlays. It validates its stable packet targets and retains both the original packet locator and reviewed source locator.
 - `../compiled/scientific-package.json` is deterministic output. It embeds the parsed JSON packets unchanged, adds normalized views, a dense byte matrix, persistent aliases, provenance and validation results.
 - `../compiled/id-aliases.json` exposes persistent-ID-to-source-alias mappings independently.
 - `../compiled/losslessness-inventory.json` lists every JSON field path and its retention route.

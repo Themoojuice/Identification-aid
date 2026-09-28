@@ -130,6 +130,30 @@ export interface CharacterAssertion {
   lifeStage: string[]
   variation: string
   locator: SourceLocator
+  reviewedLocator: SourceLocator | null
+}
+
+export interface ProvenanceCorrection {
+  id: string
+  interpretationVersion: string
+  target: {
+    packetFile: '05_schubert_genus_characters.json'
+    jsonPointer: string
+    taxonConceptPacketId: string
+    characterPacketId: string
+    statePacketId: string
+  }
+  originalLocator: { page: number; section: string }
+  reviewedLocator: { page: number; section: string }
+  reason: string
+  evidence: {
+    sourceId: SourceId
+    sourcePath: string
+    sourceSha256: string
+    method: string
+    reviewedOn: string
+    correctionRecord: string
+  }
 }
 
 export interface ConceptRelation {
@@ -215,6 +239,13 @@ export interface ScientificRuntimePackage {
     reviewIssues: ReviewIssue[]
     interpretations: {
       allZeroProfiles: Array<{ taxonId: PersistentId; featureId: PersistentId; issueId: 'AU01' }>
+      provenanceCorrections: ProvenanceCorrection[]
+      provenanceCorrectionSource: {
+        path: string
+        sha256: string
+        version: string
+        sourceFactsRemainUnmodified: true
+      }
       quarantinedIssueIds: string[]
       sourceFactsRemainUnmodified: true
       genusEngine: GenusEngineInterpretations

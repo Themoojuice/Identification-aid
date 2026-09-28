@@ -134,3 +134,24 @@ test('AU01 all-zero profiles are inventoried without changing the source matrix'
   assert(scientific.model.interpretations.allZeroProfiles.every((x) => x.issueId === 'AU01'));
   assert.equal(scientific.model.interpretations.sourceFactsRemainUnmodified, true);
 });
+
+test('reviewed Schubert page locators supplement 21 immutable packet assertions', () => {
+  const scientific = build();
+  const corrections = scientific.model.interpretations.provenanceCorrections;
+  assert.equal(corrections.length, 21);
+  assert.equal(scientific.validation.provenanceCorrections, 21);
+  assert.equal(scientific.model.interpretations.provenanceCorrectionSource.sourceFactsRemainUnmodified, true);
+  assert.equal(scientific.rawSnapshots['05_schubert_genus_characters.json'].taxon_character_assertions[28].source.page, 176);
+
+  const maratus = corrections.filter((item) => item.target.taxonConceptPacketId === 'TC0007');
+  const prostheclina = corrections.filter((item) => item.target.taxonConceptPacketId === 'TC0009');
+  assert.equal(maratus.length, 11);
+  assert.equal(prostheclina.length, 10);
+  assert(maratus.every((item) => item.originalLocator.page === 176 && item.reviewedLocator.page === 178));
+  assert(prostheclina.every((item) => item.reviewedLocator.page === item.originalLocator.page + 2));
+
+  const correctedAssertions = scientific.model.characterAssertions.filter((item) => item.reviewedLocator);
+  assert.equal(correctedAssertions.length, 21);
+  assert(correctedAssertions.every((item) => item.locator.page !== item.reviewedLocator.page));
+  assert(correctedAssertions.every((item) => item.reviewedLocator.sourceReference.startsWith('data/scientific/provenance-corrections.json#PLC')));
+});

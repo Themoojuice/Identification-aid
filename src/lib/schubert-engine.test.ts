@@ -23,6 +23,19 @@ describe('Schubert scientific integration', () => {
     expect(dataset.quarantinedIssues).toEqual(['AU03', 'AU04', 'AU05'])
   })
 
+  it('uses reviewed assertion pages while retaining original packet locators', () => {
+    const corrected = dataset.assertions.filter((item) => item.provenanceCorrectionId)
+    expect(corrected).toHaveLength(21)
+    const maratus = corrected.filter((item) => item.originalSourcePage === 176)
+    const prostheclina = corrected.filter((item) => item.originalSourcePage === 198 || item.originalSourcePage === 199)
+    expect(maratus).toHaveLength(11)
+    expect(prostheclina).toHaveLength(10)
+    expect(maratus.every((item) => item.sourcePage === 178)).toBe(true)
+    expect(prostheclina.every((item) => item.sourcePage === item.originalSourcePage + 2)).toBe(true)
+    expect(corrected.every((item) => item.provenance.some((value) => value.startsWith('Original packet locator:')))).toBe(true)
+    expect(corrected.every((item) => item.provenance.some((value) => value.includes('provenance-corrections.json#PLC')))).toBe(true)
+  })
+
   it('keeps adult-male key scope separate from female-supported assertions', () => {
     expect(keyAvailability(context('female', 'adult')).available).toBe(false)
     expect(keyAvailability(context('male', 'juvenile')).available).toBe(false)
