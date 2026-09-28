@@ -374,13 +374,26 @@ export function createGenusDatasetFromScientificPackage(input: unknown): GenusEn
   }
 }
 
+type DatasetIndexes = {
+  taxonOffset: Map<string, number>
+  stateOffset: Map<string, number>
+  stateById: Map<string, GenusState>
+  characterById: Map<string, GenusCharacter>
+}
+
+const indexCache = new WeakMap<GenusEngineDataset, DatasetIndexes>()
+
 function indexes(dataset: GenusEngineDataset) {
-  return {
+  const cached = indexCache.get(dataset)
+  if (cached) return cached
+  const created = {
     taxonOffset: new Map(dataset.taxa.map((taxon, index) => [taxon.id, index])),
     stateOffset: new Map(dataset.states.map((state, index) => [state.id, index])),
     stateById: new Map(dataset.states.map((state) => [state.id, state])),
     characterById: new Map(dataset.characters.map((character) => [character.id, character])),
   }
+  indexCache.set(dataset, created)
+  return created
 }
 
 export function sourceScore(dataset: GenusEngineDataset, taxonId: string, stateId: string): number {

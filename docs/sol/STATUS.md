@@ -1,6 +1,6 @@
 # Implementation status
 
-Updated: 2026-09-28, Stage 7 complete and verified; ready for Stage 8 when requested.
+Updated: 2026-09-28, Stage 8 implementation and release evaluation complete; controlled private field evaluation is the next step.
 
 ## Current state
 
@@ -161,6 +161,27 @@ Updated: 2026-09-28, Stage 7 complete and verified; ready for Stage 8 when reque
 - Rechecked the Results view at a 390 × 844 viewport. The primary historical-genus results and optional species section were both present, the bottom Results navigation worked, and the DOM reported `scrollWidth` equal to `clientWidth` (375 px).
 - Live species cards with real observations are covered by deterministic domain tests rather than a known specimen browser fixture. Their scientific accuracy and practical field usefulness still require Stage 8 expert and real-specimen evaluation.
 
+## Stage 8 changes — release evaluation and polish
+
+- Added `src/lib/release-evaluation.test.ts`, with an explicit regression for each of the eight supplied examples and adverse scenarios covering poor photographs, juveniles, contradictory answers and recovery, missing or undescribed taxa, historical usages, homoplasy/correlated evidence, changed taxonomy, selective species coverage and all 36 open audit issues.
+- Exposed both conflicting Umbrattus type-species statements, their source pages and provenance in the taxonomy summary. The conflict remains unresolved rather than being silently repaired.
+- Added an open-world results warning: an unrepresented or undescribed taxon may be outside the source, so insufficient evidence should remain unresolved rather than forcing certainty.
+- Improved accessible state and structure with current-navigation and pressed-state semantics, a labelled search field, corrected heading order, labelled comparison removal, visible focus treatment and minimum touch-target sizing for the checked controls.
+- Adjusted the light-theme gold text token. Its checked contrast is 4.99:1 on the soft-gold surface and 5.84:1 on the paper surface.
+- Cached immutable genus-dataset indexes instead of reconstructing them during every source-score lookup. This removed the identified question-ranking bottleneck without changing scientific results.
+- Added `docs/sol/STAGE8_READINESS.md`, which separates implementation evidence from scientific accuracy, unresolved audit issues, media eligibility and the expert/real-specimen work still required.
+
+## Stage 8 verification
+
+- `npm test`: passed after Stage 8 — 28 source/foundation/offline checks and 96 application/domain/session checks, 0 failures across nine application test files.
+- The 13 Stage 8 tests include the eight named examples, adverse/open-world cases, all open issue records and a recorded performance fixture. They are semantic/integrity tests, not independently verified specimen identifications.
+- `npm run build`: passed — deterministic compiler, TypeScript check, Vite production build and offline-package verification; 1,837 modules transformed. Scientific package SHA-256 remains `eaf7dca140505e419120155cc1f92207212563f4d43d3d5bb925f3359c277574`.
+- Final offline core `core-f75aae3025ffcab133b1` contains eight verified assets totalling 4,793,510 bytes; private media remain excluded.
+- Performance on the current Codex Windows test host: genus reevaluation median 1.25 ms, p95 5.33 ms, maximum 8.16 ms; next-question ranking median 27.52 ms, p95 46.14 ms, maximum 46.14 ms. The device class is not established as lower-end, so this is not a lower-end-device claim.
+- With the isolated production server stopped, an existing tab cold-reloaded successfully and restored its abstention/evidence state. A separately opened arbitrary deep link also loaded the complete app offline. Requesting update verification retained the active verified core.
+- Desktop accessibility-tree/DOM review found one main landmark, labelled navigation, no missing image alternatives in the checked views and no horizontal overflow. Responsive checks used 390 × 844 and 320 × 700; the narrower pass is a reflow proxy, not an actual 200% zoom test.
+- No expert biological review, independently identified specimen evaluation, NVDA/VoiceOver run, physical-device test, lower-end-device measurement, live two-version rollback or media-rights clearance was performed. The readiness verdict is therefore limited to controlled private field evaluation as a research prototype.
+
 ## Verification after Stages 2 and 3
 
 - `npm test`: passed.
@@ -178,11 +199,11 @@ Updated: 2026-09-28, Stage 7 complete and verified; ready for Stage 8 when reque
 - The 21 reviewed page overlays correct provenance precision only. They do not constitute expert validation of the biological assertions.
 - Stage 5 evaluates the supplied Schubert assertion set and Stage 7 evaluates the supplied selective species hints, but both remain source-faithful logic rather than independent evidence of identification accuracy.
 - Species coverage is deliberately incomplete: the 32 profiles are thesis-only proposals and 195 other placements are unscored. A suggestion is a qualified downstream aid, not a comprehensive species identification.
-- Stage 4 has no known blocking defect after automated and in-app-browser verification. Actual 200% browser zoom, NVDA/VoiceOver, and physical-device testing remain release-evaluation limitations rather than blockers to beginning Stage 5.
+- The checked browser flows have no known blocking defect after automated and in-app-browser verification. Actual 200% browser zoom, NVDA/VoiceOver, switch/voice control and physical-device testing remain outstanding release gates.
 - No expert scientific review, independently identified specimen study, physical-device test or assistive-technology audit was performed. Automated source-derived checks, schematic review and offline runtime tests are integrity/usability evidence, not identification-accuracy validation.
 - Media rights remain unresolved. Archived and user-supplied images are visible only through the private local prototype and are excluded from the distributable core; they are not approved for redistribution, publication or an optional offline media pack. No backend, dependency upgrade, deployment or source re-extraction occurred.
 - No explicit joint-compatible Lucid character set is supplied by the packet, so joint observations are rejected until a reviewed declaration is added. OR alternatives work now.
-- Proposed performance budgets have not been measured on a specified lower-end device.
+- Performance is measured on the current Codex Windows host and meets the proposed targets there, but has not been measured on a specified lower-end device.
 
 ## Stage ledger
 
@@ -196,8 +217,8 @@ Updated: 2026-09-28, Stage 7 complete and verified; ready for Stage 8 when reque
 | 6 Offline reliability | Complete | Hash-verified atomic core staging, IndexedDB sessions/version pins, rollback path, recovery UI and private-media exclusion; real server-offline cold reload, new deep link and restored observation verified. Live two-version rollback remains a release check. |
 | Pre-Stage-7/8 cleanup | Complete | Versioned 21-record locator overlay, original/reviewed provenance retention, stale-target compile failures, current Git/public-private documentation, 27 source tests, 74 app tests and production/offline build passed. |
 | 7 Species suggestions | Complete | Removable downstream service for all 32 selective profiles, five qualified outcomes, locality exclusion, scope/coverage safeguards, v5 sessions, 28 source tests, 83 app tests, production/offline build and desktop/mobile browser checks passed. |
-| 8 Release evaluation | Not started | Expert, specimen, browser and rights review remain future work. |
+| 8 Release evaluation | Complete for software/integrity scope | Eight supplied examples and adverse regressions, full tests/build, measured host performance, offline cold start/deep link, accessibility/mobile polish and honest readiness report completed. Expert accuracy, real specimens, assistive technology, physical devices, live two-version rollback and rights clearance remain external release gates. |
 
-## Next stage
+## Next work
 
-Stage 8 release review is ready to commence when explicitly requested. It should exercise the eight packet examples and real-specimen workflows, obtain expert review, revisit accessibility/performance and media rights, and report readiness without treating source-derived tests as identification-accuracy evidence.
+The implementation plan is complete through Stage 8. The appropriate next activity is a controlled private field evaluation with independently identified specimens, following `docs/sol/STAGE8_READINESS.md`. Broader release should wait for expert review, measured specimen outcomes, assistive-technology and physical-device checks, live two-version rollback, and explicit media-rights decisions. No deployment or publication was performed.

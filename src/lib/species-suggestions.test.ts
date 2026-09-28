@@ -14,7 +14,7 @@ const dataset = createSpeciesDatasetFromScientificPackage(scientific)
 const context = (sex: SpecimenContext['sex'] = 'male', lifeStage: SpecimenContext['lifeStage'] = 'adult', cleared: SpecimenContext['preparation']['epigyneCleared'] = 'unknown'): SpecimenContext => ({ specimenId: 'stage7-specimen', sex, lifeStage, preparation: { epigyneCleared: cleared } })
 const profile = (packetId: string) => dataset.profiles.find((item) => item.packetId === packetId)!
 const candidate = (species: SpeciesProfile, assessment: 'independently_strong' | 'independently_compatible' | 'historically_compatible' | 'possible_destination' = 'independently_compatible') => ({
-  concept: { id: species.genusConceptId, packetId: species.genusConceptPacketId, label: species.name.split(' ')[0], qualifier: null, rank: 'genus', biologicalStatus: 'reviewed', nomenclaturalStatus: 'qualified' },
+  concept: { id: species.genusConceptId, packetId: species.genusConceptPacketId, label: species.name.split(' ')[0], qualifier: null, rank: 'genus', biologicalStatus: 'reviewed', nomenclaturalStatus: 'qualified', typeSpeciesAssertions: [], sourceNotes: null },
   assessment,
 })
 const observation = (species: SpeciesProfile, hintIndex: number, response: SpeciesObservation['response'] = 'matches', certainty: SpeciesObservation['certainty'] = 'certain'): SpeciesObservation => ({
@@ -97,4 +97,3 @@ describe('selective species suggestion service', () => {
     expect(after).toEqual(before)
   })
 })
-

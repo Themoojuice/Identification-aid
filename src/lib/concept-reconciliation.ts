@@ -25,6 +25,13 @@ export interface ContemporaryConcept {
   rank: string
   biologicalStatus: string
   nomenclaturalStatus: string
+  typeSpeciesAssertions: Array<{
+    name: string
+    assertionStatus: string
+    sourcePage: number
+    provenance: string
+  }>
+  sourceNotes: string | null
 }
 
 export interface CrosswalkTarget {
@@ -178,6 +185,9 @@ export function createReconciliationDatasetFromScientificPackage(input: unknown)
   const model = record(scientific.model, 'scientific package model')
   const interpretations = record(model.interpretations, 'scientific interpretations')
   const policy = record(interpretations.conceptReconciliation, 'concept reconciliation policy')
+  const rawSnapshots = record(scientific.rawSnapshots, 'scientific raw snapshots')
+  const conceptPacket = record(rawSnapshots['04_taxon_concepts.json'], 'taxon concept packet')
+  const rawConcepts = array(conceptPacket.concepts, 'raw taxon concepts').map((value) => record(value, 'raw taxon concept'))
   const positiveTargetRelationships = new Set(array(policy.positiveTargetRelationships, 'positive target relationships').map((value) => text(value, 'positive target relationship')))
   const nonPositiveTargetRelationships = new Set(array(policy.nonPositiveTargetRelationships, 'non-positive target relationships').map((value) => text(value, 'non-positive target relationship')))
   if (!nonPositiveTargetRelationships.has('not_equivalent')) throw new Error('Non-equivalence must remain a non-positive route')
@@ -193,17 +203,32 @@ export function createReconciliationDatasetFromScientificPackage(input: unknown)
   const concepts: ContemporaryConcept[] = array(model.taxonConcepts, 'taxon concepts').map((value) => {
     const concept = record(value, 'taxon concept')
     const id = text(concept.id, 'concept ID')
+    const packetId = packetAlias(concept.aliases, `concept ${id}`)
+    const rawIndex = rawConcepts.findIndex((item) => item.concept_id === packetId)
+    if (rawIndex < 0) throw new Error(`Concept ${id} has no recoverable raw packet record`)
+    const rawConcept = rawConcepts[rawIndex]
+    const typeSpeciesAssertions = rawConcept.type_species_assertions === undefined ? [] : array(rawConcept.type_species_assertions, `${packetId} type-species assertions`).map((assertionValue, assertionIndex) => {
+      const assertion = record(assertionValue, `${packetId} type-species assertion`)
+      return {
+        name: text(assertion.name, 'type-species assertion name'),
+        assertionStatus: text(assertion.assertion_status, 'type-species assertion status'),
+        sourcePage: Number(assertion.source_page),
+        provenance: `04_taxon_concepts.json#/concepts/${rawIndex}/type_species_assertions/${assertionIndex}`,
+      }
+    })
     const preferredUsageId = text(concept.preferredNameUsageId, 'preferred name usage ID')
     const usage = usages.get(preferredUsageId)
     if (!usage) throw new Error(`Concept ${id} has no preferred name usage ${preferredUsageId}`)
     return {
       id,
-      packetId: packetAlias(concept.aliases, `concept ${id}`),
+      packetId,
       label: text(usage.exactSpelling, 'preferred name spelling'),
       qualifier: nullableText(usage.qualifier, 'preferred name qualifier'),
       rank: text(concept.rank, 'concept rank'),
       biologicalStatus: text(concept.biologicalStatus, 'concept biological status'),
       nomenclaturalStatus: text(concept.nomenclaturalStatus, 'concept nomenclatural status'),
+      typeSpeciesAssertions,
+      sourceNotes: rawConcept.notes === null || rawConcept.notes === undefined ? null : text(rawConcept.notes, 'concept source notes'),
     }
   })
   const conceptIds = new Set(concepts.map((concept) => concept.id))

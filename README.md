@@ -39,6 +39,10 @@ For live development with automatic refresh, use `npm run dev`.
 
 Compatibility is deliberately labelled as a heuristic match—not a calibrated probability. The curated difficulty overlay is kept at `data/curated/character_metadata.json`, separate from source-derived facts.
 
+## Release status
+
+The current build is ready for controlled private field evaluation as a research prototype. It is not yet a scientifically validated identification product or a distributable media release. Independent expert/specimen evaluation, physical-device and assistive-technology checks, a live two-version rollback exercise, and per-asset rights decisions remain required. See `docs/sol/STAGE8_READINESS.md` for the evidence, limitations and proposed evaluation measures.
+
 ## Results at a glance
 
 - 86 entities: one Salticidae root and 85 genus leaves
