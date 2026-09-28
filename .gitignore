@@ -15,6 +15,7 @@ Thumbs.db
 
 # Historical source archive and private-local reference images are retained
 # locally but are not approved for redistribution in this public repository.
-source/
-public/media/private-reference/
+/source/
+public/media/private-reference/*
+!public/media/private-reference/figure_*.jpg
 

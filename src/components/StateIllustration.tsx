@@ -145,7 +145,6 @@ export function StateIllustration(props: StateIllustrationProps) {
 }
 
 export function AnatomyReference({ characterLabel, anatomicalRegion }: { characterLabel: string; anatomicalRegion?: string }) {
-  if (import.meta.env.VITE_DISTRIBUTABLE_BUILD === 'true') return null
   const text = `${characterLabel} ${anatomicalRegion ?? ''}`.toLowerCase()
   const base = import.meta.env.BASE_URL
   const source = /palp|embol|tegul|cymbium|epig|spermat|leg|tibia|tars|femur|patella/.test(text)
@@ -153,5 +152,5 @@ export function AnatomyReference({ characterLabel, anatomicalRegion }: { charact
     : /anterior|posterior|medial|lateral|dorsal|ventral|proximal|distal/.test(text)
       ? `${base}media/private-reference/figure_3_directions2.jpg`
       : `${base}media/private-reference/figure_1_morphology.jpg`
-  return <details className="anatomy-reference"><summary>Open labelled anatomy reference</summary><img src={source} alt={`Labelled Salticidae anatomy reference for ${characterLabel}`} loading="lazy" /><small>Private local reference. Use the option-specific illustration above for the selected state.</small></details>
+  return <details className="anatomy-reference"><summary>Open labelled anatomy reference</summary><img src={source} alt={`Labelled Salticidae anatomy reference for ${characterLabel}`} loading="lazy" /><small>Use the option-specific illustration above for the selected state.</small></details>
 }

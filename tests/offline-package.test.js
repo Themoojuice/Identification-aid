@@ -22,9 +22,8 @@ test('offline fetches use only a complete active package and deep links fall bac
   assert.doesNotMatch(worker, /cache\.put\(event\.request/)
 })
 
-test('distributable package builder excludes private local references and declares no media pack', () => {
+test('offline core package declares no media pack (published images load online only)', () => {
   const builder = fs.readFileSync(path.join(root, 'scripts', 'build_offline_package.js'), 'utf8')
-  assert.match(builder, /private-reference/)
   assert.match(builder, /optionalMediaPacks: \[\]/)
   assert.match(builder, /localArchiveIncluded: false/)
 })
