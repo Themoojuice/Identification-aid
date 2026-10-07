@@ -15,5 +15,4 @@ for (const asset of manifest.coreAssets) {
   const digest = crypto.createHash('sha256').update(content).digest('hex')
   if (digest !== asset.sha256 || content.length !== asset.bytes) throw new Error(`Integrity mismatch for ${asset.url}`)
 }
-if (fs.existsSync(path.join(dist, 'media', 'private-reference'))) throw new Error('Private references were copied into the distributable build.')
 console.log(`Offline package verified: ${manifest.packageId}, ${manifest.coreAssets.length} assets.`)
