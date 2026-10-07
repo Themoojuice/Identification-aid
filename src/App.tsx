@@ -20,10 +20,12 @@ import {
 } from './lib/concept-reconciliation'
 import type { HistoricalReconciliation, ReconciledGenusEvaluation } from './lib/concept-reconciliation'
 import {
-  freshSession, LEGACY_SESSION_STORAGE_KEY, migrateLegacySession, restoreCurrentSession, restoreSessionExport,
+  freshSession, LEGACY_SESSION_STORAGE_KEY, migrateLegacySession, restoreSessionExport,
   PREVIOUS_SESSION_STORAGE_KEYS, SESSION_STORAGE_KEY, sessionExport,
+  recoverSavedSessions, sessionReferenceError,
 } from './lib/session'
 import type { IdentificationSession } from './lib/session'
+import { readLocalValue, writeLocalValue } from './lib/browser-storage'
 import type { CuratedMetadata, FactSheetData, KeyData, WorkMode } from './lib/types'
 import type { ScientificRuntimePackage } from './lib/scientific-contract'
 import {
@@ -77,7 +79,7 @@ function App() {
   const [offlineStatus, setOfflineStatus] = useState<OfflineStatus>(initialOfflineStatus)
   const [storageUsage, setStorageUsage] = useState<{ usage?: number; quota?: number } | null>(null)
   const importRef = useRef<HTMLInputElement>(null)
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => localStorage.getItem('salticidae-theme') === 'dark' ? 'dark' : 'light')
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => readLocalValue('salticidae-theme') === 'dark' ? 'dark' : 'light')
 
   useEffect(() => { loadAppData().then(setData).catch((error: Error) => setLoadError(error.message)) }, [])
   useEffect(() => {
@@ -85,19 +87,26 @@ function App() {
     let cancelled = false
     void (async () => {
       const indexed = await loadIndexedSession()
-      const current = (indexed ? restoreCurrentSession(JSON.stringify(indexed)) : null)
-        ?? restoreCurrentSession(localStorage.getItem(SESSION_STORAGE_KEY))
-        ?? PREVIOUS_SESSION_STORAGE_KEYS.map((key) => restoreCurrentSession(localStorage.getItem(key))).find((saved) => saved !== null)
-      const legacy = current ? null : migrateLegacySession(localStorage.getItem(LEGACY_SESSION_STORAGE_KEY), data.scientific, data.key)
-      if (!cancelled) { setSession(current ?? legacy ?? freshSession()); setHydrated(true) }
+      const raws = [indexed ? JSON.stringify(indexed) : null, readLocalValue(SESSION_STORAGE_KEY), ...PREVIOUS_SESSION_STORAGE_KEYS.map(readLocalValue)]
+      const legacyRaw = readLocalValue(LEGACY_SESSION_STORAGE_KEY)
+      const legacy = migrateLegacySession(legacyRaw, data.scientific, data.key)
+      if (legacyRaw && !legacy) raws.push(legacyRaw)
+      const restored = recoverSavedSessions(raws, {
+        genus: createGenusDatasetFromScientificPackage(data.scientific),
+        schubert: createSchubertDatasetFromScientificPackage(data.scientific),
+        species: createSpeciesDatasetFromScientificPackage(data.scientific),
+      }, legacy)
+      if (!cancelled) { setSession(restored); setHydrated(true) }
     })()
     return () => { cancelled = true }
   }, [data, hydrated])
   useEffect(() => {
     if (!hydrated) return
     const saved = { ...session, updatedAt: new Date().toISOString() }
-    try { localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(saved)) } catch { setStorageWarning('Browser backup storage is full. Export this session now.') }
-    void saveIndexedSession(saved).then((result) => setStorageWarning(result.persisted ? '' : 'Durable browser storage failed; a local backup was attempted. Export this session now.'))
+    const backupSaved = writeLocalValue(SESSION_STORAGE_KEY, JSON.stringify(saved))
+    let cancelled = false
+    void saveIndexedSession(saved).then((result) => { if (!cancelled) setStorageWarning(result.persisted ? '' : backupSaved ? 'Durable storage failed. A browser backup was saved; export this session for safety.' : 'Session not saved: browser storage is unavailable. Export this session now.') })
+    return () => { cancelled = true }
   }, [hydrated, session])
   useEffect(() => subscribeOfflineStatus((update) => setOfflineStatus((current) => ({ ...current, ...update }))), [])
   useEffect(() => { void requestPersistentStorage().then((value) => setOfflineStatus((current) => ({ ...current, storagePersistent: value }))); void storageEstimate().then(setStorageUsage) }, [])
@@ -122,7 +131,7 @@ function App() {
   }, [session.packagePin?.offlinePackageId])
   useEffect(() => {
     document.documentElement.dataset.theme = theme
-    localStorage.setItem('salticidae-theme', theme)
+    writeLocalValue('salticidae-theme', theme)
   }, [theme])
 
   const domain = useMemo(() => {
@@ -181,7 +190,11 @@ function App() {
       ? [...new Set(evaluation.candidates.filter((candidate) => candidate.band !== 'contradicted').slice(0, 20).flatMap((candidate) => domain.reconciliation.mappings.find((mapping) => mapping.sourceEntityId === candidate.taxon.id)?.targets.filter((target) => target.isPositiveRoute).map((target) => target.conceptId) ?? []))]
       : []
     const hasSchubertRoute = routedConceptIds.some((id) => domain.schubert.conceptIds.includes(id))
-    const schubert = hasSchubertRoute ? rankSchubertQuestions(domain.schubert, session.specimen, session.schubertObservations, session.workMode) : []
+    // Routes prioritize questions, but cannot make independent concepts
+    // permanently unreachable. All applicable Schubert questions stay selectable.
+    const schubert = rankSchubertQuestions(domain.schubert, session.specimen, session.schubertObservations, session.workMode)
+      .map((question) => hasSchubertRoute ? question : { ...question, utility: 0,
+        explanation: `${question.explanation} Available for manual selection; current historical routes do not prioritize it.` })
     return [...lucid, ...schubert].sort((a, b) => b.utility - a.utility || a.effort - b.effort || a.characterId.localeCompare(b.characterId))
   }, [domain, evaluation, session.observations, session.schubertObservations, session.specimen, session.workMode, ui])
 
@@ -328,10 +341,12 @@ function App() {
 
   function saveNow() {
     const saved = { ...session, updatedAt: new Date().toISOString() }
-    try { localStorage.setItem(SESSION_STORAGE_KEY, JSON.stringify(saved)) } catch { setStorageWarning('Browser backup storage is full. Export this session now.') }
-    void saveIndexedSession(saved).then((result) => setStorageWarning(result.persisted ? '' : 'Durable browser storage failed. Export this session now.'))
-    setSavedPulse(true)
-    window.setTimeout(() => setSavedPulse(false), 1600)
+    const backupSaved = writeLocalValue(SESSION_STORAGE_KEY, JSON.stringify(saved))
+    void saveIndexedSession(saved).then((result) => {
+      setStorageWarning(result.persisted ? '' : backupSaved ? 'Durable storage failed. A browser backup was saved; export this session for safety.' : 'Session not saved: browser storage is unavailable. Export this session now.')
+      setSavedPulse(result.persisted || backupSaved)
+      window.setTimeout(() => setSavedPulse(false), 1600)
+    })
   }
 
   function restart() {
@@ -358,8 +373,12 @@ function App() {
     try {
       const restored = restoreSessionExport(await file.text())
       if (!restored) throw new Error('This is not a supported Salticidae session export.')
+      if (!domain) throw new Error('The scientific package is not ready yet.')
+      const referenceError = sessionReferenceError(restored, domain)
+      if (referenceError) throw new Error(`${referenceError} Your current session has not been replaced.`)
       setSession(restored)
-      setImportMessage(restored.packagePin?.offlinePackageId && restored.packagePin.offlinePackageId !== offlineStatus.activePackageId ? 'Session restored. Its original core package is pinned but is not currently active; the observations remain intact.' : 'Session restored with its version pin and observations intact.')
+      setActiveCharacterId(null); setActiveQuestionSource(null); setSelectedCandidateId(null); setComparisonIds([])
+      setImportMessage('Observations restored and checked against the loaded package. Results are evaluated using the currently loaded rules; the original version record is retained, not automatically replayed.')
     } catch (error) { setImportMessage(error instanceof Error ? error.message : 'Session import failed.') }
   }
 
@@ -382,10 +401,12 @@ function App() {
   return <div className="app-shell">
     <header className="app-header">
       <button className="brand" onClick={() => setScreen('question')}><span className="brand-mark"><Bug size={20} /></span><span><b>Australian Salticidae</b><small>Genus identification</small></span></button>
-      <div className="header-actions"><span className={`offline-indicator ${offlineStatus.coreReady ? 'ready' : ''}`} title={offlineStatus.message}>{offlineStatus.online ? <Wifi /> : <WifiOff />}<span>{offlineStatus.coreReady ? 'Offline ready' : 'Online only'}</span></span><span className={`save-state ${savedPulse ? 'saved' : ''}`} aria-live="polite"><Check size={14} /> {savedPulse ? 'Saved now' : 'Saved locally'}</span><button className="icon-button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={`Use ${theme === 'light' ? 'dark' : 'light'} theme`}>{theme === 'light' ? <Moon /> : <Sun />}</button></div>
+      <div className="header-actions"><span className={`offline-indicator ${offlineStatus.coreReady ? 'ready' : ''}`} title={offlineStatus.message}>{offlineStatus.online ? <Wifi /> : <WifiOff />}<span>{offlineStatus.coreReady ? 'Offline ready' : 'Online only'}</span></span><span className={`save-state ${savedPulse ? 'saved' : ''}`} aria-live="polite">{storageWarning ? <CircleAlert size={14} /> : <Check size={14} />} {storageWarning ? 'Export recommended' : savedPulse ? 'Saved now' : 'Saved locally'}</span><button className="icon-button" onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')} aria-label={`Use ${theme === 'light' ? 'dark' : 'light'} theme`}>{theme === 'light' ? <Moon /> : <Sun />}</button></div>
     </header>
 
-    {session.migration.source === 'legacy-v1' && migrationOpen && <MigrationNotice session={session} onClose={() => setMigrationOpen(false)} onExport={exportSession} />}
+    {(session.migration.source === 'legacy-v1' || session.legacyHistory.length > 0) && migrationOpen && <MigrationNotice session={session} onClose={() => setMigrationOpen(false)} onExport={exportSession} />}
+    {storageWarning && <aside className="migration-notice" role="alert"><CircleAlert /><p>{storageWarning}</p><button onClick={exportSession}><Download /> Export recovery file</button></aside>}
+    {session.packagePin && (session.packagePin.scientificPackageVersion !== data.scientific.packageVersion || session.packagePin.genusEngineVersion !== REVIEWED_POLICY.version || session.packagePin.schubertPolicyVersion !== SCHUBERT_POLICY_VERSION || session.packagePin.speciesPolicyVersion !== SPECIES_POLICY_VERSION) && <aside className="migration-notice" role="status"><Info /><p>This session records an older scientific package or rule version. These results use the currently loaded rules, not a reproduction of the original result. Export preserves the original version record.</p><button onClick={exportSession}><Download /> Export record</button></aside>}
 
     <nav className="mobile-nav" aria-label="Identification sections">
       <NavButton active={screen === 'question'} icon={<Sparkles />} label="Question" onClick={() => setScreen('question')} />

@@ -13,8 +13,8 @@
     "extract": "node scripts/extract_lucid.js && node scripts/extract_fact_sheets.js",
     "extract:payload": "node scripts/extract_lucid.js",
     "extract:fact-sheets": "node scripts/extract_fact_sheets.js",
-    "test:source": "node --test tests/validate.test.js tests/scientific-foundation.test.js tests/offline-package.test.js",
-    "test:app": "vitest run",
+    "test:source": "node --test tests/validate.test.js tests/scientific-foundation.test.js tests/offline-package.test.js tests/offline-runtime.test.js tests/serve-app.test.js",
+    "test:app": "vitest run --maxWorkers=1",
     "test": "npm run test:source && npm run test:app",
     "test:offline": "node scripts/verify_offline_package.js"
   },

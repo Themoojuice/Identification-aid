@@ -3,7 +3,7 @@ import type { ObservationCertainty, SpecimenContext } from './genus-engine'
 import type { ScientificRuntimePackage } from './scientific-contract'
 import type { WorkMode } from './types'
 
-export const SPECIES_POLICY_VERSION = 'stage7-selective-species@1'
+export const SPECIES_POLICY_VERSION = 'selective-species-conservative@2'
 
 export type SpeciesSuggestionOutcome = 'none' | 'possible' | 'plausible' | 'strong_candidate' | 'diagnostic_if_confirmed'
 export type SpeciesHintResponse = 'matches' | 'does_not_match' | 'not_sure' | 'cannot_see'
@@ -204,41 +204,38 @@ export function evaluateSpeciesSuggestions(dataset: SpeciesDataset, input: Speci
     if (input.context.lifeStage === 'juvenile') return { ...base, outcome: 'none' as const, applicableHints: [], supportedHintIds: [], contradictedHintIds: [], missingDiagnosticHintIds: [], constraints: ['The source profile is adult diagnostic evidence; juvenile identity is not supported.'], explanation: 'No species suggestion is made for a juvenile from these adult diagnoses.' }
     if (input.context.sex === 'female' && !species.sexesDescribed.includes('female')) return { ...base, outcome: 'none' as const, applicableHints: [], supportedHintIds: [], contradictedHintIds: [], missingDiagnosticHintIds: [], constraints: ['Female not described or diagnosed in the selective source profile.'], explanation: 'This male-only profile cannot be suggested for a female specimen.' }
 
-    const applicableHints = input.context.sex === 'unknown' ? species.hints : species.hints.filter((hint) => hint.sex.includes(input.context.sex as 'male' | 'female'))
+    // Preserve observations, but never infer that adult/sex-specific scope is
+    // satisfied merely because the user previously answered a hint.
+    const applicableHints = input.context.sex === 'unknown' || input.context.lifeStage !== 'adult' ? []
+      : species.hints.filter((hint) => hint.sex.includes(input.context.sex as 'male' | 'female') && hint.confidence !== 'uncertain')
     if (input.context.sex === 'unknown') constraints.push('Resolve sex before using sex-specific diagnostic evidence.')
-    if (input.context.lifeStage === 'unknown') constraints.push('Adult life stage must be confirmed before a strong species suggestion.')
+    if (input.context.lifeStage === 'unknown') constraints.push('Confirm adult life stage before using species diagnostic evidence; saved answers are paused.')
     if (input.workMode === 'field' && applicableHints.some((hint) => hint.requiresMicroscopy)) constraints.push('One or more diagnostic comparisons require microscopy.')
     if (input.context.sex === 'female' && applicableHints.some((hint) => hint.requiresGenitalia) && input.context.preparation.epigyneCleared !== 'yes') constraints.push('Female confirmation requires an appropriately prepared epigyne.')
     if (species.packetId === 'SP0008') constraints.push('Silvery-blue iridescence is angle- and lighting-sensitive; confirm the entire dorsal abdomen under useful light.')
     constraints.push('Only 32 thesis profiles are represented; 195 other placements are unscored, not rejected competitors.')
+    constraints.push('Strong species status is withheld: the number of profiles is not a reviewed comparison against all relevant alternatives.')
+    for (const hint of species.hints.filter((hint) => hint.confidence === 'uncertain' && (input.context.sex === 'unknown' || hint.sex.includes(input.context.sex)))) constraints.push(`Source limitation (not identifying evidence): ${hint.description}`)
 
-    const supported = applicableHints.filter((hint) => observations.get(`${species.id}|${hint.id}`)?.response === 'matches')
-    const contradicted = applicableHints.filter((hint) => observations.get(`${species.id}|${hint.id}`)?.response === 'does_not_match')
+    const usable = (hint: SpeciesHint) => (!hint.requiresMicroscopy || input.workMode === 'microscope')
+      && (!(input.context.sex === 'female' && hint.requiresGenitalia) || input.context.preparation.epigyneCleared === 'yes')
+    const supported = applicableHints.filter((hint) => usable(hint) && observations.get(`${species.id}|${hint.id}`)?.response === 'matches')
+    const contradicted = applicableHints.filter((hint) => usable(hint) && observations.get(`${species.id}|${hint.id}`)?.response === 'does_not_match')
     const diagnosticHints = applicableHints.filter((hint) => hint.confidence === 'diagnostic_in_source')
-    const missingDiagnostic = diagnosticHints.filter((hint) => !observations.has(`${species.id}|${hint.id}`) || ['not_sure', 'cannot_see'].includes(observations.get(`${species.id}|${hint.id}`)!.response))
-    const certainDiagnosticSupport = diagnosticHints.filter((hint) => {
-      const observation = observations.get(`${species.id}|${hint.id}`)
-      return observation?.response === 'matches' && observation.certainty === 'certain'
-    })
+    const missingDiagnostic = diagnosticHints.filter((hint) => !usable(hint) || !observations.has(`${species.id}|${hint.id}`) || ['not_sure', 'cannot_see'].includes(observations.get(`${species.id}|${hint.id}`)!.response))
     const diagnosticContradiction = contradicted.some((hint) => hint.confidence === 'diagnostic_in_source' && observations.get(`${species.id}|${hint.id}`)?.certainty === 'certain')
     let outcome: SpeciesSuggestionOutcome
     let explanation: string
-    const strongScope = input.context.sex !== 'unknown' && input.context.lifeStage === 'adult' && coverage.profiledSpeciesInGenus >= 2
-    const allDiagnosticCertain = diagnosticHints.length > 0 && certainDiagnosticSupport.length === diagnosticHints.length
-    const preparationReady = !(input.context.sex === 'female' && diagnosticHints.some((hint) => hint.requiresGenitalia)) || input.context.preparation.epigyneCleared === 'yes'
-    const equipmentReady = !diagnosticHints.some((hint) => hint.requiresMicroscopy) || input.workMode === 'microscope'
 
     if (diagnosticContradiction) {
       outcome = 'none'
       explanation = 'A certain observation conflicts with an applicable source-diagnostic hint.'
-    } else if (allDiagnosticCertain && strongScope && preparationReady && equipmentReady && species.packetId !== 'SP0008') {
-      outcome = 'strong_candidate'
-      explanation = 'Every applicable source-diagnostic hint was confirmed with sufficient selective comparison coverage. This remains a candidate, not a comprehensive identification.'
     } else if (supported.length > 0) {
-      outcome = 'plausible'
+      outcome = supported.every((hint) => observations.get(`${species.id}|${hint.id}`)?.certainty === 'tentative') || contradicted.length > 0 ? 'possible' : 'plausible'
       explanation = species.packetId === 'SP0008'
         ? 'The source pattern supports this male candidate, but angle- and lighting-sensitive iridescence prevents a strong result.'
         : 'At least one applicable source hint supports this candidate, but confirmation or comparison coverage remains incomplete.'
+      if (outcome === 'possible') explanation = 'Support is tentative or accompanied by disagreement. Recheck the observations before strengthening this suggestion.'
     } else if (diagnosticHints.length > 0 && missingDiagnostic.length > 0 && input.context.sex !== 'unknown') {
       outcome = 'diagnostic_if_confirmed'
       explanation = 'The supported genus makes this profile relevant; confirming the listed diagnostic character could materially strengthen it.'
@@ -262,4 +259,3 @@ export function evaluateSpeciesSuggestions(dataset: SpeciesDataset, input: Speci
     localityUsedForScoring: false,
   }
 }
-

@@ -16,6 +16,11 @@ const state = (packetId: string) => dataset.states.find((item) => item.packetId 
 const concept = (packetId: string) => dataset.conceptIds.find((id) => id.endsWith(`:${packetId.toLowerCase()}`))!
 
 describe('Schubert scientific integration', () => {
+  it('does not score a missing source diagnosis as positive morphological evidence', () => {
+    const observed = observationWithStates(character('SC030'), 's1', [state('SC030_K').id])
+    const result = evaluateSchubertEvidence(dataset, context('female'), [observed])
+    expect(result.evidence.find((item) => item.conceptId === concept('TC0010'))?.outcome).toBe('unscored')
+  })
   it('parses the complete reviewed packet without changing identities', () => {
     expect(dataset.characters).toHaveLength(44)
     expect(dataset.states).toHaveLength(139)

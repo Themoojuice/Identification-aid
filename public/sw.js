@@ -74,7 +74,14 @@ async function fetchManifest() {
   return manifest
 }
 
-async function stagePackage(manifest) {
+let stagingQueue = Promise.resolve()
+function stagePackage(manifest) {
+  const staging = stagingQueue.then(() => stagePackageSerial(manifest))
+  stagingQueue = staging.catch(() => undefined)
+  return staging
+}
+
+async function stagePackageSerial(manifest) {
   const current = await readMeta('active-package')
   const existing = await readMeta(`package:${manifest.packageId}`)
   if (await packageReady(manifest.packageId, existing)) {
@@ -112,19 +119,31 @@ self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url)
   if (url.pathname === scoped('sw.js') || url.pathname === MANIFEST_URL) return
   event.respondWith((async () => {
-    const packageId = await readMeta('active-package')
+    // A tab must keep the data version belonging to its loaded shell even if
+    // another tab activates an update. Bind navigations, including deep links,
+    // to a complete package; only a reload opts into the new active package.
+    const navigation = event.request.mode === 'navigate'
+    const clientId = navigation ? event.resultingClientId || event.clientId : event.clientId
+    const pinned = !navigation && clientId ? await readMeta(`client-package:${clientId}`) : null
+    const packageId = pinned || await readMeta('active-package')
     const record = packageId ? await readMeta(`package:${packageId}`) : null
     if (await packageReady(packageId, record)) {
       const cache = await caches.open(`${PACKAGE_PREFIX}${packageId}`)
       if (event.request.mode === 'navigate') {
         const shell = await cache.match(scoped('index.html'))
-        if (shell) return shell
+        if (shell) {
+          if (clientId) await writeMeta({ [`client-package:${clientId}`]: packageId })
+          return shell
+        }
       }
       const cached = await cache.match(url.pathname)
       if (cached) return cached
     }
+    if (pinned && record?.assets?.some((asset) => asset.url === url.pathname)) {
+      return new Response('The saved core package is incomplete. Reconnect and reload to verify an update.', { status: 503 })
+    }
     return fetch(event.request)
-  })())
+  })().catch(() => fetch(event.request)))
 })
 
 self.addEventListener('message', (event) => {

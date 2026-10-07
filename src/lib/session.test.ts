@@ -3,12 +3,17 @@ import scientific from '../../data/compiled/scientific-package.json'
 import key from '../../public/data/key.json'
 import {
   freshSession, migrateLegacySession, restoreCurrentSession, restoreSessionExport, sessionExport, SESSION_FORMAT,
+  recoverSavedSessions, sessionReferenceError,
 } from './session'
 import type { ScientificRuntimePackage } from './scientific-contract'
 import type { KeyData } from './types'
+import { createGenusDatasetFromScientificPackage } from './genus-engine'
+import { createSchubertDatasetFromScientificPackage } from './schubert-engine'
+import { createSpeciesDatasetFromScientificPackage } from './species-suggestions'
 
 const packageData = scientific as unknown as ScientificRuntimePackage
 const keyData = key as unknown as KeyData
+const domain = { genus: createGenusDatasetFromScientificPackage(packageData), schubert: createSchubertDatasetFromScientificPackage(packageData), species: createSpeciesDatasetFromScientificPackage(packageData) }
 
 describe('versioned session persistence', () => {
   it('starts with explicitly unknown context rather than inferred male or adult context', () => {
@@ -75,6 +80,61 @@ describe('versioned session persistence', () => {
 
   it('rejects unsupported portable session content', () => {
     expect(restoreSessionExport('{"format":"not-a-session"}')).toBeNull()
+  })
+
+  it('restores the newer backup when the durable copy is older', () => {
+    const old = { ...freshSession(), updatedAt: '2026-01-01T00:00:00Z' }
+    const recent = { ...freshSession(), updatedAt: '2026-01-02T00:00:00Z', workMode: 'microscope' as const }
+    expect(recoverSavedSessions([JSON.stringify(old), JSON.stringify(recent)], domain).workMode).toBe('microscope')
+  })
+
+  it('preserves invalid saved content for recovery without evaluating it', () => {
+    const raw = JSON.stringify({ ...freshSession(), observations: [null] })
+    const result = recoverSavedSessions([raw], domain)
+    expect(result.observations).toEqual([])
+    expect(result.legacyHistory[0].raw).toBe(raw)
+    expect(restoreSessionExport(sessionExport(result, packageData.packageVersion))?.legacyHistory).toEqual(result.legacyHistory)
+    expect(recoverSavedSessions([raw, JSON.stringify(result)], domain).legacyHistory).toHaveLength(1)
+  })
+
+  it('checks state ownership, specimen isolation and key branches against the loaded package', () => {
+    const session = freshSession()
+    const character = domain.genus.characters[2]
+    session.observations = [{ id: 'x', specimenId: session.specimen.specimenId, characterId: character.id, disposition: 'observed', expression: 'single', stateIds: [character.stateIds[0]], certainty: 'certain' }]
+    expect(sessionReferenceError(session, domain)).toBeNull()
+    session.observations[0].specimenId = 'another-spider'
+    expect(sessionReferenceError(session, domain)).not.toBeNull()
+    session.observations = []
+    session.publishedKeyHistory = [{ nodeId: domain.schubert.key.rootNodeId, branchIndex: 999 }]
+    expect(sessionReferenceError(session, domain)).not.toBeNull()
+  })
+
+  it('rejects malformed evidence and unsafe UI values before they reach the engines', () => {
+    for (const patch of [
+      { observations: [null] },
+      { observations: [{ id: 'x', specimenId: 'local-specimen-1', characterId: 'x', disposition: 'observed' }] },
+      { publishedKeyHistory: [{ nodeId: 'x', branchIndex: -1 }] },
+      { speciesObservations: [{ response: 'matches' }] },
+      { workMode: 'invented' }, { migration: 'broken' }, { packagePin: {} },
+    ]) expect(restoreSessionExport(JSON.stringify({ ...freshSession(), ...patch }))).toBeNull()
+  })
+
+  it('does not crash on malformed legacy records and retains them for export', () => {
+    expect(migrateLegacySession('null', packageData, keyData)).toBeNull()
+    const result = migrateLegacySession(JSON.stringify({ observations: [null, { featureId: 18 }, { featureId: 18, stateIds: [7], confidence: 'invented' }] }), packageData, keyData)
+    expect(result?.observations).toEqual([])
+    expect(result?.legacyHistory).toHaveLength(3)
+  })
+
+  it('does not migrate a state belonging to a different feature or duplicate a feature', () => {
+    const other = keyData.states.find((state) => state.feature !== 18)!
+    const result = migrateLegacySession(JSON.stringify({ observations: [
+      { featureId: 18, stateIds: [other.id], confidence: 'certain' },
+      { featureId: 18, stateIds: [7], confidence: 'certain' },
+      { featureId: 18, stateIds: [8], confidence: 'certain' },
+    ] }), packageData, keyData)
+    expect(result?.observations).toHaveLength(1)
+    expect(result?.legacyHistory).toHaveLength(2)
   })
 
   it('migrates legacy numeric feature/state observations to persistent IDs', () => {

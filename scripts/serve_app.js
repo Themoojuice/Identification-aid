@@ -12,14 +12,23 @@ const mime = {
 };
 const localPrivateMedia = path.join(root, 'public', 'media', 'private-reference');
 
-const server = http.createServer((request, response) => {
-  const pathname = decodeURIComponent(new URL(request.url, `http://${request.headers.host}`).pathname);
+function createAppServer() { return http.createServer((request, response) => {
+  let pathname;
+  try {
+    pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname).replace(/\\/g, '/');
+    if (pathname.includes('\0')) throw new Error('Invalid path');
+  } catch {
+    response.writeHead(400).end('Bad request');
+    return;
+  }
   const relative = pathname === '/' ? 'index.html' : pathname.replace(/^\/+/, '');
   const isPrivateMedia = relative.startsWith('media/private-reference/');
-  const base = relative.startsWith('source/') ? root : isPrivateMedia ? localPrivateMedia : dist;
-  const scopedRelative = isPrivateMedia ? relative.slice('media/private-reference/'.length) : relative;
+  const isSource = relative.startsWith('source/');
+  const base = isSource ? path.join(root, 'source') : isPrivateMedia ? localPrivateMedia : dist;
+  const scopedRelative = isSource ? relative.slice('source/'.length) : isPrivateMedia ? relative.slice('media/private-reference/'.length) : relative;
   let file = path.resolve(base, scopedRelative);
-  if (!file.startsWith(path.resolve(base))) {
+  const within = path.relative(base, file);
+  if (within === '..' || within.startsWith(`..${path.sep}`) || path.isAbsolute(within)) {
     response.writeHead(403).end('Forbidden');
     return;
   }
@@ -41,6 +50,7 @@ const server = http.createServer((request, response) => {
       ...(relative === 'sw.js' ? { 'Service-Worker-Allowed': '/' } : {}),
     }))
     .pipe(response);
-});
+}); }
 
-server.listen(port, '127.0.0.1', () => console.log(`Australian Salticidae Key: http://127.0.0.1:${port}`));
+if (require.main === module) createAppServer().listen(port, '127.0.0.1', () => console.log(`Australian Salticidae Key: http://127.0.0.1:${port}`));
+module.exports = { createAppServer };

@@ -27,6 +27,36 @@ const observation = (species: SpeciesProfile, hintIndex: number, response: Speci
 })
 
 describe('selective species suggestion service', () => {
+  it('pauses microscopic hints in field mode and restores them without losing answers', () => {
+    const species = profile('SP0014')
+    const input = { enabled: true, context: context(), conceptCandidates: [candidate(species)], observations: [observation(species, 0)] }
+    const field = evaluateSpeciesSuggestions(dataset, { ...input, workMode: 'field' }).results.find((item) => item.species.id === species.id)!
+    expect(field.supportedHintIds).toEqual([])
+    const microscope = evaluateSpeciesSuggestions(dataset, { ...input, workMode: 'microscope' }).results.find((item) => item.species.id === species.id)!
+    expect(microscope.supportedHintIds).toEqual([species.hints[0].id])
+    expect(microscope.outcome).toBe('plausible')
+  })
+  it('pauses saved sex-specific evidence when sex or maturity is unknown', () => {
+    const species = profile('SP0008')
+    for (const specimen of [context('unknown'), context('male', 'unknown')]) {
+      const result = evaluateSpeciesSuggestions(dataset, { enabled: true, context: specimen, workMode: 'field', conceptCandidates: [candidate(species)], observations: [observation(species, 0)] })
+      expect(result.results.find((item) => item.species.id === species.id)?.supportedHintIds).toEqual([])
+    }
+  })
+
+  it('does not turn a source limitation about female identifiability into positive evidence', () => {
+    const species = profile('SP0011')
+    const result = evaluateSpeciesSuggestions(dataset, { enabled: true, context: context('female'), workMode: 'field', conceptCandidates: [candidate(species)], observations: [observation(species, 1)] })
+    const suggestion = result.results.find((item) => item.species.id === species.id)!
+    expect(suggestion.supportedHintIds).toEqual([])
+    expect(suggestion.outcome).toBe('possible')
+  })
+
+  it('does not claim strong comparison coverage merely because two selective profiles exist', () => {
+    const species = profile('SP0005')
+    const result = evaluateSpeciesSuggestions(dataset, { enabled: true, context: context('female'), workMode: 'field', conceptCandidates: [candidate(species)], observations: [observation(species, 2)] })
+    expect(result.results.find((item) => item.species.id === species.id)?.outcome).not.toBe('strong_candidate')
+  })
   it('parses all 32 selective profiles with stable hint provenance and explicit incomplete coverage', () => {
     expect(dataset.profiles).toHaveLength(32)
     expect(dataset.profiles.every((item) => item.hints.length > 0)).toBe(true)
@@ -35,14 +65,16 @@ describe('selective species suggestion service', () => {
     expect(dataset.comprehensive).toBe(false)
   })
 
-  it('supports all five outcomes without using locality as evidence', () => {
+  it('supports conservative outcomes without locality scoring or unreviewed strong status', () => {
     const strongProfile = profile('SP0003')
     const diagnostic = evaluateSpeciesSuggestions(dataset, { enabled: true, context: context(), workMode: 'microscope', conceptCandidates: [candidate(strongProfile)], observations: [] })
     expect(diagnostic.results.find((item) => item.species.packetId === 'SP0003')?.outcome).toBe('diagnostic_if_confirmed')
     const plausible = evaluateSpeciesSuggestions(dataset, { enabled: true, context: context(), workMode: 'field', conceptCandidates: [candidate(strongProfile)], observations: [observation(strongProfile, 0)] })
     expect(plausible.results.find((item) => item.species.packetId === 'SP0003')?.outcome).toBe('plausible')
     const strong = evaluateSpeciesSuggestions(dataset, { enabled: true, context: context(), workMode: 'microscope', conceptCandidates: [candidate(strongProfile)], observations: [observation(strongProfile, 0), observation(strongProfile, 1)] })
-    expect(strong.results.find((item) => item.species.packetId === 'SP0003')?.outcome).toBe('strong_candidate')
+    // v2 deliberately withholds strong status: two selective profiles do not
+    // compare this specimen with unprofiled H. scutulatum or H. griseum.
+    expect(strong.results.find((item) => item.species.packetId === 'SP0003')?.outcome).toBe('plausible')
     const possible = evaluateSpeciesSuggestions(dataset, { enabled: true, context: context('unknown'), workMode: 'field', conceptCandidates: [candidate(strongProfile)], observations: [] })
     expect(possible.results.find((item) => item.species.packetId === 'SP0003')?.outcome).toBe('possible')
     const none = evaluateSpeciesSuggestions(dataset, { enabled: true, context: context(), workMode: 'field', conceptCandidates: [], observations: [], localityContext: ['Hithergreen'] })

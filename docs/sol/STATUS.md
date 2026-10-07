@@ -229,3 +229,30 @@ The implementation plan is complete through Stage 8. The appropriate next activi
 - The Pages workflow builds from the committed public scientific artifacts, runs the application tests, verifies a subpath-aware offline package, and deploys on changes to `main`.
 - The public bundle excludes the Lucid source archive and private-local anatomy references. Option-specific explanatory diagrams remain available for every discriminator option; controls for unavailable private references are omitted from the distributable build.
 - Publication does not change the Stage 8 readiness verdict: this remains a research prototype, not a scientifically validated identification authority or a rights-cleared media release.
+
+## Post-stage robustness review — 2026-10-07
+
+The user requested a broad accuracy/robustness review and fixes. Full findings, policy rationale and remaining priorities are in [REVIEW_2026-10-07.md](REVIEW_2026-10-07.md). This is a corrective review of the completed stages, not a new source extraction or taxonomy revision.
+
+### Changes
+
+- Scientific package `review-species-2026-10-07`; species policy `selective-species-conservative@2`; Schubert policy `schubert-source-uncertainty@3`.
+- Source-unknown Schubert diagnoses and uncertain species limitations no longer provide positive evidence. Saved species hints respect sex, maturity, equipment and preparation at scoring time. Strong species status is withheld pending reviewed comparison coverage; this supersedes the Stage 7 five-outcome claim.
+- Applicable Schubert questions stay manually reachable without a prior Lucid route.
+- Session validation/recovery rejects malformed or mismatched scoring records, retains invalid backups as exportable non-scoring history, selects the newest valid copy and handles unavailable browser storage. Serialized writes protect the latest session.
+- Historical version pins are preserved metadata, not a historical-engine replay guarantee. UI/export warnings now make current evaluation explicit.
+- Offline staging is serialized within a worker and open clients retain their own core-data version. Online fallback handles unavailable package storage. The private server rejects traversal and survives malformed URLs.
+- No immutable packet, source score or source archive was changed. All 36 audit issues remain open. Their register tests are integrity checks, not independent validation or resolution of every issue.
+
+### Actual checks
+
+- Final `npm test`: passed, **32 source/foundation + 109 application = 141 tests**, no skipped tests. Large image checks hit the original time limit under parallel workers; the application test command now uses one worker. No timeout or assertion was weakened.
+- Worker runtime harness passed bad-hash staging, prior-package preservation, denied-storage online fallback, per-client package isolation and missing pinned-asset failure checks. This is not a live physical-browser two-version rollback test.
+- Browser smoke checks at isolated `127.0.0.1:4187` confirmed neutral abstention (85 genera unchanged), manually reachable adult-male Schubert questions, character-specific crescent-band alternatives, an active Schubert observation, and saved-session restoration.
+- With the server stopped and an independent HTTP connection refused, the existing browser tab reloaded the app and restored both observations. A separate deep-link attempt could not be inspected because browser access-policy verification became unavailable; no new deep-link success is claimed.
+- Final `npm run build`: passed, including deterministic compilation, TypeScript, production build and offline verification (1,838 modules). An earlier final-run attempt lost its process pipe; the complete retry exited successfully. Scientific package SHA-256: `630c070a5fa2abf72ec796d3acc3f679ffb0a0e34a96670ec4938086942027af`. Offline core `core-cd4783bea9afe73fff92` contains nine verified assets totalling 4,801,248 bytes; private media are excluded.
+- `git diff --check` passed (line-ending warnings only).
+
+### Limitations and next work
+
+No expert biological review, independently labelled specimen study, physical-device or assistive-technology test was performed. The tested outputs now follow the conservative source interpretation, but no real-world accuracy percentage is established. The next scientific priority is a blinded specimen evaluation and specialist review of diagrams, diagnoses and open source issues. Strong species confidence must not be restored merely by counting profiles. Private archived media remain excluded from distributable assets. Changes are local and have not been committed, pushed or deployed by this review; the existing public site is unchanged.

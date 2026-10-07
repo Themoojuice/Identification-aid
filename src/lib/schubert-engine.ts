@@ -3,7 +3,7 @@ import type { GenusObservation, ObservationCertainty, SpecimenContext } from './
 import type { ScientificRuntimePackage } from './scientific-contract'
 import type { WorkMode } from './types'
 
-export const SCHUBERT_POLICY_VERSION = 'stage5-schubert-reviewed@2'
+export const SCHUBERT_POLICY_VERSION = 'schubert-source-uncertainty@3'
 export const QUESTION_UTILITY_VERSION = 'stage5-question-utility@1'
 
 export interface SchubertState {
@@ -302,7 +302,7 @@ export function evaluateSchubertEvidence(dataset: SchubertDataset, context: Spec
     for (const conceptId of dataset.conceptIds) {
       const assertions = dataset.assertions.filter((item) => item.conceptId === conceptId && item.characterId === character.id && assertionApplies(item, context))
       const matches = assertions.filter((item) => observation.stateIds.includes(item.stateId))
-      const best = matches.sort((a, b) => strengthOrder(b) - strengthOrder(a))[0]
+      const best = matches.filter(isScoringAssertion).sort((a, b) => strengthOrder(b) - strengthOrder(a))[0]
       const outcome = best ? (observation.certainty === 'tentative' || best.strength === 'low' || ['rare', 'variable', 'unknown'].includes(best.variation) ? 'tentative_support' : 'support') : 'unscored'
       const issue = issueFor(conceptId, character.packetId, dataset)
       evidence.push({
@@ -310,12 +310,16 @@ export function evaluateSchubertEvidence(dataset: SchubertDataset, context: Spec
         conceptId, outcome, evidenceGroupId: character.evidenceGroupId,
         explanation: best
           ? `${best.assertionType.replaceAll('_', ' ')} ${best.variation} assertion matches the observation${issue ? `; ${issue} remains quarantined` : ''}.`
-          : 'No applicable Schubert assertion reports this state for the concept; it remains unscored, not absent.',
+          : 'No usable applicable Schubert assertion supports this state; missing or source-unknown diagnosis remains unscored, not absent.',
         provenance: best ? [...best.provenance, `policy:${SCHUBERT_POLICY_VERSION}`, ...(issue ? [issue] : [])] : [`05_schubert_genus_characters.json`, `policy:${SCHUBERT_POLICY_VERSION}`],
       })
     }
   }
   return { evidence, activeObservationIds, suspended, trace: { policyVersion: SCHUBERT_POLICY_VERSION, quarantinedIssueIds: dataset.quarantinedIssues } }
+}
+
+function isScoringAssertion(assertion: SchubertAssertion) {
+  return assertion.assertionType !== 'unknown' && assertion.strength !== 'not_applicable' && assertion.variation !== 'unknown'
 }
 
 function strengthOrder(assertion: SchubertAssertion) {
@@ -342,7 +346,7 @@ export function rankSchubertQuestions(dataset: SchubertDataset, context: Specime
   const pairCount = Math.max(1, candidates.length * (candidates.length - 1) / 2)
   return dataset.characters.filter((character) => !answered.has(character.id)).map((character) => {
     const applicability = schubertApplicability(character, context, mode)
-    const profiles = new Map(candidates.map((conceptId) => [conceptId, new Set(dataset.assertions.filter((item) => item.conceptId === conceptId && item.characterId === character.id && assertionApplies(item, context)).map((item) => item.stateId))]))
+    const profiles = new Map(candidates.map((conceptId) => [conceptId, new Set(dataset.assertions.filter((item) => item.conceptId === conceptId && item.characterId === character.id && assertionApplies(item, context) && isScoringAssertion(item)).map((item) => item.stateId))]))
     let separated = 0
     for (let left = 0; left < candidates.length; left++) for (let right = left + 1; right < candidates.length; right++) {
       const a = profiles.get(candidates[left])!

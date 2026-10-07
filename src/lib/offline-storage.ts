@@ -38,9 +38,20 @@ export async function loadIndexedSession(): Promise<IdentificationSession | null
   } catch { return null }
 }
 
-export async function saveIndexedSession(session: IdentificationSession): Promise<StorageResult> {
+let sessionWrites: Promise<unknown> = Promise.resolve()
+
+export function saveIndexedSession(session: IdentificationSession): Promise<StorageResult> {
+  // Opening separate connections can finish out of order; serialize saves so
+  // rapid answer changes cannot let an older snapshot overwrite the latest.
+  const write = sessionWrites.then(() => writeIndexedSession(session))
+  sessionWrites = write.catch(() => undefined)
+  return write
+}
+
+async function writeIndexedSession(session: IdentificationSession): Promise<StorageResult> {
+  let database: IDBDatabase | undefined
   try {
-    const database = await openDatabase()
+    database = await openDatabase()
     const transaction = database.transaction(SESSION_STORE, 'readwrite')
     transaction.objectStore(SESSION_STORE).put(session, CURRENT_SESSION)
     await new Promise<void>((resolve, reject) => {
@@ -48,11 +59,10 @@ export async function saveIndexedSession(session: IdentificationSession): Promis
       transaction.onerror = () => reject(transaction.error ?? new Error('Session write failed.'))
       transaction.onabort = () => reject(transaction.error ?? new Error('Session write was aborted.'))
     })
-    database.close()
     return { persisted: true, fallback: false }
   } catch (error) {
     return { persisted: false, fallback: true, error: error instanceof Error ? error.message : 'IndexedDB write failed.' }
-  }
+  } finally { database?.close() }
 }
 
 export async function requestPersistentStorage(): Promise<boolean | null> {

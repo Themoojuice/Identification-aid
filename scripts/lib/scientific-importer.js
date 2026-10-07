@@ -551,7 +551,7 @@ function buildScientificPackage(root) {
   const inputDigest = sha256(`${sourceManifest.packet_files.map((x) => `${x.path}:${x.sha256}`).join('\n')}\n${provenanceCorrectionPath}:${provenanceCorrectionSha256}`);
   return {
     format: 'australian-salticidae-scientific-package@1',
-    packageVersion: 'stage7-species-2026-09-28',
+    packageVersion: 'review-species-2026-10-07',
     inputDigest,
     sourceManifest,
     compatibility: {
@@ -636,7 +636,7 @@ function buildScientificPackage(root) {
           unmappedSourcePolicy: 'retain_historical_unreviewed',
         },
         speciesSuggestions: {
-          policyVersion: 'stage7-selective-species@1',
+          policyVersion: 'selective-species-conservative@2',
           profileCount: 32,
           otherPlacementsUnscored: 195,
           downstreamOnly: true,
@@ -646,6 +646,12 @@ function buildScientificPackage(root) {
           possibleDestinationActivatesProfile: false,
           sexSpecificFeasibilityOverridesSpeciesWideFlags: true,
           strongRequiresCompleteApplicableDiagnosticsAndComparisonCoverage: true,
+          strongStatusEnabled: false,
+          strongStatusWithheldReason: 'No reviewed species comparison scope is encoded; profile count alone cannot establish adequate coverage.',
+          unknownSexOrStagePausesSpeciesEvidence: true,
+          uncertainSourceHintAddsSupport: false,
+          unavailableEquipmentOrPreparationPausesEvidence: true,
+          reviewDecision: 'docs/sol/REVIEW_2026-10-07.md#species-policy-v2',
           thesisNomenclaturalQualificationRetained: true,
           sourceFactsRemainUnmodified: true,
           provenance: ['07_species_hints.json', 'data/scientific/review-register.json#AU13', 'data/scientific/review-register.json#VR21', 'data/scientific/review-register.json#VR22'],

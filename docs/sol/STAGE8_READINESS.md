@@ -2,6 +2,8 @@
 
 Date: 2026-09-28
 
+Subsequent review: [2026-10-07 robustness review](REVIEW_2026-10-07.md) supersedes the original species-confidence and historical-replay assumptions. Strong species status is now withheld, source-uncertain hints remain neutral, and session pins are explicitly metadata rather than a promise of historical engine replay. The later requested GitHub Pages publication is recorded in STATUS.md; this report's original stage-specific deployment statements are historical.
+
 ## Verdict
 
 The application is ready for **controlled private field evaluation as a research prototype**. It is not ready to be represented as a validated identification product, published scientific authority, or distributable media package.
