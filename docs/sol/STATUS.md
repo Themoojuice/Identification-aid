@@ -256,3 +256,9 @@ The user requested a broad accuracy/robustness review and fixes. Full findings, 
 ### Limitations and next work
 
 No expert biological review, independently labelled specimen study, physical-device or assistive-technology test was performed. The tested outputs now follow the conservative source interpretation, but no real-world accuracy percentage is established. The next scientific priority is a blinded specimen evaluation and specialist review of diagrams, diagnoses and open source issues. Strong species confidence must not be restored merely by counting profiles. Private archived media remain excluded from distributable assets. Changes are local and have not been committed, pushed or deployed by this review; the existing public site is unchanged.
+
+## Requested GitHub synchronization — 2026-10-08
+
+At the user's request to push the reviewed fixes, fetched and merged the two newer GitHub commits through `e292d22`, preserving their already-published key images and three anatomy references. The three existing local anatomy files were byte-identical to their remote versions. No new media was selected for publication and the remaining local archive was not staged.
+
+The earlier review's statements about all reference images being excluded describe its local starting point, not the newer remote publication. `LOCAL_EVIDENCE.md` records the remote asset inclusion decision; images remain outside the offline core. The scientific limitations and unresolved source issues are unchanged. The merged application passed all 141 tests and the Pages-configured public build, including verification of offline core `core-7da0b6d400aff8167b58` (nine assets, 4,801,466 bytes), before a normal, non-force push to `main`. Successful push/deployment is confirmed separately in the user-facing handoff.
